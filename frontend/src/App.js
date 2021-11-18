@@ -32,15 +32,14 @@ function App() {
 
   return (
     <div className="App">
-
-      <section>
+      <div class = "columns">
+      <div class="column is-one-quarter">
         <MenuList />
-      </section>
-
-      <section>
+      </div>
+      <div class = "column ">
         <Container />
-      </section>
-
+      </div>
+    </div>
     </div>
   )
 }
