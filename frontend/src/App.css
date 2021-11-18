@@ -3,9 +3,26 @@
 }
 
 .menu {
- background-color: yellow;
+ background-color: hsl(217, 71%, 53%);
+ color: white;
+ height: 100vh; 
 }
 
 .container {
- background-color: greenyellow;
+ background-color: hsl(0, 0%, 96%);
+ height: 100vh; 
+}
+
+.menu-list{
+  color: white;
+  margin-top: 5em;
+}
+
+.menu-label > a{
+  color: white;
+  font-size: 25px;
+}
+
+.menu-list > a{
+  color: white;
 }
