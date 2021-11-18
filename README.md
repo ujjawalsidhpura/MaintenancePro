@@ -17,5 +17,12 @@ to start app `npm run start`
 
 ## Versions
 
-- Node 12 or
+- Node 16 or above ( most stable latest)
+  nvm list ,
+  nvm use 16 ,
+  nvm alias default 16 .
+
+- mongo 5 or above
+  `mongo --version`
+
 - Use host machine (No Vagrant)
