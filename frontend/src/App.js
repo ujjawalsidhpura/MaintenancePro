@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './App.css';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import MenuList from './Components/MenuList';
+import Container from './Components/Container';
 
 
 function App() {
@@ -30,6 +32,14 @@ function App() {
 
   return (
     <div className="App">
+
+      <section>
+        <MenuList />
+      </section>
+
+      <section>
+        <Container />
+      </section>
 
     </div>
   )
