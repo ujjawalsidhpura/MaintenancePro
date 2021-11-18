@@ -1,0 +1,19 @@
+{
+  "name": "MaintenancePro",
+  "version": "1.0.0",
+  "description": "Clone using ssh",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ujjawalsidhpura/MaintenancePro.git"
+  },
+  "author": "a->z Ebuka Moneme, Shuhao Zhang, Ujay Sidhpura ", 
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ujjawalsidhpura/MaintenancePro/issues"
+  },
+  "homepage": "https://github.com/ujjawalsidhpura/MaintenancePro#readme"
+}
