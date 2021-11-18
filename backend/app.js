@@ -6,8 +6,8 @@ const logger = require('morgan');
 
 const PORT = process.env.PORT
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const workorderRouter = require('./routes/workorder');
+const inventoryRouter = require('./routes/inventory');
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/workorder', workorderRouter);
+app.use('/inventory', inventoryRouter);
 
 module.exports = app;
