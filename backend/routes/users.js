@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const mongoDb = require('../mongoDb')
 const db = mongoDb.getDb();
-const workorder = 'work_orders' //Collection name in MongoDb
+const users = 'Users' //Collection name in MongoDb
 
 /* GET All Inventory */
 router.get('/', function (req, res) {
 
-  db.collection(workorder).find().toArray((err, results) => {
+  db.collection(users).find().toArray((err, results) => {
     if (err) return console.log(err)
 
     res.send(results)
@@ -16,13 +16,12 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', (req, res) => {
-  const data = req.body;
+  const newUser = req.body
 
-  db.collection(workorder).insertOne(data, (err, result) => {
+  db.collection(users).insertOne(newUser, (err, result) => {
     if (err) return console.log(err)
     res.send('Saved')
   })
 });
 
 module.exports = router;
-
