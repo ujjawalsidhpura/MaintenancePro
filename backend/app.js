@@ -8,45 +8,45 @@ const app = express();
 const debug = require('debug')('backend:server');
 const http = require('http');
 const port = process.env.PORT || '3000';
-app.set('port', port);
 const server = http.createServer(app);
 
-//Mongo Connections
-const MongoClient = require("mongodb").MongoClient;
-const ObjectId = require("mongodb").ObjectID;
-
-
 //Middleware setup
+app.set('port', port);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Mongo Connection credentials
-const CONNECTION_URL = process.env.CONNECTION_URL
-const DATABASE_NAME = process.env.DATABASE_NAME
+//Mongo Connections
+const mongoDb = require('./mongoDb');
+mongoDb.connectToServer(function (err) {
+  //App goes online once this callback occurs
 
-//Main Routes
-const workorderRouter = require('./routes/workorder');
-const inventoryRouter = require('./routes/inventory');
+  //Main Routes
+  const workorderRouter = require('./routes/workorder');
+  const inventoryRouter = require('./routes/inventory');
+  app.use('/workorder', workorderRouter);
+  app.use('/inventory', inventoryRouter);
 
-app.use('/workorder', workorderRouter);
-app.use('/inventory', inventoryRouter);
+  //Handle 404 
+  app.use(function (req, res, next) {
+    next(createError(404));
+  });
+
+  app.use(function (err, req, res, next) {
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+    res.status(err.status || 500);
+    res.render('error');
+  });
+
+})
+
 
 //Start Server
 server.listen(port, () => {
-
-  MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
-    if (error) {
-      throw error;
-    }
-
-    database = client.db(DATABASE_NAME);
-    console.log("Connected to " + DATABASE_NAME);
-    console.log('app listening at ' + port)
-
-  });
+  console.log('App listening at ' + port)
 });
 
 module.exports = app;
