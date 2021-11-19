@@ -7,7 +7,7 @@ export default function WorkOrderContainer(props) {
 	parsedWorkOrders = null;
 
   return (
-    <div className="container">
+    <div className="workorder-container">
 			<h1>Work Orders</h1>
 			{parsedWorkOrders}
     </div>

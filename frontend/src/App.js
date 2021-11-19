@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './App.css';
+import './star-rating.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import MenuList from './Components/MenuList';
@@ -83,20 +84,24 @@ function App() {
   */
 
   return (
-    <div className="App">
-      <div class="columns">
-        <div class="column is-one-quarter">
-          <MenuList />
+		<BrowserRouter>
+			<div className="App">
+				<div class="columns">
+					<div class="column is-one-quarter">
+						<MenuList />
 
-        </div>
-        <div class="column ">
-          <Container workorder={state.workorder} inventory={state.inventory} />
+					</div>
+					<div class="column ">
+						<Container 
+							workorder={state.workorder} 
+							inventory={state.inventory} 
+						/>
+					</div>
 
-        </div>
+				</div>
 
-      </div>
-
-    </div>
+			</div>
+		</BrowserRouter>
   )
 }
 

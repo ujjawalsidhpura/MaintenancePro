@@ -26,3 +26,15 @@
 .menu-list > a{
   color: white;
 }
+
+.workorder-form {
+	width: 50%;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
