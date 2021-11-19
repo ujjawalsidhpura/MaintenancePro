@@ -41,7 +41,9 @@ const inventory = [
 
 /* GET users listing. */
 router.get('/', function (req, res) {
-  res.send(inventory);
+  res.send(inventory)
 });
 
 module.exports = router;
+
+
