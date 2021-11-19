@@ -1,4 +1,5 @@
-
+import AuthenticationButton from './Buttons/Auth-button'
+import LoginButton from './Buttons/Login-button'
 export default function MenuList(props) {
 
 
@@ -6,6 +7,7 @@ export default function MenuList(props) {
     <aside className="menu is-one-quarter">
     <ul>
     <li className="menu-label"><a >Welcome Admin</a></li>
+    <li className="menu-list"><AuthenticationButton /></li>
       <ul>
         <li className="menu-list"><a>Glance at Today</a></li>
         <li className="menu-list"><a>Create Work Orders</a></li>
