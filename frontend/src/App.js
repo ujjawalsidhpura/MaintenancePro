@@ -29,7 +29,6 @@ function App() {
       })
   }, [])
 
-
   return (
     <div className="App">
       <div class = "columns">
@@ -37,7 +36,7 @@ function App() {
         <MenuList />
       </div>
       <div class = "column ">
-        <Container />
+        <Container workorder={state.workorder} inventory={state.inventory}/>
       </div>
     </div>
     </div>

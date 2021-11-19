@@ -8,6 +8,7 @@ export default function MenuList(props) {
     <li className="menu-label"><a >Welcome Admin</a></li>
       <ul>
         <li className="menu-list"><a>Glance at Today</a></li>
+        <li className="menu-list"><a>Create Work Orders</a></li>
         <li className="menu-list"><a>Work Orders</a></li>
         <li className="menu-list"><a>Inventories</a></li>
         <li className="menu-list"><a>Summary</a></li>
