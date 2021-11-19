@@ -15,5 +15,14 @@ router.get('/', function (req, res) {
 
 });
 
+router.post('/', (req, res) => {
+  const data = req.data
+
+  db.collection(workorder).insertOne(data, (err, result) => {
+    if (err) return console.log(err)
+    res.send('Saved')
+  })
+});
+
 module.exports = router;
 

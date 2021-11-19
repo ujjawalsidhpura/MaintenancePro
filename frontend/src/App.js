@@ -29,16 +29,54 @@ function App() {
       })
   }, [])
 
+  //To test POST FORM,make a button and button onclick={save}
+  // const save = () => {
+
+  //   const workorder = {
+  //     "email": "sdfsdfsdf@gma.com",
+  //     "name": "dddghfghdd",
+  //     "description": "testing post eh another",
+  //     "created_on": "2016-03-16T16:00:00Z",
+  //     "time_started": null,
+  //     "time_completed": null,
+  //     "duration": null
+  //   }
+
+  //   const inventory = {
+  //     category: 'Tools',
+  //     item: 'Screw driver',
+  //     price_item: 20,
+  //     quanity: 4
+  //   }
+
+  //   axios.post('/inventory', inventory,
+  //     { headers: { "Content-Type": "application/json" } })
+  //     .then((res) => {
+  //       console.log(res)
+  //     })
+  //     .catch((e) => console.log(e))
+
+  //   axios.post('/workorder', workorder,
+  //     { headers: { "Content-Type": "application/json" } })
+  //     .then((res) => {
+  //       console.log(res)
+  //     })
+  //     .catch((e) => console.log(e))
+  // }
+
   return (
     <div className="App">
-      <div class = "columns">
-      <div class="column is-one-quarter">
-        <MenuList />
+      <div class="columns">
+        <div class="column is-one-quarter">
+          <MenuList />
+
+        </div>
+        <div class="column ">
+          <Container workorder={state.workorder} inventory={state.inventory} />
+
+        </div>
+
       </div>
-      <div class = "column ">
-        <Container workorder={state.workorder} inventory={state.inventory}/>
-      </div>
-    </div>
     </div>
   )
 }
