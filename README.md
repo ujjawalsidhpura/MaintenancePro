@@ -2,15 +2,20 @@
 
 Clone using ssh
 
-### Open two separate terminals
+### Open Two separate terminals
 
-Terminal title: backend
+### Terminal title: backend
+
+<br>
 cd into backend and `npm install`
-touch .env and cp paste `PORT=3001`
+<br>
+Create .env in the root folder.
+Update env credentials.
+<br>
+To start server `npm start`
 
-to start server `npm run start`
+### Terminal title: frontend
 
-Terminal title: frontend
 cd into frontend and `npm install`
 
 to start app `npm run start`
