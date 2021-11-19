@@ -1,6 +1,6 @@
 import WorkOrderItems from "./WorkOrderItems"
 
-export default function WorkOrders(props) {
+export default function WorkOrderContainer(props) {
 	let parsedWorkOrders
 	props.workorder? 
 	parsedWorkOrders = props.workorder.map(workOrder => <WorkOrderItems {...workOrder} key={workOrder._id}/>): 
