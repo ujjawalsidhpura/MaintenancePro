@@ -10,10 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/ujjawalsidhpura/MaintenancePro.git"
   },
-  "author": "a->z Ebuka Moneme, Shuhao Zhang, Ujay Sidhpura ", 
+  "author": "a->z Ebuka Moneme, Shuhao Zhang, Ujay Sidhpura ",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ujjawalsidhpura/MaintenancePro/issues"
   },
-  "homepage": "https://github.com/ujjawalsidhpura/MaintenancePro#readme"
+  "homepage": "https://github.com/ujjawalsidhpura/MaintenancePro#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0"
+  }
 }
