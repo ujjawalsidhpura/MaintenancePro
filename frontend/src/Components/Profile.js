@@ -4,16 +4,13 @@ import React, {useState} from 'react';
 
 import { useAuth0 } from '@auth0/auth0-react';
 
-const Profile = () => {
-  const { user } = useAuth0();
-  const { nickname, picture, email } = user;
-  useState(email);
-
+const Profile = (props) => {
+  const { nickname, picture, email } = props;
   return (
     <div>
       <div className="row align-items-center profile-header">
         <div className="col-md-2 mb-3">
-        <h1 className="menu-label">Welcome {nickname}</h1>
+        <h1>Welcome {nickname}</h1>
           <img
             id="admin-avatar"
             src={picture}
