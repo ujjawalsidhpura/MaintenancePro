@@ -4,7 +4,7 @@ const mongoDb = require('../mongoDb')
 const db = mongoDb.getDb();
 const workorder = 'work_orders' //Collection name in MongoDb
 
-/* GET All Inventory */
+/* GET All Workorders */
 router.get('/', function (req, res) {
 
   db.collection(workorder).find().toArray((err, results) => {

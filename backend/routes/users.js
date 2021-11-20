@@ -4,7 +4,7 @@ const mongoDb = require('../mongoDb')
 const db = mongoDb.getDb();
 const users = 'Users' //Collection name in MongoDb
 
-/* GET All Inventory */
+/* GET All users */
 router.get('/', function (req, res) {
 
   db.collection(users).find().toArray((err, results) => {
