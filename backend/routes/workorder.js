@@ -26,13 +26,14 @@ router.post('/', (req, res) => {
     })
 });
 
+/* These get routes below are for testing, ideally they should be POST route that return data upon query. Db query inside these routes are of use to us */
+
 /* Query Workorder by specific date */
-/* These get routes below are for testing, ideally they should be POST route that return data upon query */
-router.get('/:date', function (req, res) {
+
+router.get('/date', function (req, res) {
 
   // const searched_date = req.body.<var-name> 
-
-  const searched_date = '2021-11-20' //Temp for testing
+  const searched_date = '2021-11-20' //Test
 
   db.collection(workorder)
     .find({
@@ -47,20 +48,20 @@ router.get('/:date', function (req, res) {
 
 });
 
+/* Query Workorder by date range */
 
-router.get('/:range', function (req, res) {
+router.get('/range', function (req, res) {
 
   // const to_date = req.body.<var-name>
   // const from_date = req.body.<var-name>
-
-  const to_date = '2021-11-20' //Temp for testing
-  const from_date = '2021-03-03' //Temp for testing
+  const from_date = "2021-03-16" //Test
+  const to_date = "2021-11-20"   //Test
 
   db.collection(workorder)
     .find({
-      "created_on": {
-        "$gte": new Date(from_date),
-        "$lte": new Date(to_date)
+      created_on: {
+        $gte: ISODate(from_date),
+        $lt: ISODate(to_date)
       }
     }).toArray((err, results) => {
       if (err) return console.log(err)
@@ -70,8 +71,22 @@ router.get('/:range', function (req, res) {
 
 });
 
+/* Workorder query by Technician name */
 
+router.get('/technician', function (req, res) {
 
+  // const tech_name= req.body.<var-name>
+  const tech_name = 'Shuhao Zhang' //Test
+
+  db.collection(workorder)
+    .find({ technician: tech_name })
+    .toArray((err, results) => {
+      if (err) return console.log(err)
+
+      res.send(results)
+    });
+
+});
 
 module.exports = router;
 
