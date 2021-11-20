@@ -1,3 +1,4 @@
+const { ObjectId } = require('bson');
 const express = require('express');
 const router = express.Router();
 const mongoDb = require('../mongoDb')
@@ -114,6 +115,8 @@ router.get('/range', function (req, res) {
     });
 });
 
+/* Query to get wo done by specific technician from the given range of dates */
+
 router.get('/technicianAndRange', function (req, res) {
 
   // const to_date = req.body.<var-name>
@@ -138,6 +141,34 @@ router.get('/technicianAndRange', function (req, res) {
       res.send(results)
     });
 });
+
+
+/* Functionality to manipulate WO when technician starts and then submits WO. */
+
+/* 1. When technician press 'Start', 'time_started' will be inserted */
+
+router.post('/started', function (req, res) {
+  const time_started = req.body.time_started
+  const workorder_id = req.body.workorder_id
+
+  db.collection(workorder).updateOne(
+    { _id: ObjectId(workorder_id) },
+
+    {
+      $set: {
+        time_started: time_started
+      }
+    },
+
+    function (err, result) {
+      if (err) throw err
+      res.send('Updated')
+    }
+  )
+
+});
+
+/* 2. When technician press ' Finished, 'time_completed' will be inserted and duration will be calculated and inserted */
 
 
 module.exports = router;
