@@ -170,6 +170,27 @@ router.post('/started', function (req, res) {
 
 /* 2. When technician press ' Finished, 'time_completed' will be inserted and duration will be calculated and inserted */
 
+router.post('/completed', function (req, res) {
+  const time_completed = req.body.time_completed
+  const workorder_id = req.body.workorder_id
+
+  db.collection(workorder).updateOne(
+    { _id: ObjectId(workorder_id) },
+
+    {
+      $set: {
+        time_completed: time_completed,
+      }
+    },
+
+    function (err, result) {
+      if (err) throw err
+      res.send('Updated')
+    }
+  )
+
+});
+
 
 module.exports = router;
 

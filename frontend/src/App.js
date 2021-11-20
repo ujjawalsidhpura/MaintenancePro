@@ -79,13 +79,26 @@ function App() {
     //     console.log(res)
     //   })
     //   .catch((e) => console.log(e))
-    const start_clicked = {
-      time_started: "2021-05-18T21:30:00Z",
+    // const start_clicked = {
+    //   time_started: "2021-05-18T21:30:00Z",
+    //   workorder_id: "6196cc550d204ac0b6096b3d"
+    // }
+
+    // axios.post('/workorder/started',
+    //   start_clicked,
+    //   { headers: { "Content-Type": "application/json" } })
+    //   .then((res) => {
+    //     console.log(res)
+    //   })
+    //   .catch((e) => console.log(e))
+
+    const completed_click = {
+      time_completed: "2021-05-18T23:33:00Z",
       workorder_id: "6196cc550d204ac0b6096b3d"
     }
 
-    axios.post('/workorder/started',
-      start_clicked,
+    axios.post('/workorder/completed',
+      completed_click,
       { headers: { "Content-Type": "application/json" } })
       .then((res) => {
         console.log(res)
