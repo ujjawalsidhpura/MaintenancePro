@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
 router.get('/date', function (req, res) {
 
   // const searched_date = req.body.<var-name> 
-  const searched_date = '2021-11-20' //Test
+  const searched_date = '2021-11-20'
 
   db.collection(workorder)
     .find({
@@ -54,7 +54,7 @@ router.get('/date', function (req, res) {
 router.get('/technician', function (req, res) {
 
   // const tech_name= req.body.<var-name>
-  const tech_name = 'Shuhao Zhang' //Test
+  const tech_name = 'Shuhao Zhang'
 
   db.collection(workorder)
     .find({
@@ -98,8 +98,8 @@ router.get('/range', function (req, res) {
 
   // const to_date = req.body.<var-name>
   // const from_date = req.body.<var-name>
-  const from_date = "2021-03-16"
   const to_date = "2021-11-20"
+  const from_date = "2021-03-16"
 
   db.collection(workorder)
     .find({
@@ -112,8 +112,33 @@ router.get('/range', function (req, res) {
 
       res.send(results)
     });
-
 });
+
+router.get('/technicianAndRange', function (req, res) {
+
+  // const to_date = req.body.<var-name>
+  // const from_date = req.body.<var-name>
+  // const tech_name = req.body.<var-name>
+  const tech_name = "Ujjawal sidhpura"
+  const to_date = "2021-11-20"
+  const from_date = "2021-03-16"
+
+  db.collection(workorder)
+    .find({
+      technician: {
+        '$regex': tech_name, '$options': 'i'
+      },
+      created_on: {
+        $gte: from_date,
+        $lte: to_date
+      }
+    }).toArray((err, results) => {
+      if (err) return console.log(err)
+
+      res.send(results)
+    });
+});
+
 
 module.exports = router;
 
