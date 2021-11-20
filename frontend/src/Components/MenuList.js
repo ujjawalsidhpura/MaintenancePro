@@ -1,17 +1,21 @@
-import AuthenticationButton from './Buttons/Auth-button'
-import LoginButton from './Buttons/Login-button'
+import react, {useState} from 'react';
+import AuthenticationButton from './Buttons/Auth-button';
+import LoginButton from './Buttons/Login-button';
 import Profile from './Profile';
 import { useAuth0 } from '@auth0/auth0-react';
 
 export default function MenuList(props) {
   const { user } = useAuth0();
-  user && console.log(user)
-  console.log(useAuth0());
+  const { isAuthenticated, isLoading } = useAuth0();
 
   return (
     <aside className="menu is-one-quarter">
     <ul>
-    {user && <li className="menu-label"><a >Welcome {user.app_metada} </a></li>}
+    { isLoading && <li className="menu-label"><a>Loading...</a></li>}
+    {(!isAuthenticated && !isLoading) && <li className="menu-label"><a>Please Log IN</a></li>}
+    {isAuthenticated && <Profile />}
+
+
     <li className="menu-list"><AuthenticationButton /></li>
       <ul>
         <li className="menu-list"><a>Glance at Today</a></li>

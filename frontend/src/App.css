@@ -5,12 +5,10 @@
 .menu {
  background-color: hsl(217, 71%, 53%);
  color: white;
- height: 100vh; 
 }
 
 .container {
  background-color: hsl(0, 0%, 96%);
- height: 100vh; 
 }
 
 .menu-list{
@@ -25,4 +23,12 @@
 
 .menu-list > a{
   color: white;
+}
+
+#landing-image {
+  margin-top: 15em;
+}
+
+#admin-avatar {
+  max-width: 100px;
 }
