@@ -28,14 +28,14 @@ router.post('/', (req, res) => {
 
 /* Get specific category of inventory products */
 
-router.get('/:category', function (req, res) {
+router.get('/category', function (req, res) {
 
-  const category = req.params.category;
+  // const category = req.body.category;
+  const category = 'Tools'
 
   db.collection(inventory)
     .find({ _category: category }).toArray((err, results) => {
       if (err) return console.log(err)
-
       res.send(results)
     });
 
@@ -44,9 +44,10 @@ router.get('/:category', function (req, res) {
 /* Get products by typing name in search bar */
 /* Finds all matching products that contain that string */
 
-router.get('/search/:item_name', function (req, res) {
+router.get('/search', function (req, res) {
 
-  const item_name = req.params.item_name;
+  // const item_name = req.body.item_name;
+  const item_name = 'bolt'
 
   db.collection(inventory).find({
     item: {
@@ -60,8 +61,6 @@ router.get('/search/:item_name', function (req, res) {
     });
 
 });
-
-
 
 module.exports = router;
 

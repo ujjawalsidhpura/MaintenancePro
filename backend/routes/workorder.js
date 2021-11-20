@@ -48,28 +48,6 @@ router.get('/date', function (req, res) {
 
 });
 
-/* Query Workorder by date range */
-
-router.get('/range', function (req, res) {
-
-  // const to_date = req.body.<var-name>
-  // const from_date = req.body.<var-name>
-  const from_date = "2021-03-16" //Test
-  const to_date = "2021-11-20"   //Test
-
-  db.collection(workorder)
-    .find({
-      created_on: {
-        $gte: ISODate(from_date),
-        $lt: ISODate(to_date)
-      }
-    }).toArray((err, results) => {
-      if (err) return console.log(err)
-
-      res.send(results)
-    });
-
-});
 
 /* Workorder query by Technician name */
 
@@ -87,6 +65,51 @@ router.get('/technician', function (req, res) {
     });
 
 });
+
+/* Workorder query by Work Order Title */
+
+router.get('/title', function (req, res) {
+
+  // const title = req.body.<var-name>
+  const title = 'air'
+
+  db.collection(workorder)
+    .find({
+      title: {
+        '$regex': title, '$options': 'i'
+      }
+    })
+    .toArray((err, results) => {
+      if (err) return console.log(err)
+
+      res.send(results)
+    });
+
+});
+
+/* Query Workorder by date range */
+
+router.get('/range', function (req, res) {
+
+  // const to_date = req.body.<var-name>
+  // const from_date = req.body.<var-name>
+  const from_date = "2021-03-16" //Test
+  const to_date = "2021-11-20"   //Test
+
+  db.collection(workorder)
+    .find({
+      created_on: {
+        $gt: { '$regex': from_date, '$options': 'i' }
+        // $lt: { '$regex': to_date, '$options': 'i' }
+      }
+    }).toArray((err, results) => {
+      if (err) return console.log(err)
+
+      res.send(results)
+    });
+
+});
+
 
 module.exports = router;
 
