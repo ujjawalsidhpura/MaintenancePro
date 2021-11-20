@@ -7,21 +7,23 @@ const inventory = 'Inventory' // Collection name in MongoDb
 /* GET All Inventory */
 router.get('/', function (req, res) {
 
-  db.collection(inventory).find().toArray((err, results) => {
-    if (err) return console.log(err)
+  db.collection(inventory)
+    .find().toArray((err, results) => {
+      if (err) return console.log(err)
 
-    res.send(results)
-  });
+      res.send(results)
+    });
 
 });
 
 router.post('/', (req, res) => {
   const data = req.body;
 
-  db.collection(inventory).insertOne(data, (err, result) => {
-    if (err) return console.log(err)
-    res.send('Saved')
-  })
+  db.collection(inventory)
+    .insertOne(data, (err, result) => {
+      if (err) return console.log(err)
+      res.send('Saved')
+    })
 });
 
 /* Get specific category of inventory products */
@@ -30,11 +32,12 @@ router.get('/:category', function (req, res) {
 
   const category = req.params.category;
 
-  db.collection(inventory).find({ _category: category }).toArray((err, results) => {
-    if (err) return console.log(err)
+  db.collection(inventory)
+    .find({ _category: category }).toArray((err, results) => {
+      if (err) return console.log(err)
 
-    res.send(results)
-  });
+      res.send(results)
+    });
 
 });
 
