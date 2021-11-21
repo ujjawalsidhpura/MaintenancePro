@@ -45,27 +45,39 @@ const tester = () => {
   //   })
   //   .catch((e) => console.log(e))
 
-  const queryData = {
-    tech_name: 'ujjawal'
-  };
 
-  axios.post('/workorder/technician', queryData,
+  const queryData = {
+    searched_date: '2021-11-20'
+  };
+  axios.post('/workorder/date', queryData,
     { headers: { "Content-Type": "application/json" } })
     .then((res) => {
       console.log(res.data)
     })
     .catch((e) => console.log(e))
 
+
+  // const queryData = {
+  //   tech_name: 'ujjawal'
+  // };
+  // axios.post('/workorder/technician', queryData,
+  //   { headers: { "Content-Type": "application/json" } })
+  //   .then((res) => {
+  //     console.log(res.data)
+  //   })
+  //   .catch((e) => console.log(e))
+
+
   // const queryData = {
   //   title: 'air'
   // };
-
   // axios.post('/workorder/title', queryData,
   //   { headers: { "Content-Type": "application/json" } })
   //   .then((res) => {
   //     console.log(res.data)
   //   })
   //   .catch((e) => console.log(e))
+
 
   // const queryData = {
   //   to_date: "2021-11-20",
@@ -77,6 +89,7 @@ const tester = () => {
   //     console.log(res.data)
   //   })
   //   .catch((e) => console.log(e))
+
 
   // const queryData = {
   //   tech_name: "Ujjawal sidhpura",
@@ -90,10 +103,10 @@ const tester = () => {
   //   })
   //   .catch((e) => console.log(e))
 
+
   // const start_clicked = {
   //   workorder_id: "6197dc385b64958f9f41ab1f"
   // }
-
   // axios.post('/workorder/started',
   //   start_clicked,
   //   { headers: { "Content-Type": "application/json" } })
@@ -102,10 +115,10 @@ const tester = () => {
   //   })
   //   .catch((e) => console.log(e))
 
+
   // const completed_click = {
   //   workorder_id: "6197dc385b64958f9f41ab1f"
   // }
-
   // axios.post('/workorder/completed',
   //   completed_click,
   //   { headers: { "Content-Type": "application/json" } })

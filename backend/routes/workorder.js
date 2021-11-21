@@ -31,10 +31,8 @@ router.post('/', (req, res) => {
 
 /* Query Workorder by specific date */
 
-router.get('/date', function (req, res) {
-
-  // const searched_date = req.body.<var-name> 
-  const searched_date = '2021-11-20'
+router.post('/date', function (req, res) {
+  const searched_date = req.body.searched_date
 
   db.collection(workorder)
     .find({
