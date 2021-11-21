@@ -183,6 +183,62 @@ router.post('/completed', function (req, res) {
 
 });
 
+router.post('/filter', function (req, res) {
+
+  const tech_name = req.body.tech_name ? req.body.tech_name : null;
+  const title = req.body.title ? req.body.title : null;
+
+  if (tech_name && title) {
+    db.collection(workorder)
+      .find({
+        '$or': [
+          {
+            technician:
+            {
+              '$regex': tech_name, '$options': 'i'
+            }
+          },
+          {
+            title: {
+              '$regex': title, '$options': 'i'
+            }
+          }
+        ]
+      })
+      .toArray((err, results) => {
+        if (err) return console.log(err)
+
+        res.send(results)
+      });
+  } else if (tech_name && !title) {
+    db.collection(workorder)
+      .find({
+        technician: {
+          '$regex': tech_name, '$options': 'i'
+        }
+      })
+      .toArray((err, results) => {
+        if (err) return console.log(err)
+
+        res.send(results)
+      });
+  } else if (!tech_name && title) {
+
+    db.collection(workorder)
+      .find({
+        title: {
+          '$regex': title, '$options': 'i'
+        }
+      })
+      .toArray((err, results) => {
+        if (err) return console.log(err)
+
+        res.send(results)
+      });
+  }
+
+});
+
 
 module.exports = router;
 
