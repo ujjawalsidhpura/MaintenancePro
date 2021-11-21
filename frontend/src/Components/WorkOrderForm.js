@@ -27,7 +27,9 @@ export default function WorkOrderForm(props) {
     </li>
   ));
 
-  const createWorkOrder = () => {
+  const handleSubmit = (event) => {
+
+    event.preventDefault()
     const workorder = {
       ...state,
       created_on: new Date(),
@@ -55,11 +57,8 @@ export default function WorkOrderForm(props) {
       {submit && <Navigate to="/workorders" />}
 
       {!submit &&
-        <form encType="multipart/form-data" className="card workorder-form" autoComplete="off" onSubmit={event => {
-          event.preventDefault()
-          console.log("State on submission:", state)
-          createWorkOrder()
-        }}>
+        <form encType="multipart/form-data" className="card workorder-form" autoComplete="off"
+          onSubmit={handleSubmit}>
           <h1>Create Work Order</h1>
 
           <div class="field">
