@@ -50,7 +50,6 @@ export default function WorkOrderForm(props) {
   return (
 		<form encType="multipart/form-data" className="card workorder-form" autoComplete="off" onSubmit={event => {
 			event.preventDefault()
-			console.log("State on submission:", state)
 			createWorkOrder()
 		}}>
 			<h1>Create Work Order</h1>

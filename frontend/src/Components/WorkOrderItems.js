@@ -1,7 +1,6 @@
 export default function WorkOrderItems(props) {
 	let parsedPhotos = [];
 	for (let photo in props.photos) {
-		console.log("Mapped Photos:", props.photos[photo] && props.photos[photo].path)
 		props.photos[photo] && parsedPhotos.push(<img key={photo} src={props.photos[photo].path}/>)
 	}
 	// const parsedPhotos = props.photos && props.photos.map(photo => console.log(photo))
