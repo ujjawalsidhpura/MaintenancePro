@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import Profile from "./Profile";
 import { useAuth0 } from '@auth0/auth0-react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+=======
+import { Routes, Route } from 'react-router-dom'
+>>>>>>> main
 import WorkOrderContainer from "./WorkOrderContainer";
 import WorkOrderForm from "./WorkOrderForm";
 
@@ -9,6 +13,7 @@ export default function Container(props) {
 
   return (
     <div className="container is-three-quarters">
+<<<<<<< HEAD
 			{/* <WorkOrderContainer workorder={props.workorder}/> */}
       {/* {isAuthenticated && <Profile/>} */}
       
@@ -17,6 +22,12 @@ export default function Container(props) {
 					<Route path="/workorders" element={<WorkOrderContainer workorder={props.workorder}/>} />
 					<Route path="/workorders/create" element={<WorkOrderForm/>} />
 				</Routes>
+=======
+      <Routes>
+        <Route path="/workorders" element={<WorkOrderContainer workorder={props.workorder} />} />
+        <Route path="/workorders/create" element={<WorkOrderForm />} />
+      </Routes>
+>>>>>>> main
     </div>
   )
 }
