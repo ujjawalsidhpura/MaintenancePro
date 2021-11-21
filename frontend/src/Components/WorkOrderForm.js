@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react"
 import axios from 'axios'
 import { useDropzone } from 'react-dropzone';
+import { Navigate, useLocation } from "react-router-dom";
 
 export default function WorkOrderForm(props) {
   const [state, setState] = useState({
@@ -23,20 +24,32 @@ export default function WorkOrderForm(props) {
       {file.path} - {file.size} bytes
     </li>
   ));
+	
+	// let history = useHistory();
+	// const handClick = () => {
+	// 	history.push ('/workorders');
+	// }
 
-  const createWorkOrder = () => {
+	let location = useLocation()
+
+  const handleSubmit = (event) => {
+		event.preventDefault()
     const workorder = {
       ...state,
-      created_on: new Date().toISOString(),
+      created_on: new Date(),
       time_started: null,
       time_completed: null,
     }
-    console.log("Workorder created for Axios:", workorder)
 
     axios.post('/workorder', workorder,
       { headers: { "Content-Type": "application/json" } })
       .then((res) => {
-        console.log("Data returned after Axios:", res.config.data)
+				// <Navigate
+        //     to={{
+        //       pathname: "/workorders"
+        //     }}
+        //   />
+				location.replace(`/workorders`);
       })
       .catch((e) => console.log(e))
   }
@@ -48,11 +61,7 @@ export default function WorkOrderForm(props) {
   }
 
   return (
-    <form encType="multipart/form-data" className="card workorder-form" autoComplete="off" onSubmit={event => {
-      event.preventDefault()
-      console.log("State on submission:", state)
-      createWorkOrder()
-    }}>
+    <form encType="multipart/form-data" className="card workorder-form" autoComplete="off" onSubmit={handleSubmit}>
       <h1>Create Work Order</h1>
 
       <div class="field">

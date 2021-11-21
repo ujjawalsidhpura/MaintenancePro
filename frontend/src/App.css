@@ -3,6 +3,7 @@
 }
 
 .menu {
+position: fixed;
  background-color: hsl(217, 71%, 53%);
  color: white;
  height: 100vh; 
