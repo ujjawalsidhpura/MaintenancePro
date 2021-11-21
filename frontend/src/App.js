@@ -79,6 +79,17 @@ function App() {
     //   })
     //   .catch((e) => console.log(e))
 
+    const queryData = {
+      title: 'air'
+    };
+
+    axios.post('/workorder/title', queryData,
+      { headers: { "Content-Type": "application/json" } })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch((e) => console.log(e))
+
     // const queryData = {
     //   to_date: "2021-11-20",
     //   from_date: "2021-03-16"

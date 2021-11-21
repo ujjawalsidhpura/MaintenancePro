@@ -74,10 +74,9 @@ router.get('/technician', function (req, res) {
 
 /* Workorder query by Work Order Title */
 
-router.get('/title', function (req, res) {
+router.post('/title', function (req, res) {
 
-  // const title = req.body.<var-name>
-  const title = 'air'
+  const title = req.body.title
 
   db.collection(workorder)
     .find({
