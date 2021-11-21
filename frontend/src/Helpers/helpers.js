@@ -62,7 +62,7 @@ const tester = () => {
 
 
   // const queryData = {
-  //   tech_name: 'ujjawal'
+  //   tech_name: 'ebuka'
   // };
   // axios.post('/workorder/technician', queryData,
   //   { headers: { "Content-Type": "application/json" } })
@@ -74,7 +74,7 @@ const tester = () => {
 
 
   // const queryData = {
-  //   title: 'air'
+  //   title: 'Water'
   // };
   // axios.post('/workorder/title', queryData,
   //   { headers: { "Content-Type": "application/json" } })
@@ -113,7 +113,7 @@ const tester = () => {
 
 
   // const start_clicked = {
-  //   workorder_id: "6197dc385b64958f9f41ab1f"
+  //   workorder_id: "6197eb5064b055638b16cdd9"
   // }
   // axios.post('/workorder/started',
   //   start_clicked,
@@ -126,7 +126,7 @@ const tester = () => {
 
 
   // const completed_click = {
-  //   workorder_id: "6197dc385b64958f9f41ab1f"
+  //   workorder_id: "6197eb5064b055638b16cdd9"
   // }
   // axios.post('/workorder/completed',
   //   completed_click,

@@ -27,11 +27,10 @@ export default function WorkOrderForm(props) {
   const createWorkOrder = () => {
     const workorder = {
       ...state,
-      created_on: new Date().toISOString(),
+      created_on: new Date(),
       time_started: null,
       time_completed: null,
     }
-    console.log("Workorder created for Axios:", workorder)
 
     axios.post('/workorder', workorder,
       { headers: { "Content-Type": "application/json" } })
