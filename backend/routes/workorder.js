@@ -143,12 +143,11 @@ router.get('/technicianAndRange', function (req, res) {
 });
 
 
-/* Functionality to manipulate WO when technician starts and then submits WO. */
+/* Functionality to manipulate W.O. when technician starts and then submits W.O. */
 
 /* 1. When technician press 'Start', 'time_started' will be inserted */
 
 router.post('/started', function (req, res) {
-  const time_started = req.body.time_started
   const workorder_id = req.body.workorder_id
 
   db.collection(workorder).updateOne(
@@ -156,7 +155,7 @@ router.post('/started', function (req, res) {
 
     {
       $set: {
-        time_started: time_started
+        time_started: new Date()
       }
     },
 
@@ -171,17 +170,24 @@ router.post('/started', function (req, res) {
 /* 2. When technician press ' Finished, 'time_completed' will be inserted and duration will be calculated and inserted */
 
 router.post('/completed', function (req, res) {
-  const time_completed = req.body.time_completed
   const workorder_id = req.body.workorder_id
 
   db.collection(workorder).updateOne(
     { _id: ObjectId(workorder_id) },
 
-    {
-      $set: {
-        time_completed: time_completed,
+    [
+      {
+        "$set": {
+          "time_completed": new Date(),
+          "duration": {
+            "$subtract": [
+              "$$NOW",
+              "$time_started"
+            ]
+          }
+        }
       }
-    },
+    ],
 
     function (err, result) {
       if (err) throw err

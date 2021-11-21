@@ -79,9 +79,9 @@ function App() {
     //     console.log(res)
     //   })
     //   .catch((e) => console.log(e))
+
     // const start_clicked = {
-    //   time_started: "2021-05-18T21:30:00Z",
-    //   workorder_id: "6196cc550d204ac0b6096b3d"
+    //   workorder_id: "6197dc385b64958f9f41ab1f"
     // }
 
     // axios.post('/workorder/started',
@@ -92,18 +92,17 @@ function App() {
     //   })
     //   .catch((e) => console.log(e))
 
-    const completed_click = {
-      time_completed: "2021-05-18T23:33:00Z",
-      workorder_id: "6196cc550d204ac0b6096b3d"
-    }
+    // const completed_click = {
+    //   workorder_id: "6197dc385b64958f9f41ab1f"
+    // }
 
-    axios.post('/workorder/completed',
-      completed_click,
-      { headers: { "Content-Type": "application/json" } })
-      .then((res) => {
-        console.log(res)
-      })
-      .catch((e) => console.log(e))
+    // axios.post('/workorder/completed',
+    //   completed_click,
+    //   { headers: { "Content-Type": "application/json" } })
+    //   .then((res) => {
+    //     console.log(res)
+    //   })
+    //   .catch((e) => console.log(e))
   }
 
 
@@ -118,7 +117,6 @@ function App() {
           <Container workorder={state.workorder} inventory={state.inventory} />
 
         </div>
-
       </div>
     </div>
   )
