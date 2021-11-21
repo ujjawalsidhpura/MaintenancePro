@@ -59,3 +59,8 @@ position: fixed;
 	color: black;
 	background-color: cornflowerblue;
 }
+.workorder-filter{
+	position: fixed;
+	z-index: 5;
+	width: 60vw;
+}
