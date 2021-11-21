@@ -33,3 +33,35 @@
 #admin-avatar {
   max-width: 100px;
 }
+
+.workorder-form {
+	width: 50%;
+	padding: 2em;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.workorder-item {
+	margin-bottom: 1.5em;
+	padding: 1.5em;
+	width: 60vw;
+}
+
+.workorder-item-footer {
+	display: flex;
+	justify-content: space-between;
+}
+.workorder-content {
+	padding: 1.5em;
+	max-width: 60%;
+	margin: auto;
+}
+
+.file-container {
+	color: black;
+	background-color: cornflowerblue;
+}

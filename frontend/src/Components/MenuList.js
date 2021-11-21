@@ -7,7 +7,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 // import LoginButton from './Buttons/Login-button';
 // import SignupButton from './Buttons/Signup-button';
-
+import { Link } from 'react-router-dom';
 export default function MenuList(props) {
   const { user } = useAuth0();
   const { isAuthenticated, isLoading } = useAuth0();
@@ -41,8 +41,8 @@ export default function MenuList(props) {
     <li className="menu-list"><AuthenticationButton /></li>
       <ul>
         <li className="menu-list"><a>Glance at Today</a></li>
-        <li className="menu-list"><a>Create Work Orders</a></li>
-        <li className="menu-list"><a>Work Orders</a></li>
+        <li className="menu-list"><Link to="/workorders/create">Create Work Orders</Link></li>
+        <li className="menu-list"><Link to="/workorders">Work Orders</Link></li>
         <li className="menu-list"><a>Inventories</a></li>
         <li className="menu-list"><a>Summary</a></li>
       </ul>
