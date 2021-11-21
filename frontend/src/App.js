@@ -44,7 +44,6 @@ function App() {
           <Container workorder={state.workorder} inventory={state.inventory} />
 
         </div>
-        <button onClick={tester} > Test </button>
       </div>
     </div>
   )
