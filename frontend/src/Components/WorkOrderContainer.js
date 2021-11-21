@@ -8,19 +8,25 @@ export default function WorkOrderContainer(props) {
   const { user } = useAuth0();
   console.log(user);
 
-	console.log("======= Workorder props:", props)
+	// console.log("======= Workorder props:", props)
 	const parsedWorkOrders = props.workorder.map(workOrder => {
 		return (<WorkOrderItems {...workOrder} key={workOrder._id}/>)
 	}).reverse()
 	
-	console.log("======= Parsed Workorders:", parsedWorkOrders)
+	// console.log("======= Parsed Workorders:", parsedWorkOrders)
 	
-  const parsedWorkOrdersByName = user && props.workorder.map(workOrder => {
-    if ( workOrder.technician === user.name) {
-      return (<WorkOrderItems {...workOrder} key={workOrder._id}/>)
-    }
-  })
-
+  // const parsedWorkOrdersByName = user && props.workorder.map(workOrder => {
+  //   if ( workOrder.technician === user.name) {
+  //     return (
+  //       <WorkOrderItems {...workOrder} key={workOrder._id}/>
+  //     )
+  //   }
+  // })
+  const parsedWorkOrdersByName = user && parsedWorkOrders.filter(workOrder => 
+    workOrder.props.technician === user.name
+  )
+  console.log("zsh's workorders", parsedWorkOrdersByName);
+  
   const adminView =     
   <div className="workorder-container">
   <h1>Work Orders</h1>
