@@ -6,12 +6,9 @@ export default function Container(props) {
 
   return (
     <div className="container is-three-quarters">
-				{/* <WorkOrderForm />
-				<WorkOrderContainer workorder={props.workorder}/> */}
-
 				<Routes>
 					<Route path="/workorders" element={<WorkOrderContainer workorder={props.workorder}/>} />
-					<Route path="/workorders/create" element={<WorkOrderForm />} />
+					<Route path="/workorders/create" element={<WorkOrderForm/>} />
 				</Routes>
     </div>
   )
