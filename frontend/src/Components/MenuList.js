@@ -59,7 +59,7 @@ export default function MenuList(props) {
 
     <li className="menu-list"><AuthenticationButton /></li>
       <ul>
-        <li className="menu-list"><a>Check my Workorders</a></li>
+        <li className="menu-list"><Link to="/workorders">Check my Workorders</Link></li>
       </ul>
     </ul>
     </aside>;

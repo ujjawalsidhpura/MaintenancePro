@@ -7,8 +7,8 @@ import MenuList from './Components/MenuList';
 import Container from './Components/Container';
 
 
-function App() {
-
+function App(props) {
+  console.log("App props", props);
   const [state, setState] = useState({
     workorder: [],
     inventory: []
