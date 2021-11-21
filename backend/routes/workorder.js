@@ -95,12 +95,10 @@ router.get('/title', function (req, res) {
 
 /* Query Workorder by date range */
 
-router.get('/range', function (req, res) {
+router.post('/range', function (req, res) {
 
-  // const to_date = req.body.<var-name>
-  // const from_date = req.body.<var-name>
-  const to_date = "2021-11-20"
-  const from_date = "2021-03-16"
+  const to_date = req.body.to_date
+  const from_date = req.body.from_date
 
   db.collection(workorder)
     .find({
@@ -115,16 +113,14 @@ router.get('/range', function (req, res) {
     });
 });
 
-/* Query to get wo done by specific technician from the given range of dates */
+/* Query to get wo done by specific technician from the 
+given range of dates */
 
-router.get('/technicianAndRange', function (req, res) {
+router.post('/technicianAndRange', function (req, res) {
 
-  // const to_date = req.body.<var-name>
-  // const from_date = req.body.<var-name>
-  // const tech_name = req.body.<var-name>
-  const tech_name = "Ujjawal sidhpura"
-  const to_date = "2021-11-20"
-  const from_date = "2021-03-16"
+  const to_date = req.body.to_date
+  const from_date = req.body.from_date
+  const tech_name = req.body.tech_name
 
   db.collection(workorder)
     .find({
@@ -141,7 +137,6 @@ router.get('/technicianAndRange', function (req, res) {
       res.send(results)
     });
 });
-
 
 /* Functionality to manipulate W.O. when technician starts and then submits W.O. */
 
