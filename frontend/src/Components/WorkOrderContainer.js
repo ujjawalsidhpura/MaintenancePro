@@ -5,6 +5,7 @@ export default function WorkOrderContainer(props) {
 	const parsedWorkOrders = props.workorder.map(workOrder => {
 		return (<WorkOrderItems {...workOrder} key={workOrder._id}/>)
 	}).reverse()
+	
 	console.log("======= Parsed Workorders:", parsedWorkOrders)
 	
   return (
