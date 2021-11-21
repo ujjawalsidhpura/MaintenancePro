@@ -7,7 +7,7 @@ import Container from './Components/Container';
 import tester from './Helpers/helpers';
 
 // Tester is a helper function that mimics all get and post requests. We will route our requests from that File. 
-//  <button onClick={tester} > Test </button> is for testing 
+// <button onClick={tester} > Test </button> is for testing 
 
 function App() {
 

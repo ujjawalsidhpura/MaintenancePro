@@ -11,7 +11,6 @@ const tester = () => {
   //   time_completed: null,
   //   duration: null
   // }
-
   // axios.post('/workorder', workorder,
   //   { headers: { "Content-Type": "application/json" } })
   //   .then((res) => {
@@ -19,19 +18,22 @@ const tester = () => {
   //   })
   //   .catch((e) => console.log(e))
 
+
+
   // const inventory = {
   //   category: 'Tools',
   //   item: 'Wrench',
   //   price_item: 40,
   //   quanity: 2
   // }
-
   // axios.post('/inventory', inventory,
   //   { headers: { "Content-Type": "application/json" } })
   //   .then((res) => {
   //     console.log(res)
   //   })
   //   .catch((e) => console.log(e))
+
+
 
   // const newUser = {
   //   user_name: 'testing new user',
@@ -46,15 +48,17 @@ const tester = () => {
   //   .catch((e) => console.log(e))
 
 
-  const queryData = {
-    searched_date: '2021-11-20'
-  };
-  axios.post('/workorder/date', queryData,
-    { headers: { "Content-Type": "application/json" } })
-    .then((res) => {
-      console.log(res.data)
-    })
-    .catch((e) => console.log(e))
+
+  // const queryData = {
+  //   searched_date: '2021-11-20'
+  // };
+  // axios.post('/workorder/date', queryData,
+  //   { headers: { "Content-Type": "application/json" } })
+  //   .then((res) => {
+  //     console.log(res.data)
+  //   })
+  //   .catch((e) => console.log(e))
+
 
 
   // const queryData = {
@@ -68,6 +72,7 @@ const tester = () => {
   //   .catch((e) => console.log(e))
 
 
+
   // const queryData = {
   //   title: 'air'
   // };
@@ -77,6 +82,7 @@ const tester = () => {
   //     console.log(res.data)
   //   })
   //   .catch((e) => console.log(e))
+
 
 
   // const queryData = {
@@ -89,6 +95,7 @@ const tester = () => {
   //     console.log(res.data)
   //   })
   //   .catch((e) => console.log(e))
+
 
 
   // const queryData = {
@@ -104,6 +111,7 @@ const tester = () => {
   //   .catch((e) => console.log(e))
 
 
+
   // const start_clicked = {
   //   workorder_id: "6197dc385b64958f9f41ab1f"
   // }
@@ -114,6 +122,7 @@ const tester = () => {
   //     console.log(res)
   //   })
   //   .catch((e) => console.log(e))
+
 
 
   // const completed_click = {

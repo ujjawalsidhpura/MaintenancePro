@@ -5,7 +5,7 @@ const mongoDb = require('../mongoDb')
 const db = mongoDb.getDb();
 const workorder = 'work_orders' //Collection name in MongoDb
 
-/* GET All Work-Orders */
+// GET All Work-Orders 
 router.get('/', function (req, res) {
 
   db.collection(workorder)
@@ -17,7 +17,9 @@ router.get('/', function (req, res) {
 
 });
 
+// POST new Work-Order
 router.post('/', (req, res) => {
+
   const data = req.body;
 
   db.collection(workorder)
@@ -27,11 +29,10 @@ router.post('/', (req, res) => {
     })
 });
 
-/* These get routes below are for testing, ideally they should be POST route that return data upon query. Db query inside these routes are of use to us */
 
-/* Query Workorder by specific date */
-
+// Query Work-Order by specific date 
 router.post('/date', function (req, res) {
+
   const searched_date = req.body.searched_date
 
   db.collection(workorder)
@@ -48,9 +49,9 @@ router.post('/date', function (req, res) {
 });
 
 
-/* Workorder query by Technician name */
-
+// Query Work-Order by Technician name 
 router.post('/technician', function (req, res) {
+
   const tech_name = req.body.tech_name
 
   db.collection(workorder)
@@ -68,8 +69,7 @@ router.post('/technician', function (req, res) {
 
 });
 
-/* Workorder query by Work Order Title */
-
+// Query Work-Order by Title of Work-Order
 router.post('/title', function (req, res) {
 
   const title = req.body.title
@@ -88,8 +88,8 @@ router.post('/title', function (req, res) {
 
 });
 
-/* Query Workorder by date range */
 
+// Query Work-Order by Date-Range
 router.post('/range', function (req, res) {
 
   const to_date = req.body.to_date
@@ -108,9 +108,7 @@ router.post('/range', function (req, res) {
     });
 });
 
-/* Query to get wo done by specific technician from the 
-given range of dates */
-
+// Query Work-Order by Specific Technician AND For a Given Date-Range
 router.post('/technicianAndRange', function (req, res) {
 
   const to_date = req.body.to_date
@@ -133,10 +131,9 @@ router.post('/technicianAndRange', function (req, res) {
     });
 });
 
-/* Functionality to manipulate W.O. when technician starts and then submits W.O. */
+// Functionality to manipulate Work-Order when technician Starts and then submits Work-Order
 
-/* 1. When technician press 'Start', 'time_started' will be inserted */
-
+// 1. When technician press 'Start', 'time_started' will be inserted 
 router.post('/started', function (req, res) {
   const workorder_id = req.body.workorder_id
 
@@ -157,8 +154,7 @@ router.post('/started', function (req, res) {
 
 });
 
-/* 2. When technician press ' Finished, 'time_completed' will be inserted and duration will be calculated and inserted */
-
+// 2. When technician press ' Finished, 'time_completed' will be inserted and duration will be calculated and inserted 
 router.post('/completed', function (req, res) {
   const workorder_id = req.body.workorder_id
 
