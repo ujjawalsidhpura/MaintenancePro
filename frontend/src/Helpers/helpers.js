@@ -62,7 +62,8 @@ const tester = () => {
 
 
   // const queryData = {
-  //   tech_name: 'ebuka'
+  //   tech_name: 'ebuka',
+  //   title: 'air'
   // };
   // axios.post('/workorder/technician', queryData,
   //   { headers: { "Content-Type": "application/json" } })

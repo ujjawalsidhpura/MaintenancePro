@@ -24,8 +24,6 @@ function App() {
       ]
     )
       .then((all) => {
-        console.log(all[0].data)
-        console.log(all[1].data)
         const workorder = all[0].data
         const inventory = all[1].data
         setState(prev => ({
@@ -40,12 +38,13 @@ function App() {
       <div class="columns">
         <div class="column is-one-quarter">
           <MenuList />
-          <button onClick={tester} > Test </button>
+
         </div>
         <div class="column ">
           <Container workorder={state.workorder} inventory={state.inventory} />
 
         </div>
+        <button onClick={tester} > Test </button>
       </div>
     </div>
   )

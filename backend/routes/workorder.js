@@ -49,44 +49,81 @@ router.post('/date', function (req, res) {
 });
 
 
-// Query Work-Order by Technician name 
-router.post('/technician', function (req, res) {
+// Query Work-Order by Tech_name/title/both 
+router.post('/filter', function (req, res) {
 
-  const tech_name = req.body.tech_name
+  const tech_name = req.body.tech_name ? req.body.tech_name : null;
+  const title = req.body.title ? req.body.title : null;
 
-  db.collection(workorder)
-    .find({
-      technician:
-      {
-        '$regex': tech_name, '$options': 'i'
-      }
-    })
-    .toArray((err, results) => {
-      if (err) return console.log(err)
+  if (tech_name && title) {
+    db.collection(workorder)
+      .find({
+        '$or': [
+          {
+            technician:
+            {
+              '$regex': tech_name, '$options': 'i'
+            }
+          },
+          {
+            title: {
+              '$regex': title, '$options': 'i'
+            }
+          }
+        ]
+      })
+      .toArray((err, results) => {
+        if (err) return console.log(err)
 
-      res.send(results)
-    });
+        res.send(results)
+      });
+  } else if (tech_name && !title) {
+    db.collection(workorder)
+      .find({
+        technician: {
+          '$regex': tech_name, '$options': 'i'
+        }
+      })
+      .toArray((err, results) => {
+        if (err) return console.log(err)
+
+        res.send(results)
+      });
+  } else if (!tech_name && title) {
+
+    db.collection(workorder)
+      .find({
+        title: {
+          '$regex': title, '$options': 'i'
+        }
+      })
+      .toArray((err, results) => {
+        if (err) return console.log(err)
+
+        res.send(results)
+      });
+  }
 
 });
 
-// Query Work-Order by Title of Work-Order
-router.post('/title', function (req, res) {
+// // Query Work-Order by Title of Work-Order
+// router.post('/title', function (req, res) {
 
-  const title = req.body.title
+//   const title = req.body.title
 
-  db.collection(workorder)
-    .find({
-      title: {
-        '$regex': title, '$options': 'i'
-      }
-    })
-    .toArray((err, results) => {
-      if (err) return console.log(err)
+//   db.collection(workorder)
+//     .find({
+//       title: {
+//         '$regex': title, '$options': 'i'
+//       }
+//     })
+//     .toArray((err, results) => {
+//       if (err) return console.log(err)
 
-      res.send(results)
-    });
+//       res.send(results)
+//     });
 
-});
+// });
 
 
 // Query Work-Order by Date-Range
