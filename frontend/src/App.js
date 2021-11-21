@@ -105,7 +105,6 @@ function App(props) {
 	// }
 
   return (
-		<BrowserRouter>
 			<div className="App">
 				<div class="columns">
 					<div class="column is-one-quarter">
@@ -123,7 +122,6 @@ function App(props) {
 				</div>
 
 			</div>
-		</BrowserRouter>
   )
 }
 

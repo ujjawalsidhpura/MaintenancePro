@@ -18,8 +18,6 @@ export default function WorkOrderContainer(props) {
     if ( workOrder.technician === user.name) {
       return (<WorkOrderItems {...workOrder} key={workOrder._id}/>)
     }
-    console.log("technician",workOrder.technician)
-    user && console.log("user name",user.name)
   })
 
   const adminView =     
