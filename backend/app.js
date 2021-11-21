@@ -10,8 +10,8 @@ const server = http.createServer(app);
 const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
 const logger = require('morgan');
-const cors = require('cors');
-const multer = require('multer');
+// const cors = require('cors');
+// const multer = require('multer');
 
 //Middleware setup
 app.set('port', port);
@@ -21,18 +21,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
+// app.use(cors());
 
-const storage = multer.diskStorage({
-	destination: (req, file, cb) => {
-			cb(null, 'public')
-	},
-	filename: (req, file, cb) => {
-			cb(null, Date.now() + '-' + file.originalname)
-	}
-});
+// const storage = multer.diskStorage({
+// 	destination: (req, file, cb) => {
+// 			cb(null, 'public')
+// 	},
+// 	filename: (req, file, cb) => {
+// 			cb(null, Date.now() + '-' + file.originalname)
+// 	}
+// });
 
-const upload = multer({storage}).array('file');
+// const upload = multer({storage}).array('file');
 
 
 //Mongo Connection
