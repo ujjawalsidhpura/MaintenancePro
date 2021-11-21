@@ -52,10 +52,8 @@ router.get('/date', function (req, res) {
 
 /* Workorder query by Technician name */
 
-router.get('/technician', function (req, res) {
-
-  // const tech_name= req.body.<var-name>
-  const tech_name = 'Shuhao Zhang'
+router.post('/technician', function (req, res) {
+  const tech_name = req.body.tech_name
 
   db.collection(workorder)
     .find({

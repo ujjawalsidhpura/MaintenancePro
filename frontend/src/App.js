@@ -6,6 +6,8 @@ import MenuList from './Components/MenuList';
 import Container from './Components/Container';
 import tester from './Helpers/helpers';
 
+// Tester is a helper function that mimics all get and post requests. We will route our requests from that File. 
+//  <button onClick={tester} > Test </button> is for testing 
 
 function App() {
 
@@ -29,11 +31,6 @@ function App() {
         }))
       })
   }, [])
-
-  /* To test POST FORM,make a button and button onclick={save}
-  Place button anywhere in the div. Ideally line 95.
-  <button onClick={save} > Test </button> 
-  This will mimic form submittion with hardcoded data */
 
 
   return (
