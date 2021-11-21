@@ -1,13 +1,14 @@
 import WorkOrderItems from "./WorkOrderItems"
 
 export default function WorkOrderContainer(props) {
-	let parsedWorkOrders
-	props.workorder? 
-	parsedWorkOrders = props.workorder.map(workOrder => <WorkOrderItems {...workOrder} key={workOrder._id}/>): 
-	parsedWorkOrders = null;
-
+	console.log("======= Workorder props:", props)
+	const parsedWorkOrders = props.workorder.map(workOrder => {
+		return (<WorkOrderItems {...workOrder} key={workOrder._id}/>)
+	}).reverse()
+	console.log("======= Parsed Workorders:", parsedWorkOrders)
+	
   return (
-    <div className="container">
+    <div className="workorder-container">
 			<h1>Work Orders</h1>
 			{parsedWorkOrders}
     </div>

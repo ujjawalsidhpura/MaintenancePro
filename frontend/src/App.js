@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './App.css';
+import './star-rating.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import MenuList from './Components/MenuList';
@@ -12,8 +13,8 @@ import tester from './Helpers/helpers';
 function App() {
 
   const [state, setState] = useState({
-    workorder: null,
-    inventory: null
+    workorder: [],
+    inventory: []
   })
 
   useEffect(() => {
@@ -24,10 +25,12 @@ function App() {
       ]
     )
       .then((all) => {
+        console.log(all[0].data)
+        console.log(all[1].data)
         const workorder = all[0].data
         const inventory = all[1].data
         setState(prev => ({
-          ...prev, workorder, inventory
+          ...prev, workorder: [...workorder], inventory: [...inventory]
         }))
       })
   }, [])
