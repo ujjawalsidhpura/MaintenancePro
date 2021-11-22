@@ -27,13 +27,13 @@ export default function WorkOrderContainer(props) {
   )
   console.log("zsh's workorders", parsedWorkOrdersByName);
   
-  const adminView =     
+  const adminView = 
   <div className="workorder-container">
   <h1>Work Orders</h1>
   {parsedWorkOrders}
   </div>;
 
-  const technicianView = 
+  const technicianView =
   <div className="workorder-container">
   <h1>{user && user.name}'s Work Orders</h1>
   {parsedWorkOrdersByName}

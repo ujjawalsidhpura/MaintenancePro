@@ -3,7 +3,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 import {  Routes, Route } from 'react-router-dom'
 import WorkOrderContainer from "./WorkOrderContainer";
 import WorkOrderForm from "./WorkOrderForm";
-
+import Start_confirmation from "./Start_confirmation";
+import Finish_confirmation from "./Finish_confirmation";
 export default function Container(props) {
   const { isAuthenticated, isLoading } = useAuth0();
 
@@ -16,6 +17,8 @@ export default function Container(props) {
 				<Routes>
 					<Route path="/workorders" element={<WorkOrderContainer workorder={props.workorder}/>} />
 					<Route path="/workorders/create" element={<WorkOrderForm/>} />
+          <Route path="/start-confirmation" element={<Start_confirmation/>} /> 
+          <Route path="/finish-confirmation" element={<Finish_confirmation/>} /> 
 				</Routes>
     </div>
   )

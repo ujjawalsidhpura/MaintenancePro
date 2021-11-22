@@ -1,9 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const Start_button = function(props){
-  const { onClick } = props;
+  console.log("start button props", props);
   return(
-    <button onClick={onClick}>Start</button>
+    <Link 
+    to="/start-confirmation"   
+    state={ {id: props.id} }
+    >
+    <button>Start</button>
+    </Link>
   )
 }
 
