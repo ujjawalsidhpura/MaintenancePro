@@ -32,7 +32,7 @@ export default function WorkOrderForm(props) {
     event.preventDefault()
     const workorder = {
       ...state,
-      created_on: new Date(),
+      created_on: new Date().toISOString(),
       time_started: null,
       time_completed: null,
     }

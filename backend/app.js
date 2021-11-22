@@ -44,10 +44,12 @@ mongoDb.connectToServer(function (err) {
   //Main Routes
   const workorderRouter = require('./routes/workorder');
   const inventoryRouter = require('./routes/inventory');
-  const usersRouter = require('./routes/users')
+  const usersRouter = require('./routes/users');
+  const todayRouter = require('./routes/today_at_glance');
   app.use('/workorder', workorderRouter);
   app.use('/inventory', inventoryRouter);
   app.use('/users', usersRouter);
+  app.use('/today', todayRouter);
 
   //Handle 404 
   app.use(function (req, res, next) {
