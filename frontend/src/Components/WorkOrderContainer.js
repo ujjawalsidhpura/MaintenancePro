@@ -49,7 +49,6 @@ export default function WorkOrderContainer(props) {
 		return query;
 	}
 
-	console.log("Props:", props)
 	const parsedWorkOrders = props.workorder.map(workOrder => {
 		return (<WorkOrderItems {...workOrder} key={workOrder._id}/>)
 	}).reverse()
@@ -57,7 +56,6 @@ export default function WorkOrderContainer(props) {
 	const parsedWorkOrdersByQuery = validState() && parsedWorkOrders.filter(workOrder => 
 		handleQuery(workOrder)
 	)
-	console.log("Parsed Workorders after submission", parsedWorkOrdersByQuery)
 
   return (
     <div className="workorder-container">
@@ -104,7 +102,6 @@ export default function WorkOrderContainer(props) {
 						</div>
 					</div>
 	    	</div>
-				<button className="button is-link" type="submit">Submit</button>
 			</form>
 			<h1>Work Orders</h1>
 			{validState()? parsedWorkOrdersByQuery: parsedWorkOrders}

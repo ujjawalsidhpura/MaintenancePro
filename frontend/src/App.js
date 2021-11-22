@@ -30,7 +30,7 @@ function App() {
           ...prev, workorder: [...workorder], inventory: [...inventory]
         }))
       })
-  }, [])
+  }, [state])
 
 
   return (

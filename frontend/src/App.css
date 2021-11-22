@@ -63,6 +63,7 @@ position: fixed;
 	/* position: fixed; */
 	z-index: 5;
 	width: 60vw;
+	padding: 3em;
 	margin-bottom: 2em;
 }
 
