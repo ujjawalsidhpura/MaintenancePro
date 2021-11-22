@@ -44,6 +44,7 @@ export default function WorkOrderItems(props) {
         {isAuthenticated && user.email !== 'ujay@gmail.com' 
         && !props.time_completed && !props.time_started &&  <Start_button id={props._id}/>
         }
+        {props.duration && <p>{(props.duration/1000/60).toFixed(2)} Mins</p>} 
 				<div>
 					<h2>Work Order Created:</h2>
 					<h2>{props.created_on}</h2>
