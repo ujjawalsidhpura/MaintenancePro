@@ -10,14 +10,13 @@ export default function WorkOrderForm(props) {
     description: "",
     importance: 0,
     date: "",
-    photos: [],
-    files: [],
+    files: []
   })
 
   const [submit, setSubmit] = useState(false)
 
   const onDrop = useCallback(acceptedFiles => {
-    changeState("photos", acceptedFiles)
+    changeState("files", acceptedFiles)
   }, [state])
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({ onDrop });
 
@@ -119,7 +118,7 @@ export default function WorkOrderForm(props) {
           </div>
 
           <div className="field">
-            <label className="label">Photos</label>
+            <label className="label">Files</label>
 
             <section className="file-container">
               <div {...getRootProps({ className: 'dropzone' })}>
@@ -131,18 +130,6 @@ export default function WorkOrderForm(props) {
                 <ul>{files}</ul>
               </aside>
             </section>
-          </div>
-
-          <div className="field">
-            <label className="label">Files</label>
-            <input
-              type="file"
-              id="docpicker"
-              accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.txt"
-              // value={state.files} 
-              onChange={(event) => changeState("files", event.currentTarget.files)}
-              multiple
-            />
           </div>
 
           <button className="button is-link" type="submit">Submit</button>
