@@ -18,13 +18,15 @@
   margin-top: 5em;
 }
 
+
 .menu-label > a{
   color: white;
   font-size: 25px;
 }
 
 .menu-list > a{
-  color: white;
+  /* color: white; */
+  color: blue;
 }
 
 #landing-image {
@@ -79,3 +81,12 @@
 	display: flex;
 	justify-content: space-around;
 }
+
+.new-menu-list {
+	display: flex;
+	justify-content: center;
+}
+
+/* .add {
+
+} */
