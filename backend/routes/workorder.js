@@ -26,7 +26,14 @@ router.post('/', (req, res) => {
   db.collection(workorder)
     .insertOne(data, (err, result) => {
       if (err) return console.log(err)
-      res.send('Saved')
+			// trying to send back new workorders to front end when we submit the form [Workorder From]
+			const newWorkorders = db.collection.find(workorder)
+				.then((data) => {
+					res.json({workorders: data})
+				})
+				.catch((e) => {
+					console.log(e)
+				})
     })
 });
 

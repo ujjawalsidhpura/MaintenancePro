@@ -40,6 +40,7 @@ export default function WorkOrderForm(props) {
     axios.post('/workorder', workorder,
       { headers: { "Content-Type": "application/json" } })
       .then((res) => {
+				console.log("response from server", res)
         setSubmit(true)
       })
       .catch((e) => console.log(e))
