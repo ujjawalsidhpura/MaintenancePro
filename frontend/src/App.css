@@ -60,7 +60,13 @@ position: fixed;
 	background-color: cornflowerblue;
 }
 .workorder-filter{
-	position: fixed;
+	/* position: fixed; */
 	z-index: 5;
 	width: 60vw;
+	margin-bottom: 2em;
+}
+
+.date-picker {
+	display: flex;
+	justify-content: space-around;
 }

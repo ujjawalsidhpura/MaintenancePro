@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 export default function Filter(props) {
 	const [state, setState] = useState({
@@ -16,12 +17,12 @@ export default function Filter(props) {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		// Range only
-		axios.post('/workorder/filter', state,
-		{ headers: { "Content-Type": "application/json" } })
-		.then((res) => {
-			console.log(res.data)
-		})
-		.catch((e) => console.log(e))
+		// axios.post('/workorder/filter', state,
+		// { headers: { "Content-Type": "application/json" } })
+		// .then((res) => {
+		// 	console.log(res.data)
+		// })
+		// .catch((e) => console.log(e))
 		// if (!state.title && !state.tech_name) {
 		// 	axios.post('/workorder/range', state,
 		// 	{ headers: { "Content-Type": "application/json" } })
@@ -78,18 +79,24 @@ export default function Filter(props) {
 			</div>
 			<div>
     	  <label className="label">Date</label>
-    	  <label className="label">From</label>
-    	  <input
-    	    type="date"
-    	    value={state.from_date}
-    	    onChange={(event) => changeState("from_date", event.target.value)}
-    	  ></input>
-    	  <label className="label">To</label>
-    	  <input
-    	    type="date"
-    	    value={state.to_date}
-    	    onChange={(event) => changeState("to_date", event.target.value)}
-    	  ></input>
+				<div className="date-picker">
+					<div>
+						<label className="label">From</label>
+						<input
+							type="date"
+							value={state.from_date}
+							onChange={(event) => changeState("from_date", event.target.value)}
+						></input>
+					</div>
+					<div>
+						<label className="label">To</label>
+						<input
+							type="date"
+							value={state.to_date}
+							onChange={(event) => changeState("to_date", event.target.value)}
+						></input>
+					</div>
+				</div>
     	</div>
 			<button className="button is-link" type="submit">Submit</button>
 		</form>
