@@ -5,8 +5,10 @@ import WorkOrderContainer from "./WorkOrderContainer";
 import WorkOrderForm from "./WorkOrderForm";
 import Start_confirmation from "./Start_confirmation";
 import Finish_confirmation from "./Finish_confirmation";
+import Today from './Today';
+
 export default function Container(props) {
-  const { isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   return (
     <div className="container is-three-quarters">
@@ -19,6 +21,7 @@ export default function Container(props) {
 					<Route path="/workorders/create" element={<WorkOrderForm/>} />
           <Route path="/start-confirmation" element={<Start_confirmation/>} /> 
           <Route path="/finish-confirmation" element={<Finish_confirmation/>} /> 
+          <Route path="/today" element={<Today today={props.today} />} />
 				</Routes>
     </div>
   )

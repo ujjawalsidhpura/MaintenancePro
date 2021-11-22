@@ -1,6 +1,8 @@
 import axios from "axios";
 
+
 const tester = () => {
+  /* Work order queries */
 
   // const workorder = {
   //   email: "ujay@gmail.com",
@@ -19,6 +21,45 @@ const tester = () => {
   //   .catch((e) => console.log(e))
 
 
+  // const data = {
+  //   tech_name: 'ujjawal',
+  //   title:'air',
+  //   from_date: '2021-03-16',
+  //   to_date: '2021-11-21'
+  // }
+  // axios.post('/workorder/filter', data,
+  //   { headers: { "Content-Type": "application/json" } })
+  //   .then((res) => {
+  //     console.log(res.data)
+  //   })
+  //   .catch((e) => console.log(e))
+
+
+  // const start_clicked = {
+  //   workorder_id: "6199166d95fe88a6ce12aa77"
+  // }
+  // axios.post('/workorder/started',
+  //   start_clicked,
+  //   { headers: { "Content-Type": "application/json" } })
+  //   .then((res) => {
+  //     console.log(res)
+  //   })
+  //   .catch((e) => console.log(e))
+
+
+
+  // const completed_click = {
+  //   workorder_id: "6199166d95fe88a6ce12aa77"
+  // }
+  // axios.post('/workorder/completed',
+  //   completed_click,
+  //   { headers: { "Content-Type": "application/json" } })
+  //   .then((res) => {
+  //     console.log(res)
+  //   })
+  //   .catch((e) => console.log(e))
+
+  /* Inventory queries */
 
   // const inventory = {
   //   category: 'Tools',
@@ -33,9 +74,25 @@ const tester = () => {
   //   })
   //   .catch((e) => console.log(e))
 
+  // const data = {
+  //   category: 'Mechanicals',
+  // }
+
+  // axios.post('/inventory/filter', data,
+  //   { headers: { "Content-Type": "application/json" } })
+  //   .then((res) => {
+  //     console.log(res.data)
+  //   })
+  //   .catch((e) => console.log(e))
 
 
-  // const newUser = {
+}
+
+export default tester;
+
+
+
+   // const newUser = {
   //   user_name: 'testing new user',
   //   user_password: 'pass',
   //   email: 'user@user.come'
@@ -46,95 +103,3 @@ const tester = () => {
   //     console.log(res)
   //   })
   //   .catch((e) => console.log(e))
-
-
-
-  // const queryData = {
-  //   searched_date: '2021-11-20'
-  // };
-  // axios.post('/workorder/date', queryData,
-  //   { headers: { "Content-Type": "application/json" } })
-  //   .then((res) => {
-  //     console.log(res.data)
-  //   })
-  //   .catch((e) => console.log(e))
-
-
-
-  // const queryData = {
-  //   tech_name: 'ebuka'
-  // };
-  // axios.post('/workorder/technician', queryData,
-  //   { headers: { "Content-Type": "application/json" } })
-  //   .then((res) => {
-  //     console.log(res.data)
-  //   })
-  //   .catch((e) => console.log(e))
-
-
-
-  // const queryData = {
-  //   title: 'Water'
-  // };
-  // axios.post('/workorder/title', queryData,
-  //   { headers: { "Content-Type": "application/json" } })
-  //   .then((res) => {
-  //     console.log(res.data)
-  //   })
-  //   .catch((e) => console.log(e))
-
-
-
-  // const queryData = {
-  //   to_date: "2021-11-20",
-  //   from_date: "2021-03-16"
-  // }
-  // axios.post('/workorder/range', queryData,
-  //   { headers: { "Content-Type": "application/json" } })
-  //   .then((res) => {
-  //     console.log(res.data)
-  //   })
-  //   .catch((e) => console.log(e))
-
-
-
-  // const queryData = {
-  //   tech_name: "Ujjawal sidhpura",
-  //   to_date: "2021-11-20",
-  //   from_date: "2021-03-16"
-  // }
-  // axios.post('/workorder/technicianAndRange', queryData,
-  //   { headers: { "Content-Type": "application/json" } })
-  //   .then((res) => {
-  //     console.log(res.data)
-  //   })
-  //   .catch((e) => console.log(e))
-
-
-
-  // const start_clicked = {
-  //   workorder_id: "6197eb5064b055638b16cdd9"
-  // }
-  // axios.post('/workorder/started',
-  //   start_clicked,
-  //   { headers: { "Content-Type": "application/json" } })
-  //   .then((res) => {
-  //     console.log(res)
-  //   })
-  //   .catch((e) => console.log(e))
-
-
-
-  // const completed_click = {
-  //   workorder_id: "6197eb5064b055638b16cdd9"
-  // }
-  // axios.post('/workorder/completed',
-  //   completed_click,
-  //   { headers: { "Content-Type": "application/json" } })
-  //   .then((res) => {
-  //     console.log(res)
-  //   })
-  //   .catch((e) => console.log(e))
-}
-
-export default tester;

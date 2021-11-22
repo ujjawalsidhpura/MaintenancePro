@@ -16,6 +16,7 @@ router.get('/', function (req, res) {
 
 });
 
+//POST new Inventory Item
 router.post('/', (req, res) => {
   const data = req.body;
 
@@ -26,41 +27,63 @@ router.post('/', (req, res) => {
     })
 });
 
-/* Get specific category of inventory products */
+//Filter Inventory by Category/Name/Both
 
-router.get('/category', function (req, res) {
+router.post('/filter', function (req, res) {
 
-  // const category = req.body.category;
-  const category = 'Tools'
+  const item_name = req.body.item_name ? req.body.item_name : null;
+  const category = req.body.category ? req.body.category : null;
 
-  db.collection(inventory)
-    .find({ _category: category }).toArray((err, results) => {
-      if (err) return console.log(err)
-      res.send(results)
-    });
+  if (category && !item_name) {
+
+    db.collection(inventory)
+      .find({ _category: category })
+      .toArray((err, results) => {
+        if (err) return console.log(err)
+        res.send(results)
+      });
+
+  } else if (!category && item_name) {
+
+    db.collection(inventory)
+      .find({
+        item: {
+          '$regex': item_name, '$options': 'i'
+        }
+      })
+      .toArray((err, results) => {
+        if (err) return console.log(err)
+
+        res.send(results)
+      });
+
+  } else if (category && item_name) {
+
+    db.collection(inventory)
+      .find({
+        '$and': [
+          {
+            item:
+            {
+              '$regex': item_name, '$options': 'i'
+            }
+          },
+          {
+            _category: category
+          }
+        ]
+      })
+      .toArray((err, results) => {
+        if (err) return console.log(err)
+
+        res.send(results)
+      });
+
+  }
 
 });
 
-/* Get products by typing name in search bar */
-/* Finds all matching products that contain that string */
 
-router.get('/search', function (req, res) {
-
-  // const item_name = req.body.item_name;
-  const item_name = 'bolt'
-
-  db.collection(inventory).find({
-    item: {
-      '$regex': item_name, '$options': 'i'
-    }
-  })
-    .toArray((err, results) => {
-      if (err) return console.log(err)
-
-      res.send(results)
-    });
-
-});
 
 module.exports = router;
 

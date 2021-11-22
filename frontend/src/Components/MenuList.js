@@ -1,8 +1,6 @@
-import react, {useState, useEffect} from 'react';
+import react, {useState } from 'react';
 import AuthenticationButton from './Buttons/Auth-button';
-import LoginButton from './Buttons/Login-button';
 import Profile from './Profile';
-import { Auth0Provider } from "@auth0/auth0-react";
 import { useAuth0 } from '@auth0/auth0-react';
 
 // import LoginButton from './Buttons/Login-button';
@@ -40,11 +38,14 @@ export default function MenuList(props) {
 
     <li className="menu-list"><AuthenticationButton /></li>
       <ul>
-        <li className="menu-list"><a>Glance at Today</a></li>
-        <li className="menu-list"><Link to="/workorders/create">Create Work Orders</Link></li>
-        <li className="menu-list"><Link to="/workorders">Work Orders</Link></li>
-        <li className="menu-list"><a>Inventories</a></li>
-        <li className="menu-list"><a>Summary</a></li>
+        <li className="menu-label"><a >Welcome Admin</a></li>
+        <ul>
+          <li className="menu-list"><Link to="/today">Today at Glance</Link></li>
+          <li className="menu-list"><Link to="/workorders/create">Create Work Orders</Link></li>
+          <li className="menu-list"><Link to="/workorders">Work Orders</Link></li>
+          <li className="menu-list"><a>Inventories</a></li>
+          <li className="menu-list"><a>Summary</a></li>
+        </ul>
       </ul>
     </ul>
     </aside>;

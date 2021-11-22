@@ -1,4 +1,3 @@
-import react, {useState} from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import  Start_button from './Buttons/Start-button';
 import Finish_button from './Buttons/Finish_button';
@@ -18,7 +17,7 @@ export default function WorkOrderItems(props) {
 			</div>
 			<div class="workorder-content">
 				<p>{props.description}</p>
-				{parsedPhotos}
+				{/* {parsedPhotos} */}
 				{/* <div>{props.files}</div> */}
 			</div>
 			<div className="workorder-item-footer">

@@ -3,6 +3,7 @@
 }
 
 .menu {
+position: fixed;
  background-color: hsl(217, 71%, 53%);
  color: white;
  min-height: 75vh;
@@ -65,4 +66,16 @@
 .file-container {
 	color: black;
 	background-color: cornflowerblue;
+}
+.workorder-filter{
+	/* position: fixed; */
+	z-index: 5;
+	width: 60vw;
+	padding: 3em;
+	margin-bottom: 2em;
+}
+
+.date-picker {
+	display: flex;
+	justify-content: space-around;
 }
