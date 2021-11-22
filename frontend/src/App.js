@@ -45,7 +45,6 @@ function App(props) {
         </div>
         <div class="column ">
           <Container workorder={state.workorder} inventory={state.inventory} today={state.today} />
-          <button onClick={tester} > Test </button>
         </div>
       </div>
     </div>
