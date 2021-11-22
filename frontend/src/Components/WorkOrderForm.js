@@ -2,6 +2,7 @@ import { useState, useCallback } from "react"
 import axios from 'axios'
 import { useDropzone } from 'react-dropzone';
 import { Navigate } from "react-router-dom";
+import FormData from 'form-data';
 
 export default function WorkOrderForm(props) {
   const [state, setState] = useState({
@@ -10,39 +11,56 @@ export default function WorkOrderForm(props) {
     description: "",
     importance: 0,
     date: "",
-    photos: [],
-    files: [],
+    files: []
   })
 
   const [submit, setSubmit] = useState(false)
 
   const onDrop = useCallback(acceptedFiles => {
+		console.log("accepted files", acceptedFiles)
     changeState("photos", acceptedFiles)
   }, [state])
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({ onDrop });
+
+	const { acceptedFiles, getRootProps, getInputProps } = useDropzone({ onDrop });
 
   const files = acceptedFiles.map(file => (
     <li key={file.path}>
       {file.path} - {file.size} bytes
     </li>
   ));
-
+	
   const handleSubmit = (event) => {
 
     event.preventDefault()
-    const workorder = {
-      ...state,
-      created_on: new Date().toISOString(),
-      time_started: null,
-      time_completed: null,
-    }
+		const formData = new FormData()
+		for (let i = 0; i < acceptedFiles.length; i++) {
+		  formData.append('files[]', acceptedFiles[i])
+		}
+		// let formData = new FormData();
+		formData.append("title", state.title)
+		formData.append("technician", state.technician)
+		formData.append("description", state.description)
+		formData.append("importance", state.importance)
+		formData.append("files", state.files)
+		formData.append("created_on",  new Date().toISOString())
+		formData.append("time_started", null)
+		formData.append("time_completed", null)
+		// formData.set("title", state.title)
+		console.log("Form data", formData)
+		console.log("new Form data", new FormData())
+    // const workorder = {
+    //   ...state,
+    //   created_on: new Date().toISOString(),
+    //   time_started: null,
+    //   time_completed: null,
+    // }
 
-    axios.post('/workorder', workorder,
-      { headers: { "Content-Type": "application/json" } })
-      .then((res) => {
-        setSubmit(true)
-      })
-      .catch((e) => console.log(e))
+    // axios.post('/workorder', formdata,
+    //   { headers: { "Content-Type": "multipart/form-data" } })
+    //   .then((res) => {
+    //     // setSubmit(true)
+    //   })
+    //   .catch((e) => console.log(e))
   }
 
   const ratings = [1, 2, 3, 4, 5]
@@ -119,7 +137,7 @@ export default function WorkOrderForm(props) {
           </div>
 
           <div className="field">
-            <label className="label">Photos</label>
+            <label className="label">Files</label>
 
             <section className="file-container">
               <div {...getRootProps({ className: 'dropzone' })}>
@@ -131,18 +149,6 @@ export default function WorkOrderForm(props) {
                 <ul>{files}</ul>
               </aside>
             </section>
-          </div>
-
-          <div className="field">
-            <label className="label">Files</label>
-            <input
-              type="file"
-              id="docpicker"
-              accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.txt"
-              // value={state.files} 
-              onChange={(event) => changeState("files", event.currentTarget.files)}
-              multiple
-            />
           </div>
 
           <button className="button is-link" type="submit">Submit</button>

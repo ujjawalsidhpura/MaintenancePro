@@ -14,6 +14,7 @@ const logger = require('morgan');
 //Middleware setup
 app.set('port', port);
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

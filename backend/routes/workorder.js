@@ -20,9 +20,9 @@ router.get('/', function (req, res) {
 
 // POST new Work-Order
 router.post('/', (req, res) => {
-
+	console.log('Here!')
   const data = req.body;
-
+	console.log("Workorders data:", data)
   db.collection(workorder)
     .insertOne(data, (err, result) => {
       if (err) return console.log(err)
