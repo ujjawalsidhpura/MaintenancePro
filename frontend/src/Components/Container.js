@@ -6,6 +6,7 @@ import WorkOrderForm from "./WorkOrderForm";
 import Start_confirmation from "./Start_confirmation";
 import Finish_confirmation from "./Finish_confirmation";
 import Today from './Today';
+import InventoryContainer from './InventoryContainer';
 
 export default function Container(props) {
   const { isAuthenticated } = useAuth0();
@@ -22,6 +23,7 @@ export default function Container(props) {
           <Route path="/start-confirmation" element={<Start_confirmation/>} /> 
           <Route path="/finish-confirmation" element={<Finish_confirmation/>} /> 
           <Route path="/today" element={<Today today={props.today} />} />
+          <Route path="/inventory" element={<InventoryContainer inventory={props.inventory} />} />
 				</Routes>
     </div>
   )
