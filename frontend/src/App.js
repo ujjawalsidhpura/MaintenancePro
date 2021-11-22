@@ -6,8 +6,8 @@ import MenuList from './Components/MenuList';
 import Container from './Components/Container';
 import tester from './Helpers/helpers';
 
-// Tester is a helper function that mimics all get and post requests. We will route our requests from that File. 
-// <button onClick={tester} > Test </button> is for testing 
+
+// <button onClick={tester} > Test </button> 
 
 function App() {
 
@@ -42,7 +42,7 @@ function App() {
         </div>
         <div class="column ">
           <Container workorder={state.workorder} inventory={state.inventory} />
-
+          <button onClick={tester} > Test </button>
         </div>
       </div>
     </div>

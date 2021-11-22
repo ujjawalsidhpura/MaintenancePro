@@ -2,6 +2,19 @@ import axios from "axios";
 
 const tester = () => {
 
+
+  // const data = {
+  //   from_date: '2021-03-16'
+  // }
+
+  // axios.post('/workorder/filter', data,
+  //   { headers: { "Content-Type": "application/json" } })
+  //   .then((res) => {
+  //     console.log(res.data)
+  //   })
+  //   .catch((e) => console.log(e))
+
+
   // const workorder = {
   //   email: "ujay@gmail.com",
   //   name: "Ujjawal Sidhpura",
