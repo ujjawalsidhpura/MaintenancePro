@@ -10,7 +10,6 @@ export default function MenuList(props) {
   const { user } = useAuth0();
   const { isAuthenticated, isLoading } = useAuth0();
   const [email, setEmail] = useState('');
-  console.log(useAuth0());
   user && !email && setEmail(user.email)
 
   const LogInView = 
@@ -26,8 +25,6 @@ export default function MenuList(props) {
     </ul>
     </aside>
 
-  if (user) console.log(user);
-
   const adminView =  
   <aside className="menu is-one-quarter">
     <ul>
@@ -37,16 +34,13 @@ export default function MenuList(props) {
 
 
     <li className="menu-list"><AuthenticationButton /></li>
-      <ul>
-        <li className="menu-label"><a >Welcome Admin</a></li>
         <ul>
           <li className="menu-list"><Link to="/today">Today at Glance</Link></li>
           <li className="menu-list"><Link to="/workorders/create">Create Work Orders</Link></li>
           <li className="menu-list"><Link to="/workorders">Work Orders</Link></li>
           <li className="menu-list"><a>Inventories</a></li>
           <li className="menu-list"><a>Summary</a></li>
-        </ul>
-      </ul>
+       </ul>
     </ul>
     </aside>;
 
