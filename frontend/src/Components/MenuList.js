@@ -43,6 +43,7 @@ export default function MenuList(props) {
           <li className="menu-list"><Link to="/today">Today at Glance</Link></li>
           <li className="menu-list"><Link to="/workorders/create">Create Work Orders</Link></li>
           <li className="menu-list"><Link to="/workorders">Work Orders</Link></li>
+          <li className="menu-list"><Link to="/inventory/create">Create Inventories</Link></li>
           <li className="menu-list"><Link to="/inventory">Inventories</Link></li>
           <li className="menu-list"><a>Summary</a></li>
         </ul>
