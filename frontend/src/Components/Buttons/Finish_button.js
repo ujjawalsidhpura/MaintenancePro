@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Finish_button = function(props){
-  console.log("start button props", props);
   return(
     <Link 
     to="/finish-confirmation"   

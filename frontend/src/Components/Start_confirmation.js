@@ -3,8 +3,7 @@ import Cancel_button from "./Buttons/Cancel_button";
 import axios from "axios";
 import { useLocation } from 'react-router-dom'
 
-export default function Start_confirmation(props){
-  console.log(useLocation());
+export default function Start_confirmation(){
   const location = useLocation()
   const id = location.state?.id
 

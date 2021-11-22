@@ -10,11 +10,6 @@ export default function WorkOrderItems(props) {
 	for (let photo in props.photos) {
 		props.photos[photo] && parsedPhotos.push(<img key={photo} src={props.photos[photo].path}/>)
 	}
-	// const parsedPhotos = props.photos && props.photos.map(photo => console.log(photo))
-
-
-
-
 
   return (
     <div className="card workorder-item">
@@ -31,13 +26,7 @@ export default function WorkOrderItems(props) {
 					<h2>Technician</h2>
 					<h2>{props.technician}</h2>
 				</div>
-        {/* <Routes>
-          <Route path="/start-confirmation" element={<Start_confirmation id={props._id}/>} /> 
-        </Routes> */}
-    
-        {/* <Routes>
-        <Route path="/start-confirmation" element={<Start_confirmation id={props._id}/>} /> 
-        </Routes> */}
+
         {isAuthenticated && user.email !== 'ujay@gmail.com' 
         && !props.time_completed && props.time_started && <Finish_button id={props._id}/>
         }

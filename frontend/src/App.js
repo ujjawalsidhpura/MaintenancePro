@@ -32,7 +32,7 @@ function App(props) {
           ...prev, workorder: [...workorder], inventory: [...inventory]
         }))
       })
-  }, [])
+  }, [state])
 
 
   return (
