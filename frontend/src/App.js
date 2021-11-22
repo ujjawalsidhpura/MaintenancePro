@@ -13,21 +13,24 @@ function App() {
 
   const [state, setState] = useState({
     workorder: [],
-    inventory: []
+    inventory: [],
+    today: []
   })
 
   useEffect(() => {
     Promise.all(
       [
         axios.get('/workorder'),
-        axios.get('/inventory')
+        axios.get('/inventory'),
+        axios.get('/today')
       ]
     )
       .then((all) => {
         const workorder = all[0].data
         const inventory = all[1].data
+        const today = all[2].data
         setState(prev => ({
-          ...prev, workorder: [...workorder], inventory: [...inventory]
+          ...prev, workorder: [...workorder], inventory: [...inventory], today: [...today]
         }))
       })
   }, [])
@@ -41,7 +44,7 @@ function App() {
 
         </div>
         <div class="column ">
-          <Container workorder={state.workorder} inventory={state.inventory} />
+          <Container workorder={state.workorder} inventory={state.inventory} today={state.today} />
           <button onClick={tester} > Test </button>
         </div>
       </div>
