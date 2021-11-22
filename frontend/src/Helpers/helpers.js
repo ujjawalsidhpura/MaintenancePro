@@ -1,10 +1,12 @@
 import axios from "axios";
 
+
 const tester = () => {
 
-
   // const data = {
-  //   from_date: '2021-03-16'
+  //   tech_name: 'ujjawal',
+  //   from_date: '2021-03-16',
+  //   to_date: '2021-11-21'
   // }
 
   // axios.post('/workorder/filter', data,
@@ -127,7 +129,7 @@ const tester = () => {
 
 
   // const start_clicked = {
-  //   workorder_id: "6197eb5064b055638b16cdd9"
+  //   workorder_id: "6199166d95fe88a6ce12aa77"
   // }
   // axios.post('/workorder/started',
   //   start_clicked,
@@ -140,7 +142,7 @@ const tester = () => {
 
 
   // const completed_click = {
-  //   workorder_id: "6197eb5064b055638b16cdd9"
+  //   workorder_id: "6199166d95fe88a6ce12aa77"
   // }
   // axios.post('/workorder/completed',
   //   completed_click,
