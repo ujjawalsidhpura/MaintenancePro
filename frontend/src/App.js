@@ -33,7 +33,7 @@ function App() {
           ...prev, workorder: [...workorder], inventory: [...inventory], today: [...today]
         }))
       })
-  }, [])
+  }, [state])
 
 
   return (
