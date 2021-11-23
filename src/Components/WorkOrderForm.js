@@ -4,6 +4,7 @@ import { useDropzone } from 'react-dropzone';
 import { Navigate } from "react-router-dom";
 
 export default function WorkOrderForm(props) {
+	const { setApplicationData, inventory, today } = props
   const [state, setState] = useState({
     title: "",
     technician: "",
@@ -39,7 +40,14 @@ export default function WorkOrderForm(props) {
     axios.post('/workorder', workorder,
       { headers: { "Content-Type": "application/json" } })
       .then((res) => {
-        setSubmit(true)
+				axios.get('/workorder')
+					.then((res) => {
+						setApplicationData(prev => ({
+							...prev, workorder: [...res.data], inventory: [...inventory], today: [...today]
+						}))
+						setSubmit(true)
+					})
+        
       })
       .catch((e) => console.log(e))
   }

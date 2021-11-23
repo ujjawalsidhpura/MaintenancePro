@@ -10,6 +10,7 @@ import InventoryContainer from './InventoryContainer';
 import InventoryForm from "./InventoryForm";
 
 export default function Container(props) {
+	const { inventory, today, workorder, setApplicationData } = props
   const { isAuthenticated } = useAuth0();
 
   return (
@@ -19,13 +20,13 @@ export default function Container(props) {
       
       {!isAuthenticated && <img id="landing-image" src="https://www.barrierbeachmanagement.com/wp-content/uploads/2014/12/buildingmanagement.jpg"></img>}
 				<Routes>
-					<Route path="/workorders" element={<WorkOrderContainer workorder={props.workorder}/>} />
-					<Route path="/workorders/create" element={<WorkOrderForm/>} />
+					<Route path="/workorders" element={<WorkOrderContainer workorder={workorder}/>} />
+					<Route path="/workorders/create" element={<WorkOrderForm setApplicationData={setApplicationData} today={today} inventory={inventory}/>} />
           <Route path="/start-confirmation" element={<Start_confirmation/>} /> 
           <Route path="/finish-confirmation" element={<Finish_confirmation/>} /> 
-          <Route path="/today" element={<Today today={props.today} />} />
-          <Route path="/inventory" element={<InventoryContainer inventory={props.inventory} />} />
-          <Route path="/inventory/create" element={<InventoryForm inventory={props.inventory} />} />
+          <Route path="/today" element={<Today today={today} />} />
+          <Route path="/inventory" element={<InventoryContainer inventory={inventory} />} />
+          <Route path="/inventory/create" element={<InventoryForm inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
 				</Routes>
     </div>
   )

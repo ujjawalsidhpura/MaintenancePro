@@ -10,8 +10,7 @@ import tester from './Helpers/helpers';
 // <button onClick={tester} > Test </button> 
 
 function App(props) {
-  console.log("App props", props);
-  const [state, setState] = useState({
+  const [applicationData, setApplicationData] = useState({
     workorder: [],
     inventory: [],
     today: []
@@ -29,7 +28,7 @@ function App(props) {
         const workorder = all[0].data
         const inventory = all[1].data
         const today = all[2].data
-        setState(prev => ({
+        setApplicationData(prev => ({
           ...prev, workorder: [...workorder], inventory: [...inventory], today: [...today]
         }))
       })
@@ -44,7 +43,12 @@ function App(props) {
 
         </div>
         <div class="column ">
-          <Container workorder={state.workorder} inventory={state.inventory} today={state.today} />
+          <Container 
+						workorder={applicationData.workorder} 
+						inventory={applicationData.inventory} 
+						today={applicationData.today}
+						setApplicationData={setApplicationData}
+					/>
         </div>
       </div>
     </div>

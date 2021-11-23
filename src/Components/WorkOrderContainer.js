@@ -65,10 +65,7 @@ export default function WorkOrderContainer(props) {
   const parsedWorkOrdersByName = user && parsedWorkOrders.filter(workOrder => 
     workOrder.props.technician === user.name
   )
-  console.log("zsh's workorders", parsedWorkOrdersByName);
   
-
-
   const adminView = 
   <div className="workorder-container">
 			<form className="card workorder-filter" onSubmit={handleSubmit}>

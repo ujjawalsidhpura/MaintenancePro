@@ -23,7 +23,8 @@ export default function MenuList(props) {
        <li className="menu-list"><AuthenticationButton /></li>
       </ul>
     </ul>
-    </aside>
+  </aside>
+
 
   const adminView =  
   <aside className="menu is-one-quarter">
