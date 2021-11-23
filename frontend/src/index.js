@@ -1,3 +1,5 @@
+// Note: For production, need to go to auth0 tenant setting and change from 
+// development to production.
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

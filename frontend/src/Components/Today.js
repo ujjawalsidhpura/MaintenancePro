@@ -30,7 +30,7 @@ export default function Today(props) {
       return (<h2>{technician} has {workOrderByTechnician(props.today, technician).length} unfinished tasks</h2>)
     }
   );
-  const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#9b59b6', '#e74c3c'];
 
   const dataForPieChart = technicianArray.map(technician =>
     { if (technician !== null) {
@@ -43,7 +43,7 @@ export default function Today(props) {
     }
   );
   const RADIAN = Math.PI / 180;
-
+  console.log(process.env.REACT_APP_ADMIN_EMAIL);
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);

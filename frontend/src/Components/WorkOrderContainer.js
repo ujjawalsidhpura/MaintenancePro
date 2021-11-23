@@ -126,6 +126,6 @@ export default function WorkOrderContainer(props) {
   </div>;
 
   return (
-    (user && user.email === "ujay@gmail.com") ? adminView : technicianView
+    (user && user.email === "admin@gmail.com") ? adminView : technicianView
   )
 }

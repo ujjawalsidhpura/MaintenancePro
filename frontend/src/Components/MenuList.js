@@ -60,8 +60,8 @@ export default function MenuList(props) {
     </aside>;
 
   return (
-     (user && user.email === 'ujay@gmail.com') ? adminView :
-     (user && user.email !== 'ujay@gmail.com') ? technicianView :
+     (user && user.email === 'admin@gmail.com') ? adminView :
+     (user && user.email !== 'admin@gmail.com') ? technicianView :
      LogInView
   )
 }
