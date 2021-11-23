@@ -14,7 +14,7 @@ export default function MenuList(props) {
 
   const LogInView = 
 
-  <aside className="menu is-one-quarter">
+  <aside className="menu">
     <ul>
     { isLoading && <li className="menu-label"><a>Loading...</a></li>}
     {(!isAuthenticated && !isLoading) && <li className="menu-label"><a>Please Log IN</a></li>}
@@ -27,7 +27,7 @@ export default function MenuList(props) {
 
 
   const adminView =  
-  <aside className="menu is-one-quarter">
+  <aside className="menu">
     <ul>
     { isLoading && <li className="menu-label"><a>Loading...</a></li>}
     {(!isAuthenticated && !isLoading) && <li className="menu-label"><a>Please Log IN</a></li>}

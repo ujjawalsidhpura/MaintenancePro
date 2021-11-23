@@ -12,35 +12,31 @@ export default function WorkOrderItems(props) {
 
   return (
     <div className="card workorder-item">
-			<div>
+			<div className="workorder-field">
 				<h2>{props.title}</h2>
 			</div>
-			<div class="workorder-content">
-				<p>{props.description}</p>
-				{/* {parsedPhotos} */}
-				{/* <div>{props.files}</div> */}
+			<div className="workorder-field">
+				<h2>{props.technician}</h2>
 			</div>
-			<div className="workorder-item-footer">
-				<div>
-					<h2>Technician</h2>
-					<h2>{props.technician}</h2>
-				</div>
-
-        {isAuthenticated && user.email !== 'admin@gmail.com' 
-        && !props.time_completed && props.time_started && <Finish_button id={props._id}/>
-        }
-        {isAuthenticated && user.email !== 'admin@gmail.com' 
-        && !props.time_completed && !props.time_started &&  <Start_button id={props._id}/>
-        }
-        {props.duration && <p>{(props.duration/1000/60).toFixed(2)} Mins</p>} 
-				<div>
-					<h2>Work Order Created:</h2>
-					<h2>{props.created_on}</h2>
-					{props.time_completed ? <h2>Finished</h2> :
-           props.time_started ? <h2>Ongoing</h2> :
-           <h2>Pending</h2>
-          }
-				</div>
+			<div className="workorder-field">
+				<p>{props.description}</p>
+			</div>
+		
+      {isAuthenticated && user.email !== 'admin@gmail.com' 
+      && !props.time_completed && props.time_started && <Finish_button id={props._id}/>
+      }
+      {isAuthenticated && user.email !== 'admin@gmail.com' 
+      && !props.time_completed && !props.time_started &&  <Start_button id={props._id}/>
+      }
+      {props.duration && <p>{(props.duration/1000/60).toFixed(2)} Mins</p>} 
+			<div className="workorder-field">
+				<h2>{props.created_on}</h2>	
+			</div>
+			<div className="workorder-field">
+				{props.time_completed ? <span class="tag is-success">Finished</span>:
+    		 props.time_started ? <span class="tag is-info">Ongoing</span>:
+    		 <span class="tag is-warning">Pending</span>
+    		}
 			</div>
     </div>
   )

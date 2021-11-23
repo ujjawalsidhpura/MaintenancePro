@@ -37,12 +37,12 @@ function App(props) {
 
   return (
     <div className="App">
-      <div class="columns">
-        <div class="column is-one-quarter">
+      <div>
+        <div className="side-bar">
           <MenuList />
 
         </div>
-        <div class="column ">
+        <div>
           <Container 
 						workorder={applicationData.workorder} 
 						inventory={applicationData.inventory} 

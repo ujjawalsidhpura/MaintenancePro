@@ -67,54 +67,66 @@ export default function WorkOrderContainer(props) {
   )
   
   const adminView = 
-  <div className="workorder-container">
-			<form className="card workorder-filter" onSubmit={handleSubmit}>
-				<div>
-					<h2>Filter Workorders</h2>
-				</div>
-				<div>
-					<label className="label">Technician name:</label>
+	<>
+		<form className="card workorder-filter" onSubmit={handleSubmit}>
+			<h2 className="title">Work Orders</h2>
+			<div>
+				<h2><strong>Filters</strong></h2>
+			</div>
+			<div className="filters">
+				<div className="filter-input">
 					<input 
-						class="input" 
-						type="text" placeholder="Text input" 
-						value={state.tech_name}
-	    	    onChange={(event) => changeState("tech_name", event.target.value)}
-					/>
-				</div>
-				<div>
-					<label className="label">WorkOrder Title:</label>
-					<input 
-						class="input" 
-						type="text" placeholder="Text input" 
+						className="input" 
+						type="text" 
+						placeholder="WorkOrder Title" 
 						value={state.title}
 	    	    onChange={(event) => changeState("title", event.target.value)}
 					/>
 				</div>
-				<div>
-	    	  <label className="label">Date</label>
+				<div className="filter-input">
+					<input 
+						className="input" 
+						type="text" placeholder="Technician name" 
+						value={state.tech_name}
+	    	    onChange={(event) => changeState("tech_name", event.target.value)}
+					/>
+				</div>
+				<div className="filter-input">
 					<div className="date-picker">
-						<div>
-							<label className="label">After this date</label>
+						<div className="from-to">
+							<label className="date-label">From</label>
 							<input
 								type="date"
 								value={state.from_date}
+								className="date-input"
 								onChange={(event) => changeState("from_date", event.target.value)}
 							></input>
 						</div>
-						<div>
-							<label className="label">Before this date</label>
+						<div className="from-to">
+							<label className="date-label">To</label>
 							<input
 								type="date"
 								value={state.to_date}
+								className="date-input"
 								onChange={(event) => changeState("to_date", event.target.value)}
 							></input>
 						</div>
 					</div>
 	    	</div>
-			</form>
-			<h1>Work Orders</h1>
+			</div>
+		</form>
+		<div className="card workorder-labels">
+			<span>Title</span>
+			<span>Technician</span>
+			<span>Description</span>
+			<span>Created</span>
+			<span>Status</span>
+		</div>
+  	<div className="workorder-container">
+			
 			{validState()? parsedWorkOrdersByQuery: parsedWorkOrders}
     </div>
+	</>
 
   const technicianView =
   <div className="workorder-container">
