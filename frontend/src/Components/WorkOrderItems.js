@@ -26,10 +26,10 @@ export default function WorkOrderItems(props) {
 					<h2>{props.technician}</h2>
 				</div>
 
-        {isAuthenticated && user.email !== 'ujay@gmail.com' 
+        {isAuthenticated && user.email !== 'admin@gmail.com' 
         && !props.time_completed && props.time_started && <Finish_button id={props._id}/>
         }
-        {isAuthenticated && user.email !== 'ujay@gmail.com' 
+        {isAuthenticated && user.email !== 'admin@gmail.com' 
         && !props.time_completed && !props.time_started &&  <Start_button id={props._id}/>
         }
         {props.duration && <p>{(props.duration/1000/60).toFixed(2)} Mins</p>} 
