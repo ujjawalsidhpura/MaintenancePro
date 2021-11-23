@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Clone using ssh",
   "main": "app.js",
-  "scripts": {
-    "start": "node ./backend/app.js"
-  },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ujjawalsidhpura/MaintenancePro.git"
