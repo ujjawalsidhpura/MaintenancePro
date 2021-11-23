@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Navigate } from "react-router-dom";
 
 export default function InventoryForm(props) {
+	const { setApplicationData, workorder, today } = props
   const [state, setState] = useState({
     category: "",
     item: "",
@@ -23,7 +24,13 @@ export default function InventoryForm(props) {
     axios.post('/inventory', inventory,
       { headers: { "Content-Type": "application/json" } })
       .then((res) => {
-        setSubmit(true)
+				axios.get('/inventory')
+					.then((res) => {
+						setApplicationData(prev => ({
+							...prev, workorder: [...workorder], inventory: [...res.data], today: [...today]
+						}))
+						setSubmit(true)
+					})
       })
       .catch((e) => console.log(e))
   }

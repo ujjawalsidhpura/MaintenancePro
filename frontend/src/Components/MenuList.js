@@ -10,7 +10,7 @@ export default function MenuList(props) {
   const { user } = useAuth0();
   const { isAuthenticated, isLoading } = useAuth0();
   const [email, setEmail] = useState('');
-  console.log(useAuth0());
+
   user && !email && setEmail(user.email)
 
   const LogInView = 
@@ -24,9 +24,9 @@ export default function MenuList(props) {
        <li className="menu-list"><AuthenticationButton /></li>
       </ul>
     </ul>
-    </aside>
+  </aside>
 
-  if (user) console.log(user);
+
 
   const adminView =  
   <aside className="menu is-one-quarter">
