@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react"
+import { useState } from "react"
 import axios from 'axios'
 import { Navigate } from "react-router-dom";
 
@@ -11,7 +11,6 @@ export default function InventoryForm(props) {
   })
 
   const [submit, setSubmit] = useState(false)
-
 
   const handleSubmit = (event) => {
 
@@ -34,7 +33,6 @@ export default function InventoryForm(props) {
 
   return (
     <>
-
       {submit && <Navigate to="/inventory" />}
 
       {!submit &&
@@ -69,14 +67,14 @@ export default function InventoryForm(props) {
             <input
               class="input"
               type="text"
-							placeholder="Price"
-							pattern="[0-9]*"
+              placeholder="Price"
+              pattern="[0-9]*"
               value={state.price_item}
               onChange={(event) => {
-								if (!isNaN(event.target.value)) {
-									changeState("price_item", Number(event.target.value))
-								}
-							}}
+                if (!isNaN(event.target.value)) {
+                  changeState("price_item", Number(event.target.value))
+                }
+              }}
             />
           </div>
 
@@ -88,17 +86,16 @@ export default function InventoryForm(props) {
               placeholder="Quantity"
               value={state.quantity}
               onChange={(event) => {
-								if (!isNaN(event.target.value)) {
-									changeState("quantity", Number(event.target.value))
-								}
-							}}
+                if (!isNaN(event.target.value)) {
+                  changeState("quantity", Number(event.target.value))
+                }
+              }}
             />
           </div>
 
           <button className="button is-link" type="submit">Submit</button>
         </form>
       }
-
     </>
   )
 }

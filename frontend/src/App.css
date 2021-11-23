@@ -3,7 +3,7 @@
 }
 
 .menu {
-	/* position: fixed; */
+ /* position: fixed; */
  background-color: hsl(217, 71%, 53%);
  color: white;
  min-height: 75vh;
@@ -13,80 +13,75 @@
  background-color: hsl(0, 0%, 96%);
 }
 
-.menu-list{
-  color: white;
-  margin-top: 5em;
+.menu-list {
+ color: white;
+ margin-top: 5em;
 }
 
-
-.menu-label > a{
-  color: white;
-  font-size: 25px;
+.menu-label > a {
+ color: white;
+ font-size: 25px;
 }
 
-.menu-list > a{
-  /* color: white; */
-  color: blue;
+.menu-list > a {
+ /* color: white; */
+ color: blue;
 }
 
 #landing-image {
-  margin-top: 2em;
+ margin-top: 2em;
 }
 
 #admin-avatar {
-  max-width: 100px;
+ max-width: 100px;
 }
 
 .workorder-form {
-	width: 50%;
-	padding: 2em;
+ width: 50%;
+ padding: 2em;
 }
 
 .container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
 }
 
 .workorder-item {
-	margin-bottom: 1.5em;
-	padding: 1.5em;
-	width: 60vw;
+ margin-bottom: 1.5em;
+ padding: 1.5em;
+ width: 60vw;
 }
 
 .workorder-item-footer {
-	display: flex;
-	justify-content: space-between;
+ display: flex;
+ justify-content: space-between;
 }
 
 .workorder-content {
-	padding: 1.5em;
-	max-width: 60%;
-	margin: auto;
+ padding: 1.5em;
+ max-width: 60%;
+ margin: auto;
 }
 
 .file-container {
-	color: black;
-	background-color: cornflowerblue;
+ color: black;
+ background-color: cornflowerblue;
 }
-.workorder-filter{
-	/* position: fixed; */
-	z-index: 5;
-	width: 60vw;
-	padding: 3em;
-	margin-bottom: 2em;
+.workorder-filter {
+ /* position: fixed; */
+ z-index: 5;
+ width: 60vw;
+ padding: 3em;
+ margin-bottom: 2em;
 }
 
 .date-picker {
-	display: flex;
-	justify-content: space-around;
+ display: flex;
+ justify-content: space-around;
 }
 
 .new-menu-list {
-	display: flex;
-	justify-content: center;
+ display: flex;
+ justify-content: center;
 }
-
-/* .add {
-
-} */
