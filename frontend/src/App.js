@@ -6,9 +6,6 @@ import MenuList from './Components/MenuList';
 import Container from './Components/Container';
 import tester from './Helpers/helpers';
 
-
-// <button onClick={tester} > Test </button> 
-
 function App(props) {
   console.log("App props", props);
   const [state, setState] = useState({
@@ -41,11 +38,9 @@ function App(props) {
       <div class="columns">
         <div class="column is-one-quarter">
           <MenuList />
-
         </div>
         <div class="column ">
           <Container workorder={state.workorder} inventory={state.inventory} today={state.today} />
-          <button onClick={tester} > Test </button>
         </div>
       </div>
     </div>
