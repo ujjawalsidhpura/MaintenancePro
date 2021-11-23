@@ -1,5 +1,5 @@
 //Mongo Connection credentials
-const CONNECTION_URL = process.env.MONGODB_URI
+const CONNECTION_URL = process.env.CONNECTION_URL
 const DATABASE_NAME = process.env.DATABASE_NAME
 
 const MongoClient = require('mongodb').MongoClient;
