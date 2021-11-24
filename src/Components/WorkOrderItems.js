@@ -22,15 +22,19 @@ export default function WorkOrderItems(props) {
 				<p>{props.description}</p>
 			</div>
 		
-      {isAuthenticated && user.email !== 'admin@gmail.com' 
-      && !props.time_completed && props.time_started && <Finish_button id={props._id}/>
-      }
-      {isAuthenticated && user.email !== 'admin@gmail.com' 
-      && !props.time_completed && !props.time_started &&  <Start_button id={props._id}/>
-      }
-      {props.duration && <p>{(props.duration/1000/60).toFixed(2)} Mins</p>} 
+      
 			<div className="workorder-field">
-				<h2>{props.created_on}</h2>	
+				<h2>{props.created_on.slice(0, 10)}</h2>	
+			</div>
+			
+			<div className="workorder-field">
+				{isAuthenticated && user.email !== 'admin@gmail.com' 
+      	&& !props.time_completed && props.time_started && <Finish_button id={props._id}/>
+      	}
+      	{isAuthenticated && user.email !== 'admin@gmail.com' 
+      	&& !props.time_completed && !props.time_started &&  <Start_button id={props._id}/>
+      	}
+      	{props.duration && <p>{(props.duration/1000/60).toFixed(2)} mins</p>} 
 			</div>
 			<div className="workorder-field">
 				{props.time_completed ? <span class="tag is-success">Finished</span>:

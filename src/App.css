@@ -14,7 +14,7 @@ html{
 	flex-direction: column;
 	align-items: center;
 	background-color: hsl(0, 0%, 96%);
-	margin-left: 18em;
+	margin-left: 15vw;
 }
  
 .title {
@@ -23,20 +23,21 @@ html{
 
 hr {
 	margin: 0;
+	width: 11.5vw;
+	margin-left: 1.5vw;
 }
 
 
 /* Menu sidebar css */
 
 .menu {
- /* position: fixed; */
+ position: fixed;
  background-color: hsl(217, 71%, 53%);
  color: white;
  min-height: 75vh;
  height: 100vh;
- width: 20vw;
+ width: 15vw;
  text-align: center;
- position: fixed;
  z-index: 6;
 }
 
@@ -101,7 +102,7 @@ hr {
 	display: flex;
 	flex-direction: column;
 	z-index: 5;
-	width: 79vw;
+	width: 85vw;
 	padding: 2em;
 	/* margin-bottom: 2em; */
 	right: 0;
@@ -142,33 +143,40 @@ hr {
 	display: flex;
 	justify-content: space-between;
 	margin-top: 11em;
-	background-color: lightgray;
+	background-color: rgb(235, 233, 233);
 	z-index: 5;
-	width: 79vw;
+	width: 85vw;
 	margin-bottom: 2em;
 	right: 0;
-	padding: 0 4em;
+	padding: 0 6em;
 	text-align: center;
-	color: black;
+	box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.07);
+}
+
+.workorder-labels > span > strong {
+	color: rgb(113, 110, 110);
+	
 }
 
 .workorder-item {
  display: flex;
- margin-bottom: 0.5em;
- padding: 1em 0;
- width: 79vw;
- border-radius: 10px;
+ padding: 1em 1em;
+ width: 85vw;
+ border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
+ /* border-radius: 5px; */
+ box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.25);
 }
 
 .workorder-field {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 20vw;
+	width: 15vw;
+	text-align: center;
 }
 
 .workorder-container {
-	margin-top: 13em;
+	margin-top: 12.5em;
 }
 
 .file-container {
@@ -182,23 +190,26 @@ hr {
 	display: flex;
 	flex-direction: column;
 	z-index: 5;
-	width: 79vw;
+	width: 85vw;
 	padding: 2em;
 	/* margin-bottom: 2em; */
 	right: 0;
-	top: 0;
+	/* top: 0; */
 }
 
 .inventory-container {
-	margin-top: 13em;
+	margin-top: 12.5em;
 }
 
 .inventory-item {
 	display: flex;
-	margin-bottom: 0.5em;
+	/* margin-bottom: 0.5em; */
 	padding: 1em 0;
-	width: 79vw;
-	border-radius: 10px;
+	justify-content: space-between;
+	width: 85vw;
+	/* border-radius: 10px; */
+	border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
+	box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.25);
 }
 
 .inventory-labels {
@@ -206,14 +217,20 @@ hr {
 	display: flex;
 	justify-content: space-between;
 	margin-top: 11em;
-	background-color: lightgray;
+	background-color: rgb(235, 233, 233);
 	z-index: 5;
-	width: 79vw;
+	width: 85vw;
 	margin-bottom: 2em;
 	right: 0;
 	padding: 0 7em;
 	text-align: center;
 	color: black;
+	box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.07);
+}
+
+.inventory-labels > span > strong {
+	color: rgb(113, 110, 110);
+	
 }
 
 .inventory-field {

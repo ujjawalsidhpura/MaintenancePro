@@ -120,6 +120,7 @@ export default function WorkOrderContainer(props) {
 			<span><strong>Technician</strong></span>
 			<span><strong>Description</strong></span>
 			<span><strong>Created</strong></span>
+			<span><strong>Duration</strong></span>
 			<span><strong>Status</strong></span>
 		</div>
   	<div className="workorder-container">
