@@ -98,7 +98,7 @@ export default function WorkOrderContainer(props) {
 							<input
 								type="date"
 								value={state.from_date}
-								className="date-input"
+								className="input"
 								onChange={(event) => changeState("from_date", event.target.value)}
 							></input>
 						</div>
@@ -107,7 +107,7 @@ export default function WorkOrderContainer(props) {
 							<input
 								type="date"
 								value={state.to_date}
-								className="date-input"
+								className="input"
 								onChange={(event) => changeState("to_date", event.target.value)}
 							></input>
 						</div>

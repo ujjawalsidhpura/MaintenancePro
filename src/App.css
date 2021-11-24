@@ -9,13 +9,13 @@ html{
 
 }
 
-.container {
+/* .container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	background-color: hsl(0, 0%, 96%);
 	margin-left: 15vw;
-}
+} */
  
 .title {
 	font-size: 2em;
@@ -24,6 +24,13 @@ html{
 hr {
 	margin: 0;
 	width: 11.5vw;
+	margin-left: 1.5vw;
+}
+
+.filter-line {
+	background-color: blue;
+	margin: 0;
+	/* width: 11.5vw; */
 	margin-left: 1.5vw;
 }
 
@@ -39,6 +46,7 @@ hr {
  width: 15vw;
  text-align: center;
  z-index: 6;
+ top: 0;
 }
 
 .menu-list {
@@ -80,7 +88,7 @@ hr {
 	align-items: center;
 	justify-content: center;
 	/* margin-top: 1em; */
-	padding: 1.3em;
+	padding: 1.2em;
 }
 
 .new-menu-list {
@@ -91,9 +99,40 @@ hr {
 /* Workorder form */
 
 .workorder-form {
- width: 50%;
- padding: 2em;
+	display: flex;
+	justify-content: space-between;
+	height: 100vh;
+ 	padding: 2em 4em;
+ 	margin-left: 15vw;
 }
+
+.form-content {
+	width: 40%;
+}
+
+.form-image {
+	width: 50%;
+	margin-right: 5%;
+}
+
+.form-image > img {
+	/* height: 30em; */
+	width: 100%;
+}
+
+.select {
+	width: 100%;
+}
+
+select {
+	width: 100%;
+}
+
+.submit {
+	margin-top: 1em;
+	width: 100%;
+}
+
 
 /* workorder items */
 
@@ -104,8 +143,8 @@ hr {
 	z-index: 5;
 	width: 85vw;
 	padding: 2em;
-	/* margin-bottom: 2em; */
 	right: 0;
+	top: 0;
 }
 
 .filters{
@@ -119,7 +158,7 @@ hr {
 
 .from-to {
 	display: flex;
-	padding-right: 0.5em;
+	padding-right: 0.2em;
 	align-items: center;
 }
 
@@ -129,24 +168,19 @@ hr {
 	font-size: 3em; 
 }
 
-.date-input {
-	height: 3em;
-}
-
 .date-label {
 	font-size: 0.4em;
-	padding-right: 0.5em;
+	padding-right: 0.2em;
 }
 
 .workorder-labels {
 	position: fixed;
 	display: flex;
 	justify-content: space-between;
-	margin-top: 11em;
+	margin-top: -1em;
 	background-color: rgb(235, 233, 233);
 	z-index: 5;
 	width: 85vw;
-	margin-bottom: 2em;
 	right: 0;
 	padding: 0 6em;
 	text-align: center;
@@ -177,6 +211,7 @@ hr {
 
 .workorder-container {
 	margin-top: 12.5em;
+	margin-left: 15vw;
 }
 
 .file-container {
@@ -194,11 +229,12 @@ hr {
 	padding: 2em;
 	/* margin-bottom: 2em; */
 	right: 0;
-	/* top: 0; */
+	top: 0;
 }
 
 .inventory-container {
 	margin-top: 12.5em;
+	margin-left: 15vw;
 }
 
 .inventory-item {
@@ -216,7 +252,7 @@ hr {
 	position: fixed;
 	display: flex;
 	justify-content: space-between;
-	margin-top: 11em;
+	margin-top: -1em;
 	background-color: rgb(235, 233, 233);
 	z-index: 5;
 	width: 85vw;

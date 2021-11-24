@@ -14,7 +14,7 @@ export default function Container(props) {
   const { isAuthenticated } = useAuth0();
 
   return (
-    <div className="container">
+    <div>
 			{/* <WorkOrderContainer workorder={props.workorder}/> */}
       {/* {isAuthenticated && <Profile/>} */}
       
