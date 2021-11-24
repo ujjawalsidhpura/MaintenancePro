@@ -37,20 +37,13 @@ function App(props) {
 
   return (
     <div className="App">
-      <div>
-        <div className="side-bar">
-          <MenuList />
-
-        </div>
-        <div>
-          <Container 
-						workorder={applicationData.workorder} 
-						inventory={applicationData.inventory} 
-						today={applicationData.today}
-						setApplicationData={setApplicationData}
-					/>
-        </div>
-      </div>
+      <MenuList />
+      <Container 
+				workorder={applicationData.workorder} 
+				inventory={applicationData.inventory} 
+				today={applicationData.today}
+				setApplicationData={setApplicationData}
+			/>
     </div>
   )
 }

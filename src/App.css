@@ -3,9 +3,28 @@ html{
 	box-sizing: border-box;
 }
 
+/* General css */
+
 .App {
 
 }
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: hsl(0, 0%, 96%);
+	margin-left: 18em;
+}
+ 
+.title {
+	font-size: 2em;
+}
+
+hr {
+	margin: 0;
+}
+
 
 /* Menu sidebar css */
 
@@ -16,7 +35,9 @@ html{
  min-height: 75vh;
  height: 100vh;
  width: 20vw;
-text-align: center;
+ text-align: center;
+ position: fixed;
+ z-index: 6;
 }
 
 .menu-list {
@@ -39,8 +60,26 @@ text-align: center;
  margin-top: 2em;
 }
 
-#admin-avatar {
+/* #admin-avatar > img {
  max-width: 100px;
+} */
+
+.profile {
+	border-radius: 70%;
+	height: 4em;
+	margin-right: 0.5em;
+	border: solid white;
+}
+.profile-name {
+	color: white;
+}
+
+.menu-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* margin-top: 1em; */
+	padding: 1.3em;
 }
 
 .new-menu-list {
@@ -48,10 +87,6 @@ text-align: center;
 	justify-content: center;
 }
 
-.side-bar {
-	position: fixed;
-	z-index: 67;
-}
 /* Workorder form */
 
 .workorder-form {
@@ -66,7 +101,7 @@ text-align: center;
 	display: flex;
 	flex-direction: column;
 	z-index: 5;
-	width: 80vw;
+	width: 79vw;
 	padding: 2em;
 	/* margin-bottom: 2em; */
 	right: 0;
@@ -84,20 +119,21 @@ text-align: center;
 .from-to {
 	display: flex;
 	padding-right: 0.5em;
+	align-items: center;
 }
 
 .date-picker {
 	display: flex;
 	justify-content: space-between;
 	font-size: 3em; 
- }
+}
 
 .date-input {
 	height: 3em;
 }
 
 .date-label {
-	font-size: 0.5em;
+	font-size: 0.4em;
 	padding-right: 0.5em;
 }
 
@@ -105,14 +141,15 @@ text-align: center;
 	position: fixed;
 	display: flex;
 	justify-content: space-between;
-	margin-top: 12em;
+	margin-top: 11em;
 	background-color: lightgray;
 	z-index: 5;
-	width: 80vw;
+	width: 79vw;
 	margin-bottom: 2em;
 	right: 0;
 	padding: 0 4em;
 	text-align: center;
+	color: black;
 }
 
 .workorder-item {
@@ -131,7 +168,7 @@ text-align: center;
 }
 
 .workorder-container {
-	margin-top: 14em;
+	margin-top: 13em;
 }
 
 .file-container {
@@ -139,21 +176,54 @@ text-align: center;
  background-color: cornflowerblue;
 }
 
-
-/* General css */
-
-.container {
+/* Inventory css */
+.inventory-filter {
+	position: fixed;
 	display: flex;
 	flex-direction: column;
+	z-index: 5;
+	width: 79vw;
+	padding: 2em;
+	/* margin-bottom: 2em; */
+	right: 0;
+	top: 0;
+}
+
+.inventory-container {
+	margin-top: 13em;
+}
+
+.inventory-item {
+	display: flex;
+	margin-bottom: 0.5em;
+	padding: 1em 0;
+	width: 79vw;
+	border-radius: 10px;
+}
+
+.inventory-labels {
+	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 11em;
+	background-color: lightgray;
+	z-index: 5;
+	width: 79vw;
+	margin-bottom: 2em;
+	right: 0;
+	padding: 0 7em;
+	text-align: center;
+	color: black;
+}
+
+.inventory-field {
+	display: flex;
 	align-items: center;
-	background-color: hsl(0, 0%, 96%);
-	margin-left: 18em;
- }
- 
- .title {
-	 font-size: 2.5em;
- }
- 
+	width: 20vw;
+	justify-content: center;
+}
 
-
-
+.inventory-filter-input{
+	width: 50%;
+	padding: 0 1em 0 0;
+}

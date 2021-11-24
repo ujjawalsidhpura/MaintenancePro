@@ -116,11 +116,11 @@ export default function WorkOrderContainer(props) {
 			</div>
 		</form>
 		<div className="card workorder-labels">
-			<span>Title</span>
-			<span>Technician</span>
-			<span>Description</span>
-			<span>Created</span>
-			<span>Status</span>
+			<span><strong>Title</strong></span>
+			<span><strong>Technician</strong></span>
+			<span><strong>Description</strong></span>
+			<span><strong>Created</strong></span>
+			<span><strong>Status</strong></span>
 		</div>
   	<div className="workorder-container">
 			

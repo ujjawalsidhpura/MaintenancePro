@@ -43,33 +43,42 @@ export default function WorkOrderContainer(props) {
 	);
 
   return (
-    <div className="workorder-container">
-			<form className="card workorder-filter" onSubmit={handleSubmit}>
+		<>
+			<form className="card inventory-filter" onSubmit={handleSubmit}>
+				<h2 className="title">Inventory</h2>
 				<div>
-					<h2>Filter Workorders</h2>
+					<h2><strong>Filters</strong></h2>
 				</div>
-				<div>
-					<label className="label">Category:</label>
-					<input 
-						class="input" 
-						type="text" placeholder="Text input" 
-						value={state.category}
-	    	    onChange={(event) => changeState("category", event.target.value)}
-					/>
+				<div className="filters">
+					<div className="inventory-filter-input">
+						<input 
+							class="input" 
+							type="text" 
+							placeholder="Category" 
+							value={state.category}
+							onChange={(event) => changeState("category", event.target.value)}
+						/>
+					</div>
+					<div className="inventory-filter-input">
+						<input 
+							class="input" 
+							type="text" 
+							placeholder="Item" 
+							value={state.item}
+							onChange={(event) => changeState("item", event.target.value)}
+						/>
+					</div>
 				</div>
-				<div>
-					<label className="label">Item:</label>
-					<input 
-						class="input" 
-						type="text" placeholder="Text input" 
-						value={state.item}
-	    	    onChange={(event) => changeState("item", event.target.value)}
-					/>
-				</div>
-				
 			</form>
-			<h1>Inventory</h1>
-			{ validState()? parsedInventoryByQuery : parsedInventory }
-    </div>
+			<div className="card inventory-labels">
+				<span><strong>Category</strong></span>
+				<span><strong>Item</strong></span>
+				<span><strong>Price</strong></span>
+				<span><strong>Quantity</strong></span>
+			</div>
+			<div className="inventory-container">
+				{ validState()? parsedInventoryByQuery : parsedInventory }
+			</div>
+		</>
   )
 }
