@@ -15,15 +15,12 @@ export default function Container(props) {
 
   return (
     <div className="container is-three-quarters">
-			{/* <WorkOrderContainer workorder={props.workorder}/> */}
-      {/* {isAuthenticated && <Profile/>} */}
-      
       {!isAuthenticated && <img id="landing-image" src="https://www.barrierbeachmanagement.com/wp-content/uploads/2014/12/buildingmanagement.jpg"></img>}
 				<Routes>
 					<Route path="/workorders" element={<WorkOrderContainer workorder={workorder}/>} />
 					<Route path="/workorders/create" element={<WorkOrderForm setApplicationData={setApplicationData} today={today} inventory={inventory}/>} />
-          <Route path="/start-confirmation" element={<Start_confirmation/>} /> 
-          <Route path="/finish-confirmation" element={<Finish_confirmation/>} /> 
+          <Route path="/start-confirmation" element={<Start_confirmation setApplicationData={setApplicationData} today={today} inventory={inventory}/>} /> 
+          <Route path="/finish-confirmation" element={<Finish_confirmation setApplicationData={setApplicationData} today={today} inventory={inventory}/>} /> 
           <Route path="/today" element={<Today today={today} />} />
           <Route path="/inventory" element={<InventoryContainer inventory={inventory} />} />
           <Route path="/inventory/create" element={<InventoryForm inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
