@@ -45,7 +45,7 @@ export default function MenuList(props) {
 						<li className="menu-list"><Link to="/inventory">Inventories</Link></li>
 						<li className="add menu-list"><Link to="/inventory/create">+</Link></li>
 					</div>
-          <li className="menu-list"><a>Summary</a></li>
+          <li className="menu-list"><Link to="/summary">Summary</Link></li>
        </ul>
     </ul>
     </aside>;

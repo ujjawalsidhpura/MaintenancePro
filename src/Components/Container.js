@@ -8,6 +8,7 @@ import Finish_confirmation from "./Finish_confirmation";
 import Today from './Today';
 import InventoryContainer from './InventoryContainer';
 import InventoryForm from "./InventoryForm";
+import Summary from "./Summary";
 
 export default function Container(props) {
 	const { inventory, today, workorder, setApplicationData } = props
@@ -24,6 +25,7 @@ export default function Container(props) {
           <Route path="/today" element={<Today today={today} />} />
           <Route path="/inventory" element={<InventoryContainer inventory={inventory} />} />
           <Route path="/inventory/create" element={<InventoryForm inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
+          <Route path="/summary" element={<Summary inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
 				</Routes>
     </div>
   )
