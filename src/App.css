@@ -155,7 +155,7 @@ hr {
 .workorder-item {
  display: flex;
  margin-bottom: 0.5em;
- padding: 1.5em;
+ padding: 1em 0;
  width: 79vw;
  border-radius: 10px;
 }
@@ -163,8 +163,8 @@ hr {
 .workorder-field {
 	display: flex;
 	align-items: center;
-	/* justify-content: center; */
-	width: 20%;
+	justify-content: center;
+	width: 20vw;
 }
 
 .workorder-container {
