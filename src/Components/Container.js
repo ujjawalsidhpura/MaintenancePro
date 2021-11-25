@@ -9,6 +9,7 @@ import Today from './Today';
 import InventoryContainer from './InventoryContainer';
 import InventoryForm from "./InventoryForm";
 import Summary from "./Summary";
+import Chat from "./Chat";
 
 export default function Container(props) {
 	const { inventory, today, workorder, setApplicationData } = props
@@ -30,6 +31,7 @@ export default function Container(props) {
           <Route path="/inventory" element={<InventoryContainer inventory={inventory} />} />
           <Route path="/inventory/create" element={<InventoryForm inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
           <Route path="/summary" element={<Summary inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
+          <Route path="/chat" element={<Chat />} />
 				</Routes>
     </div>
   )

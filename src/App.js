@@ -5,7 +5,6 @@ import axios from 'axios'
 import MenuList from './Components/MenuList';
 import Container from './Components/Container';
 
-
 function App(props) {
   const [applicationData, setApplicationData] = useState({
     workorder: [],

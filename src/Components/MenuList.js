@@ -69,6 +69,14 @@ export default function MenuList(props) {
 						</div>
 					</Link>
 				</li>
+        <li className="nav-list">
+					<Link to="/chat">
+						<div>
+							<i class="far fa-list-alt"></i>
+							Chat
+						</div>
+					</Link>
+				</li>
 				<li className="nav-list logout">
 					<AuthenticationButton />
 				</li>
@@ -86,6 +94,14 @@ export default function MenuList(props) {
     <li className="nav-list"><AuthenticationButton /></li>
       <ul>
         <li className="nav-list"><Link to="/workorders">Check my Workorders</Link></li>
+        <li className="nav-list">
+					<Link to="/chat">
+						<div>
+							<i class="far fa-list-alt"></i>
+							Chat
+						</div>
+					</Link>
+				</li>
       </ul>
     </ul>
     </aside>;

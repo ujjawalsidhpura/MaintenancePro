@@ -381,3 +381,9 @@ select {
 	text-align: center;
 	/* padding: 0 1em; */
 }
+
+.chat-container {
+	/* margin-top: 12.5em; */
+	margin-top: 22.5em;
+	margin-left: 15vw;
+}
