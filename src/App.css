@@ -169,7 +169,7 @@ select {
 	display: flex;
 	flex-direction: column;
 	z-index: 5;
-	width: 84vw;
+	width: 85%;
 	padding: 2em;
 	right: 0;
 	top: 0;
@@ -208,7 +208,7 @@ select {
 	margin-top: -1em;
 	background-color: rgb(235, 233, 233);
 	z-index: 5;
-	width: 84vw;
+	width: 85%;
 	right: 0;
 	padding: 0 6em;
 	text-align: center;
@@ -223,7 +223,7 @@ select {
 .workorder-item {
  display: flex;
  padding: 1em 1em;
- width: 84vw;
+ width: 100%;
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
  /* border-radius: 5px; */
  box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.25);
@@ -253,7 +253,7 @@ select {
 	display: flex;
 	flex-direction: column;
 	z-index: 5;
-	width: 84vw;
+	width: 85%;
 	padding: 2em;
 	/* margin-bottom: 2em; */
 	right: 0;
@@ -270,7 +270,7 @@ select {
 	/* margin-bottom: 0.5em; */
 	padding: 1em 0;
 	justify-content: space-between;
-	width: 84vw;
+	width: 100%;
 	/* border-radius: 10px; */
 	border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
 	box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.25);
@@ -283,7 +283,7 @@ select {
 	margin-top: -1em;
 	background-color: rgb(235, 233, 233);
 	z-index: 5;
-	width: 84vw;
+	width: 85%;
 	margin-bottom: 2em;
 	right: 0;
 	padding: 0 7em;
