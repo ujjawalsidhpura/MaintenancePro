@@ -2,9 +2,10 @@ import { useState, useCallback } from "react"
 import axios from 'axios'
 import { useDropzone } from 'react-dropzone';
 import { Navigate } from "react-router-dom";
+import SendMail from "../mail_gun/mailgun"
 
 export default function WorkOrderForm(props) {
-	const { setApplicationData, inventory, today } = props
+  const { setApplicationData, inventory, today } = props
   const [state, setState] = useState({
     title: "",
     technician: "",
@@ -40,16 +41,28 @@ export default function WorkOrderForm(props) {
     axios.post('/workorder', workorder,
       { headers: { "Content-Type": "application/json" } })
       .then((res) => {
-				axios.get('/workorder')
-					.then((res) => {
-						setApplicationData(prev => ({
-							...prev, workorder: [...res.data], inventory: [...inventory], today: [...today]
-						}))
-						setSubmit(true)
-					})
-        
+        axios.get('/workorder')
+          .then((res) => {
+            setApplicationData(prev => ({
+              ...prev, workorder: [...res.data], inventory: [...inventory], today: [...today]
+            }))
+            setSubmit(true)
+          })
+
       })
       .catch((e) => console.log(e))
+
+    /* Testing mail-gun */
+
+    const message = {
+      from: 'Admin <admin@maintenancePro.com>',
+      to: 'vipinchandrasidhpura@gmail.com',
+      subject: 'Testing',
+      text: 'Testing Mailgun'
+    };
+
+    SendMail(message)
+
   }
 
   const ratings = [1, 2, 3, 4, 5]
