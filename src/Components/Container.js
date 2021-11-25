@@ -17,8 +17,11 @@ export default function Container(props) {
     <div>
 			{/* <WorkOrderContainer workorder={props.workorder}/> */}
       {/* {isAuthenticated && <Profile/>} */}
-      
-      {!isAuthenticated && <img id="landing-image" src="https://www.barrierbeachmanagement.com/wp-content/uploads/2014/12/buildingmanagement.jpg"></img>}
+      {!isAuthenticated && 
+      	<div className="cover" >
+					<img id="landing-image" src="https://www.barrierbeachmanagement.com/wp-content/uploads/2014/12/buildingmanagement.jpg"></img>
+				</div>
+			}
 				<Routes>
 					<Route path="/workorders" element={<WorkOrderContainer workorder={workorder}/>} />
 					<Route path="/workorders/create" element={<WorkOrderForm setApplicationData={setApplicationData} today={today} inventory={inventory}/>} />

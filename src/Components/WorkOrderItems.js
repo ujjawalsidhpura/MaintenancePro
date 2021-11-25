@@ -34,7 +34,9 @@ export default function WorkOrderItems(props) {
       	{isAuthenticated && user.email !== 'admin@gmail.com' 
       	&& !props.time_completed && !props.time_started &&  <Start_button id={props._id}/>
       	}
-      	{props.duration && <p>{(props.duration/1000/60).toFixed(2)} mins</p>} 
+      	{props.duration && 
+					<p>{(props.duration/1000/60).toFixed(2)} mins</p>
+				} 
 			</div>
 			<div className="workorder-field">
 				{props.time_completed ? <span class="tag is-success">Finished</span>:

@@ -1,5 +1,6 @@
 import react, {useState } from 'react';
 import AuthenticationButton from './Buttons/Auth-button';
+import logo from '../images/1.png'
 import Profile from './Profile';
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -15,23 +16,22 @@ export default function MenuList(props) {
   const LogInView = 
 
   <aside className="menu">
+		<img className="logo" alt="MaintenancePro" src={logo}/>
     <ul>
     { isLoading && <li className="menu-label"><a>Loading...</a></li>}
-    {(!isAuthenticated && !isLoading) && <li className="menu-label"><a>Please Log IN</a></li>}
+    {/* {(!isAuthenticated && !isLoading) && <li className="menu-label"><a>Please Log IN</a></li>} */}
     {isAuthenticated && <Profile nickname={user.nickname} email={email} picture={user.picture}/>}
-      <ul>
-       <li className="menu-list"><AuthenticationButton /></li>
-      </ul>
+    <li className="nav-list"><AuthenticationButton /></li>
     </ul>
   </aside>
 
 
   const adminView =  
   <aside className="menu">
-		{/* <div class="dropdown is-active">
+		{/* <div class="dropdown ">
 		  <div class="dropdown-trigger">
 		    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
-		      <span>Content</span>
+				{isAuthenticated && <Profile nickname={user.nickname} email={email} picture={user.picture}/>}
 		      <span class="icon is-small">
 		        <i class="fas fa-angle-down" aria-hidden="true"></i>
 		      </span>
@@ -53,26 +53,52 @@ export default function MenuList(props) {
 		    </div>
 		  </div>
 		</div> */}
+		<img className="logo" alt="MaintenancePro" src={logo}/>
     { isLoading && <li className="menu-label"><a>Loading...</a></li>}
     {(!isAuthenticated && !isLoading) && <li className="menu-label"><a>Please Log IN</a></li>}
     {isAuthenticated && <Profile nickname={user.nickname} email={email} picture={user.picture}/>}
 		<hr/>
-    <ul>
-
-    <li className="menu-list"><AuthenticationButton /></li>
-        <ul>
-          <li className="menu-list"><Link to="/today">Today at Glance</Link></li>
-					<div className="new-menu-list">
-						<li className="menu-list"><Link to="/workorders">Work Orders</Link></li>
-						<li className="add menu-list"><Link to="/workorders/create">+</Link></li>
-					</div>
-					<div className="new-menu-list">
-						<li className="menu-list"><Link to="/inventory">Inventories</Link></li>
-						<li className="add menu-list"><Link to="/inventory/create">+</Link></li>
-					</div>
-          <li className="menu-list"><a>Summary</a></li>
-       </ul>
-    </ul>
+    	<ul className="links">
+    	  <li className="nav-list">
+					<Link to="/today">
+						<div>
+							<i class="far fa-eye"></i>
+							Today at Glance
+						</div>
+					</Link>
+				</li>
+				<li className="nav-list">
+					<Link to="/workorders">
+						<div>
+							<i class="far fa-clipboard"></i>
+							Work Orders
+						</div>
+						<Link to="/workorders/create"><span>+</span></Link>
+					</Link>
+					
+				</li>
+				<li className="nav-list">
+					<Link to="/inventory">
+						<div>
+							<i class="fas fa-wrench"></i>
+							Inventories
+						</div>
+						<Link to="/inventory/create"><span>+</span></Link>
+					</Link>
+				</li>
+    	  <li className="nav-list">
+					<Link to="">
+						<div>
+							<i class="far fa-list-alt"></i>
+							Summary
+						</div>
+					</Link>
+				</li>
+				<li className="nav-list logout">
+					<AuthenticationButton />
+				</li>
+    	</ul>
+  
     </aside>;
 
     const technicianView = 
@@ -83,9 +109,9 @@ export default function MenuList(props) {
     {isAuthenticated && <Profile nickname={user.nickname} email={email} picture={user.picture}/>}
 
 
-    <li className="menu-list"><AuthenticationButton /></li>
+    <li className="nav-list"><AuthenticationButton /></li>
       <ul>
-        <li className="menu-list"><Link to="/workorders">Check my Workorders</Link></li>
+        <li className="nav-list"><Link to="/workorders">Check my Workorders</Link></li>
       </ul>
     </ul>
     </aside>;

@@ -1,6 +1,7 @@
 /* Our CSS */
-html{
+html, body{
 	box-sizing: border-box;
+	background-color: white;
 }
 
 /* General css */
@@ -8,14 +9,6 @@ html{
 .App {
 
 }
-
-/* .container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background-color: hsl(0, 0%, 96%);
-	margin-left: 15vw;
-} */
  
 .title {
 	font-size: 2em;
@@ -26,59 +19,95 @@ hr {
 	width: 11.5vw;
 	margin-left: 1.5vw;
 }
-
-.filter-line {
-	background-color: blue;
-	margin: 0;
-	/* width: 11.5vw; */
-	margin-left: 1.5vw;
+.logo {
+	width: 7em;
+	margin-top: 1em;
 }
-
 
 /* Menu sidebar css */
 
 .menu {
- position: fixed;
- background-color: hsl(217, 71%, 53%);
- color: white;
- min-height: 75vh;
- height: 100vh;
- width: 15vw;
- text-align: center;
- z-index: 6;
- top: 0;
+  position: fixed;
+  background-color: hsl(217, 71%, 53%);
+  color: white;
+  min-height: 75vh;
+  height: 100vh;
+  width: 15vw;
+  text-align: center;
+  z-index: 6;
+  top: 0;
 }
 
-.menu-list {
+.nav-list {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
 
- color: white;
- margin-top: 5em;
+  /* margin-top: 5em; */
 }
 
-.menu-label > a {
+/* .menu-label > a {
  color: white;
  font-size: 25px;
+} */
+
+.nav-list > a {
+	color: white;
+  display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 13vw;
+	height: 4em;
+	font-size: 1em;
+	margin: 0 0.5em;
+	padding: 1em;
+	margin-left: 1vw;
+	font-weight: bold;
+	border: solid hsl(217, 71%, 53%);
+
 }
 
-.menu-list > a {
- /* color: white; */
- color: blue;
+.nav-list :hover {
+	background-color: hsla(217, 78%, 60%, 0.632);
+	color: white;
+}
+.nav-list i {
+	margin-right: 0.3em;
+}
+
+.nav-list a >span {
+	color: hsl(217, 100%, 61%);
+	background-color: white;
+	padding: 0.3em 0.5em;
+	border-radius: 10%;
+	/* box-shadow: inset 5px 5px 15px 5px rgba(0,0,0,0.34); */
+}
+.links {
+	margin-top: 3em;
+}
+.logout {
+	margin-top: 2em;
 }
 
 #landing-image {
- margin-top: 2em;
+	width: 85vw;
+  height: 100vh;
+	object-fit: cover;
+	display: none;
 }
 
-/* #admin-avatar > img {
- max-width: 100px;
-} */
+.cover {
+	height: 100vh;
+	margin-left: 15vw;
+}
 
 .profile {
 	border-radius: 70%;
-	height: 4em;
+	height: 3.5em;
 	margin-right: 0.5em;
 	border: solid white;
 }
+
 .profile-name {
 	color: white;
 }
@@ -87,7 +116,6 @@ hr {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/* margin-top: 1em; */
 	padding: 1.2em;
 }
 
@@ -141,7 +169,7 @@ select {
 	display: flex;
 	flex-direction: column;
 	z-index: 5;
-	width: 85vw;
+	width: 84vw;
 	padding: 2em;
 	right: 0;
 	top: 0;
@@ -180,7 +208,7 @@ select {
 	margin-top: -1em;
 	background-color: rgb(235, 233, 233);
 	z-index: 5;
-	width: 85vw;
+	width: 84vw;
 	right: 0;
 	padding: 0 6em;
 	text-align: center;
@@ -195,7 +223,7 @@ select {
 .workorder-item {
  display: flex;
  padding: 1em 1em;
- width: 85vw;
+ width: 84vw;
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
  /* border-radius: 5px; */
  box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.25);
@@ -225,7 +253,7 @@ select {
 	display: flex;
 	flex-direction: column;
 	z-index: 5;
-	width: 85vw;
+	width: 84vw;
 	padding: 2em;
 	/* margin-bottom: 2em; */
 	right: 0;
@@ -242,7 +270,7 @@ select {
 	/* margin-bottom: 0.5em; */
 	padding: 1em 0;
 	justify-content: space-between;
-	width: 85vw;
+	width: 84vw;
 	/* border-radius: 10px; */
 	border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
 	box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.25);
@@ -255,7 +283,7 @@ select {
 	margin-top: -1em;
 	background-color: rgb(235, 233, 233);
 	z-index: 5;
-	width: 85vw;
+	width: 84vw;
 	margin-bottom: 2em;
 	right: 0;
 	padding: 0 7em;
@@ -279,4 +307,77 @@ select {
 .inventory-filter-input{
 	width: 50%;
 	padding: 0 1em 0 0;
+}
+
+/* todays css */
+
+.today-container {
+	/* margin-top: 12.5em; */
+	margin-top: 22.5em;
+	margin-left: 15vw;
+}
+
+.today-labels {
+	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	margin-top: -1em;
+	background-color: rgb(235, 233, 233);
+	z-index: 5;
+	width: 85vw;
+	right: 0;
+	padding: 0 7em;
+	text-align: center;
+	box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.07);
+}
+
+.today-labels > span > strong {
+	color: rgb(113, 110, 110);
+	
+}
+
+.today-panel {
+	background-color: white;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	z-index: 5;
+	width: 85vw;
+	padding: 2em 2em 1em 2em;
+	right: 0;
+	top: 0;
+	/* height: 50%; */
+}
+
+.card-content {
+	padding: 0;
+	padding-top: -2em;
+}
+.today-summary {
+	text-align: center;
+}
+.card-header-title {
+	justify-content: center;
+
+	/* background-color: rgb(227, 227, 227); */
+}
+.today-summary-content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 12em;
+}
+
+.tech-summary {
+	margin-right: 2em;
+}
+
+
+.today-field {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20vw;
+	text-align: center;
+	/* padding: 0 1em; */
 }
