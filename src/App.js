@@ -4,10 +4,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import MenuList from './Components/MenuList';
 import Container from './Components/Container';
-import tester from './Helpers/helpers';
 
-
-// <button onClick={tester} > Test </button> 
 
 function App(props) {
   const [applicationData, setApplicationData] = useState({

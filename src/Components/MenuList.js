@@ -62,7 +62,7 @@ export default function MenuList(props) {
 					</Link>
 				</li>
     	  <li className="nav-list">
-					<Link to="">
+					<Link to="/summary">
 						<div>
 							<i class="far fa-list-alt"></i>
 							Summary
@@ -73,7 +73,6 @@ export default function MenuList(props) {
 					<AuthenticationButton />
 				</li>
     	</ul>
-  
     </aside>;
 
     const technicianView = 

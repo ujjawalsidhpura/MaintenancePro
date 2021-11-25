@@ -2,12 +2,16 @@ import { useState, useCallback } from "react"
 import axios from 'axios'
 import { useDropzone } from 'react-dropzone';
 import { Navigate } from "react-router-dom";
+import sendMail from "../Emailer/mailgun"
 
 export default function WorkOrderForm(props) {
-	const { setApplicationData, inventory, today } = props
+
+  const { setApplicationData, inventory, today } = props
+
   const [state, setState] = useState({
     title: "",
     technician: "",
+    email: "",
     description: "",
     importance: 0,
     date: "",
@@ -19,6 +23,7 @@ export default function WorkOrderForm(props) {
   const onDrop = useCallback(acceptedFiles => {
     changeState("files", acceptedFiles)
   }, [state])
+
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({ onDrop });
 
   const files = acceptedFiles.map(file => (
@@ -28,8 +33,8 @@ export default function WorkOrderForm(props) {
   ));
 
   const handleSubmit = (event) => {
-
     event.preventDefault()
+
     const workorder = {
       ...state,
       created_on: new Date().toISOString(),
@@ -40,16 +45,37 @@ export default function WorkOrderForm(props) {
     axios.post('/workorder', workorder,
       { headers: { "Content-Type": "application/json" } })
       .then((res) => {
-				axios.get('/workorder')
-					.then((res) => {
-						setApplicationData(prev => ({
-							...prev, workorder: [...res.data], inventory: [...inventory], today: [...today]
-						}))
-						setSubmit(true)
-					})
-        
+        axios.get('/workorder')
+          .then((res) => {
+            setApplicationData(prev => ({
+              ...prev, workorder: [...res.data], inventory: [...inventory], today: [...today]
+            }))
+            setSubmit(true)
+          })
+
+      })
+      .then(() => {
+        //Sends Email to the Technician with Workorder details
+        const message = {
+          from: 'Admin <admin@maintenancePro.com>',
+          to: state.email,
+          subject: `MaintenancePro New WorkOrder: ${state.title}`,
+          text:
+            `
+          Hello ${state.technician}, there has been a new work request for you. \n
+          Description: ${state.description}. \n
+          Deadline is ${state.date}. \n
+          Please check your workorders in MaintenancePro and proceed.\n
+          Regards, \n
+          Admin, MaintenancePro
+          `
+        };
+
+        sendMail(message)
+
       })
       .catch((e) => console.log(e))
+
   }
 
   const ratings = [1, 2, 3, 4, 5]
@@ -96,6 +122,18 @@ export default function WorkOrderForm(props) {
 								</select>
 							</div>
 						</div>
+
+						<div className="field">
+          	  <label className="label">Email to</label>
+          	  <div className="select">
+          	    <select value={state.email} onChange={(event) => changeState("email", event.target.value)}>
+          	      <option disabled value="">Select Technician</option>
+          	      <option>camoneme@gmail.com</option>
+          	      <option>shuhaozhangchris@gmail.com</option>
+          	      <option>ujjawalsidhpura@gmail.com</option>
+          	    </select>
+          	  </div>
+          	</div>
 
 						<div className="field">
 							<label className="label">Description</label>

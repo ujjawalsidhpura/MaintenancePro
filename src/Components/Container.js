@@ -8,6 +8,7 @@ import Finish_confirmation from "./Finish_confirmation";
 import Today from './Today';
 import InventoryContainer from './InventoryContainer';
 import InventoryForm from "./InventoryForm";
+import Summary from "./Summary";
 
 export default function Container(props) {
 	const { inventory, today, workorder, setApplicationData } = props
@@ -23,11 +24,12 @@ export default function Container(props) {
 				<Routes>
 					<Route path="/workorders" element={<WorkOrderContainer workorder={workorder}/>} />
 					<Route path="/workorders/create" element={<WorkOrderForm setApplicationData={setApplicationData} today={today} inventory={inventory}/>} />
-          <Route path="/start-confirmation" element={<Start_confirmation/>} /> 
-          <Route path="/finish-confirmation" element={<Finish_confirmation/>} /> 
+          <Route path="/start-confirmation" element={<Start_confirmation setApplicationData={setApplicationData} today={today} inventory={inventory}/>} /> 
+          <Route path="/finish-confirmation" element={<Finish_confirmation setApplicationData={setApplicationData} today={today} inventory={inventory}/>} /> 
           <Route path="/today" element={<Today today={today} />} />
           <Route path="/inventory" element={<InventoryContainer inventory={inventory} />} />
           <Route path="/inventory/create" element={<InventoryForm inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
+          <Route path="/summary" element={<Summary inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
 				</Routes>
     </div>
   )

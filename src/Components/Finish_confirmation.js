@@ -3,17 +3,21 @@ import Cancel_button from "./Buttons/Cancel_button";
 import axios from "axios";
 import { useLocation } from 'react-router-dom'
 
-export default function Finish_confirmation(){
+export default function Finish_confirmation(props){
   const location = useLocation()
   const id = location.state?.id
 
+  const { setApplicationData, inventory, today} = props;
 
   const submit_end_time = (workorder_id) => {
     axios.post('/workorder/completed',
       workorder_id,
       { headers: { "Content-Type": "application/json" } })
       .then((res) => {
-        console.log(res)
+        axios.get('/workorder')
+             .then((res)=>setApplicationData(prev => ({
+              ...prev, workorder: [...res.data], inventory: [...inventory], today: [...today]
+            })))
       })
       .catch((e) => console.log(e))
   }
