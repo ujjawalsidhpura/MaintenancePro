@@ -15,8 +15,6 @@ export default function Container(props) {
 
   return (
     <div>
-			{/* <WorkOrderContainer workorder={props.workorder}/> */}
-      {/* {isAuthenticated && <Profile/>} */}
       {!isAuthenticated && 
       	<div className="cover" >
 					<img id="landing-image" src="https://www.barrierbeachmanagement.com/wp-content/uploads/2014/12/buildingmanagement.jpg"></img>
