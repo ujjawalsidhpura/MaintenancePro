@@ -384,11 +384,33 @@ select {
 /* Summary css */
 
 .summary-page {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
 	margin-left: 15%;
 	padding: 2em;
+}
+
+.summary-content{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.summary-field {
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	margin: 1em;
+	width: 47%;
+	align-items: center;
 }
 
 .dropdown {
 	width: 5em;
 	font-size: 0.5em;
+}
+
+.summary-paragraph {
+	/* border: solid black; */
+	margin-bottom: 1em;
 }
