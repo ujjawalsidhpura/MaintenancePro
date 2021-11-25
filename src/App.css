@@ -207,6 +207,7 @@ select {
 	justify-content: space-between;
 	margin-top: -1em;
 	background-color: rgb(235, 233, 233);
+	border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
 	z-index: 5;
 	width: 85%;
 	right: 0;
@@ -282,6 +283,7 @@ select {
 	justify-content: space-between;
 	margin-top: -1em;
 	background-color: rgb(235, 233, 233);
+	border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
 	z-index: 5;
 	width: 85%;
 	margin-bottom: 2em;
@@ -323,6 +325,7 @@ select {
 	justify-content: space-between;
 	margin-top: -1em;
 	background-color: rgb(235, 233, 233);
+	border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
 	z-index: 5;
 	width: 85vw;
 	right: 0;
