@@ -195,8 +195,8 @@ export default function Summary(props){
     { if (technician !== null) {
       return {
         name: technician,
-        completed_tasks:  completedWorkOrderByTechnician(workorder, technician).length,
-        avg_duration: calculateAvgDuration(workorder) / 1000 / 3600,
+        completed_tasks:  completedWorkOrderByTechnician(workOrderSummary, technician).length,
+        avg_duration: calculateAvgDuration(workOrderSummary) / 1000 / 3600,
         fill: COLORS[technicianArray.indexOf(technician)]
       }
     }
@@ -239,8 +239,7 @@ export default function Summary(props){
         mostHardWorkingTech = eachTechData.name;
       }
     }
-    return `The most hard working technician is ${mostHardWorkingTech}, he/she completes a
-            total of ${mostCompletedWorkOrders} workorders`
+    return `The technician with the most completed workorder is ${mostHardWorkingTech}, with ${mostCompletedWorkOrders} completed workorders`
   }
   const mostEfficientTechnician = getMostEfficientTechnician(dataForEachTech);
   const mostHardWorkingTechnician = getMostHardWorkingTechnician(dataForEachTech);
@@ -296,13 +295,13 @@ export default function Summary(props){
     <Dropdown/>
     <h1>Summary of Year 2021: </h1>
     <br/>
-    <h2>{mostEfficientMonth}</h2>
+    <h2><i>{mostEfficientMonth}</i></h2>
     <br/>
-    <h2>{mostEfficientTechnician}</h2>
+    <h2><i>{mostEfficientTechnician}</i></h2>
     <br/> 
-    <h2>{mostHardWorkingTechnician}</h2>
+    <h2><i>{mostHardWorkingTechnician}</i></h2>
     <br/>
-    <h2>{busiestMonth}</h2>
+    <h2><i>{busiestMonth}</i></h2>
     <br/>
     <h1><b>Work Order Summary for year {year}</b></h1>
     <ComposedChart
