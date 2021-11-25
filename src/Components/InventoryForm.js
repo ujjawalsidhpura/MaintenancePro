@@ -44,7 +44,7 @@ export default function InventoryForm(props) {
 
       {!submit &&
         <form 
-					className="card workorder-form" 
+					className="card inventory-form" 
 					autoComplete="off"
           onSubmit={handleSubmit}
 				>

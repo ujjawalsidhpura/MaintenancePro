@@ -64,7 +64,6 @@ hr {
 	margin-left: 1vw;
 	font-weight: bold;
 	border: solid hsl(217, 71%, 53%);
-
 }
 
 .nav-list :hover {
@@ -80,12 +79,12 @@ hr {
 	background-color: white;
 	padding: 0.3em 0.5em;
 	border-radius: 10%;
-	/* box-shadow: inset 5px 5px 15px 5px rgba(0,0,0,0.34); */
+	box-shadow: inset 5px 5px 15px 5px rgba(0,0,0,0.14);
 }
 .links {
 	margin-top: 3em;
 }
-.logout {
+.logout a{
 	margin-top: 2em;
 }
 
@@ -126,10 +125,17 @@ hr {
 
 /* Workorder form */
 
-.workorder-form {
+.inventory-form {
 	display: flex;
 	justify-content: space-between;
 	height: 100vh;
+ 	padding: 2em 4em;
+ 	margin-left: 15vw;
+}
+.workorder-form {
+	display: flex;
+	justify-content: space-between;
+	height: 100%;
  	padding: 2em 4em;
  	margin-left: 15vw;
 }
@@ -144,7 +150,6 @@ hr {
 }
 
 .form-image > img {
-	/* height: 30em; */
 	width: 100%;
 }
 
@@ -157,7 +162,7 @@ select {
 }
 
 .submit {
-	margin-top: 1em;
+	margin: 1em 0 2em 0;
 	width: 100%;
 }
 
@@ -218,7 +223,6 @@ select {
 
 .workorder-labels > span > strong {
 	color: rgb(113, 110, 110);
-	
 }
 
 .workorder-item {
@@ -226,7 +230,6 @@ select {
  padding: 1em 1em;
  width: 100%;
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
- /* border-radius: 5px; */
  box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.25);
 }
 
@@ -256,7 +259,6 @@ select {
 	z-index: 5;
 	width: 85%;
 	padding: 2em;
-	/* margin-bottom: 2em; */
 	right: 0;
 	top: 0;
 }
@@ -268,11 +270,9 @@ select {
 
 .inventory-item {
 	display: flex;
-	/* margin-bottom: 0.5em; */
 	padding: 1em 0;
 	justify-content: space-between;
 	width: 100%;
-	/* border-radius: 10px; */
 	border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
 	box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.25);
 }
@@ -349,7 +349,6 @@ select {
 	padding: 2em 2em 1em 2em;
 	right: 0;
 	top: 0;
-	/* height: 50%; */
 }
 
 .card-content {
@@ -361,8 +360,6 @@ select {
 }
 .card-header-title {
 	justify-content: center;
-
-	/* background-color: rgb(227, 227, 227); */
 }
 .today-summary-content {
 	display: flex;
@@ -375,12 +372,10 @@ select {
 	margin-right: 2em;
 }
 
-
 .today-field {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 20vw;
 	text-align: center;
-	/* padding: 0 1em; */
 }
