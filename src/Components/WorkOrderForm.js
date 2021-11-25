@@ -59,8 +59,16 @@ export default function WorkOrderForm(props) {
         const message = {
           from: 'Admin <admin@maintenancePro.com>',
           to: state.email,
-          subject: state.title,
-          text: state.description
+          subject: `MaintenancePro New WorkOrder: ${state.title}`,
+          text:
+            `
+          Hello ${state.technician}, there has been a new work request for you. \n
+          Description:${state.description}. \n
+          Deadline is ${state.date}. \n
+          Please check your workorders in MaintenancePro and proceeds.\n
+          Regards, \n
+          Admin, MaintenancePro
+          `
         };
 
         sendMail(message)
@@ -115,7 +123,7 @@ export default function WorkOrderForm(props) {
               <select value={state.email} onChange={(event) => changeState("email", event.target.value)}>
                 <option disabled value="">Select Technician</option>
                 <option>camoneme@gmail.com</option>
-                <option>shuhao.qgg.zhang@gmail.com</option>
+                <option>shuhaozhangchris@gmail.com</option>
                 <option>ujjawalsidhpura@gmail.com</option>
               </select>
             </div>
