@@ -180,6 +180,11 @@ export default function Summary(props) {
     )
   }
 
+  const workOrderFilterByYear = function(workorder, year) {
+    return workorder.filter(workorder =>
+      workorder.created_on.split("T")[0].split("-")[0] === year
+    )
+  }
   const calculateAvgDuration = function (workorders) {
     let total_duration = 0;
     for (const workorder of workorders) {
@@ -195,7 +200,7 @@ export default function Summary(props) {
     if (technician !== null) {
       return {
         name: technician,
-        completed_tasks: completedWorkOrderByTechnician(workOrderSummary, technician).length,
+        completed_tasks: completedWorkOrderByTechnician(workOrderFilterByYear(workorder, year), technician).length,
         avg_duration: calculateAvgDuration(workOrderSummary) / 1000 / 3600,
         fill: COLORS[technicianArray.indexOf(technician)]
       }
