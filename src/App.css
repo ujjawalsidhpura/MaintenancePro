@@ -394,14 +394,15 @@ select {
 .summary-content{
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .summary-field {
 	display: flex;
 	flex-direction: column;
 	padding: 1em;
-	margin: 1em;
-	width: 47%;
+	margin: 1em 0;
+	width: 49%;
 	align-items: center;
 }
 

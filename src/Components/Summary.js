@@ -329,15 +329,15 @@ export default function Summary(props) {
 							margin={{
 								top: 20,
 								right: 20,
-								bottom: 20,
-								left: 20
+								bottom: 50,
+								left: -10
 							}}
 						>
 							<CartesianGrid stroke="#f5f5f5" />
 							<XAxis dataKey="month" />
 							<YAxis />
 							<Tooltip />
-							<Legend wrapperStyle={{ top: 0, left: 25 }} />
+							<Legend wrapperStyle={{ top: 350, left: 25 }} />
 							<Area type="monotone" dataKey="total_workorder_created" fill="#8884d8" stroke="#8884d8" />
 							<Bar dataKey="completed_workorder" barSize={20} fill="#413ea0" />
 							<Line type="monotone" dataKey="unfinished_workorder" stroke="#ff7300" />
@@ -351,12 +351,12 @@ export default function Summary(props) {
 							height={250}
 						>
 							<PieChart width={400} height={400}>
-								<Legend wrapperStyle={{ top: 10, left: 25 }} />
+								<Legend wrapperStyle={{ top: 250, left: 5 }} />
 								<Pie
 									isAnimationActive={false}
 									label={renderCustomizedLabel}
 									labelLine={false}
-									cx={300}
+									cx={250}
 									cy={120}
 									data={dataForEachTech}
 									dataKey="completed_tasks"
