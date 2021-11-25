@@ -2,13 +2,16 @@ import { useState, useCallback } from "react"
 import axios from 'axios'
 import { useDropzone } from 'react-dropzone';
 import { Navigate } from "react-router-dom";
-import SendMail from "../mail_gun/mailgun"
+import sendMail from "../Emailer/mailgun"
 
 export default function WorkOrderForm(props) {
+
   const { setApplicationData, inventory, today } = props
+
   const [state, setState] = useState({
     title: "",
     technician: "",
+    email: "",
     description: "",
     importance: 0,
     date: "",
@@ -20,6 +23,7 @@ export default function WorkOrderForm(props) {
   const onDrop = useCallback(acceptedFiles => {
     changeState("files", acceptedFiles)
   }, [state])
+
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({ onDrop });
 
   const files = acceptedFiles.map(file => (
@@ -29,8 +33,8 @@ export default function WorkOrderForm(props) {
   ));
 
   const handleSubmit = (event) => {
-
     event.preventDefault()
+
     const workorder = {
       ...state,
       created_on: new Date().toISOString(),
@@ -50,18 +54,19 @@ export default function WorkOrderForm(props) {
           })
 
       })
+      .then(() => {
+        //Sends Email to the Technician with Workorder details
+        const message = {
+          from: 'Admin <admin@maintenancePro.com>',
+          to: state.email,
+          subject: state.title,
+          text: state.description
+        };
+
+        sendMail(message)
+
+      })
       .catch((e) => console.log(e))
-
-    /* Testing mail-gun */
-
-    const message = {
-      from: 'Admin <admin@maintenancePro.com>',
-      to: 'vipinchandrasidhpura@gmail.com',
-      subject: 'Testing',
-      text: 'Testing Mailgun'
-    };
-
-    SendMail(message)
 
   }
 
@@ -100,6 +105,18 @@ export default function WorkOrderForm(props) {
                 <option>Ebuka Moneme</option>
                 <option>Shuhao Zhang</option>
                 <option>Ujjawal Sidhpura </option>
+              </select>
+            </div>
+          </div>
+
+          <div className="field">
+            <label className="label">Email to</label>
+            <div className="select">
+              <select value={state.email} onChange={(event) => changeState("email", event.target.value)}>
+                <option disabled value="">Select Technician</option>
+                <option>camoneme@gmail.com</option>
+                <option>shuhao.qgg.zhang@gmail.com</option>
+                <option>ujjawalsidhpura@gmail.com</option>
               </select>
             </div>
           </div>
