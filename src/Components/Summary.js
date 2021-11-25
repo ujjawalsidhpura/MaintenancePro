@@ -1,6 +1,6 @@
 import react from 'react';
 import React, { PureComponent, useState, useEffect  } from 'react';
-import { ComposedChart, Area, LineChart, Line,BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { ComposedChart, Area, Pie, LineChart, Line,BarChart, PieChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export default function Summary(props){
   const { workorder } = props;
@@ -10,6 +10,11 @@ export default function Summary(props){
   // console.log("month of workorder",workorder[0].created_on.split("T")[0].split("-")[1])
 
 
+  /* 
+     This function takes two paramerters workorders array and year (string)
+     The output will be an array of objects that contain the information of workorders
+     for each month of the specific year
+  */
   const workorderFilteredByMonth = function(workorders, year) {
     const output = [
       {
@@ -125,6 +130,123 @@ export default function Summary(props){
   const [workOrderSummary, setWorkOrderSummary] = useState(workOrderSummary2021);
   console.log("summary workorders", workOrderSummary); 
 
+  const calculateMostEfficientMonth = function(workorders) {
+      let leastAvgDuration = Infinity;
+      let mostEfficientMonth = "";
+      for (const workorder of workorders) {
+        let efficient = workorder.duration/workorder.total_workorder_created;
+        if (efficient < leastAvgDuration) {
+          leastAvgDuration = efficient
+          mostEfficientMonth = workorder.month;
+        }
+      }
+      return `The most efficient month throughout the year is ${mostEfficientMonth},
+              The average time to complete the workorders in this month is ${(leastAvgDuration / 1000 / 3600).toFixed(2)} hours`;
+  }
+  
+  
+  const mostEfficientMonth = calculateMostEfficientMonth(workOrderSummary);
+
+  const calculateBusiestMonth = function(workorders) {
+    let mostworkorders = 0;
+    let busiestMonth = "";
+    for (const workorder of workorders) {
+      if (workorder.total_workorder_created >= mostworkorders) {
+        mostworkorders = workorder.total_workorder_created;
+        busiestMonth = workorder.month;
+      }
+    }
+    return `The busiest month throughout the year is ${busiestMonth},
+            The total number of workorders being created in this month is ${mostworkorders}`;
+    }
+  
+  const busiestMonth = calculateBusiestMonth(workOrderSummary);
+
+  const eachTechnician = function(workorders) {
+    const output = [];
+    for (const workorder of workorders) {
+      if (!output.includes(workorder.technician)) {
+        output.push(workorder.technician);
+      }
+    }
+    return output;
+  }
+
+  const technicianArray = eachTechnician(workorder);
+
+  const completedWorkOrderByTechnician = function(workorders, technician) {
+    return workorders.filter(workorder => 
+        workorder.technician == technician && workorder.time_completed
+      )
+  }
+
+  const calculateAvgDuration = function(workorders) {
+    let total_duration = 0;
+    for(const workorder of workorders) {
+      if(workorder.duration) total_duration += workorder.duration;
+    }
+    const avg_duration = total_duration/workorders.length;
+    return avg_duration
+  }
+
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#9b59b6', '#e74c3c'];
+
+  const dataForEachTech = technicianArray.map(technician =>
+    { if (technician !== null) {
+      return {
+        name: technician,
+        completed_tasks:  completedWorkOrderByTechnician(workorder, technician).length,
+        avg_duration: calculateAvgDuration(workorder) / 1000 / 3600,
+        fill: COLORS[technicianArray.indexOf(technician)]
+      }
+    }
+    }
+  );
+  const RADIAN = Math.PI / 180;
+  console.log(process.env.REACT_APP_ADMIN_EMAIL);
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+  
+    return (
+      <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+      
+    );
+  };
+
+  const getMostEfficientTechnician = function(technicianData){
+    let mostEfficientTech = ""
+    let lowest_avg_duration = Infinity;
+    for (const eachTechData of technicianData) {
+      if(eachTechData.avg_duration <= lowest_avg_duration) {
+        lowest_avg_duration = eachTechData.avg_duration;
+        mostEfficientTech = eachTechData.name;
+      }
+    }
+    return `The most efficient technician is ${mostEfficientTech}, he/she completes one 
+            work order in an average of ${(lowest_avg_duration).toFixed(2)} hours`
+  }
+
+  const getMostHardWorkingTechnician = function(technicianData){
+    let mostHardWorkingTech = ""
+    let mostCompletedWorkOrders = 0;
+    for (const eachTechData of technicianData) {
+      if(eachTechData.completed_tasks >= mostCompletedWorkOrders) {
+        mostCompletedWorkOrders = eachTechData.completed_tasks;
+        mostHardWorkingTech = eachTechData.name;
+      }
+    }
+    return `The most hard working technician is ${mostHardWorkingTech}, he/she completes a
+            total of ${mostCompletedWorkOrders} workorders`
+  }
+  const mostEfficientTechnician = getMostEfficientTechnician(dataForEachTech);
+  const mostHardWorkingTechnician = getMostHardWorkingTechnician(dataForEachTech);
+
+  console.log(dataForEachTech);
+
   const handleYearChange = (event) => {
     console.log("event target value",event.target.value);
     setYear(event.target.value);
@@ -167,11 +289,22 @@ export default function Summary(props){
     );
   };
 
+
   return(
     
     <div className="summary-page" >
     <Dropdown/>
-    <h1>Summary of Year 2021</h1>
+    <h1>Summary of Year 2021: </h1>
+    <br/>
+    <h2>{mostEfficientMonth}</h2>
+    <br/>
+    <h2>{mostEfficientTechnician}</h2>
+    <br/> 
+    <h2>{mostHardWorkingTechnician}</h2>
+    <br/>
+    <h2>{busiestMonth}</h2>
+    <br/>
+    <h1><b>Work Order Summary for year {year}</b></h1>
     <ComposedChart
       width={500}
       height={400}
@@ -192,6 +325,45 @@ export default function Summary(props){
       <Bar dataKey="completed_workorder" barSize={20} fill="#413ea0" />
       <Line type="monotone" dataKey="unfinished_workorder" stroke="#ff7300" />
     </ComposedChart>
+    <br/>
+    <h1><b>Work Orders Completed by Technicians for year {year}</b></h1>
+    <ResponsiveContainer width="100%" height={250}>
+      <PieChart width={400} height={400}>
+      <Legend wrapperStyle={{top: 0, left: 25}}/>
+        <Pie 
+        isAnimationActive={false}
+        label={renderCustomizedLabel}
+        labelLine={false}
+        cx={300}
+        cy={120}
+        data={dataForEachTech} 
+        dataKey="completed_tasks" 
+        outerRadius={100} 
+        fill="#fff" 
+        >
+        </Pie>
+      </PieChart>
+      </ResponsiveContainer>
+      <br/>
+
+      <h1><b>Avg Time Spent on Workorder for each Technician</b></h1>
+      <BarChart
+      width={500}
+      height={300}
+      data={dataForEachTech}
+      margin={{
+        top: 5,
+        right: 30,
+        left: 20,
+        bottom: 5
+      }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Bar dataKey="avg_duration" fill="#8884d8" />
+    </BarChart>
     </div>
   )
 }

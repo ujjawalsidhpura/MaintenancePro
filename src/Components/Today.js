@@ -63,7 +63,7 @@ export default function Today(props) {
       <h2>There are {props.today.length} unfinished tasks</h2>
       { summaryForEachTechnicain }
       <ResponsiveContainer width="100%" height={250}>
-      <PieChart title="hello" width={400} height={400}>
+      <PieChart width={400} height={400}>
       <Legend wrapperStyle={{top: 0, left: 25}}/>
         <Pie 
         isAnimationActive={false}
