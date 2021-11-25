@@ -56,14 +56,14 @@ hr {
   display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 13vw;
+	width: 13em;
 	height: 4em;
 	font-size: 1em;
 	margin: 0 0.5em;
 	padding: 1em;
-	margin-left: 1vw;
 	font-weight: bold;
 	border: solid hsl(217, 71%, 53%);
+	border-radius: 0px 20px 20px 0px;
 }
 
 .nav-list :hover {
@@ -379,4 +379,16 @@ select {
 	justify-content: center;
 	width: 20vw;
 	text-align: center;
+}
+
+/* Summary css */
+
+.summary-page {
+	margin-left: 15%;
+	padding: 2em;
+}
+
+.dropdown {
+	width: 5em;
+	font-size: 0.5em;
 }
