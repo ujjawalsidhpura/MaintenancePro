@@ -63,9 +63,9 @@ export default function WorkOrderForm(props) {
           text:
             `
           Hello ${state.technician}, there has been a new work request for you. \n
-          Description:${state.description}. \n
+          Description: ${state.description}. \n
           Deadline is ${state.date}. \n
-          Please check your workorders in MaintenancePro and proceeds.\n
+          Please check your workorders in MaintenancePro and proceed.\n
           Regards, \n
           Admin, MaintenancePro
           `
