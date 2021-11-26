@@ -24,7 +24,7 @@ export default function Finish_confirmation(props){
 
   return (
     <div className="card start-confirmation">
-      <h1 className="title">Are you done with this work order?</h1>
+      <h1 className="title confirm-mssg">Are you done with this work order?</h1>
 			<div className="confirm-cancel">
 				<Confirm_button onClick = {()=>{submit_end_time({workorder_id: id})}}/>
 				<Cancel_button/>
