@@ -539,6 +539,7 @@ select {
   display: flex;
   flex-direction: column-reverse;
   position: relative;
+	bottom: 0;
   flex-grow: 5;
   overflow: auto;
   /* max-height: 100vh; */
@@ -551,27 +552,31 @@ select {
 
 .chat-all-user{
   display: flex;
-  justify-content: space-between;
+	flex-direction: column;
+  /* justify-content: space-between; */
 }
 
 .chat-user{
   position: relative;
-  margin-left: 30em;
+	align-self: flex-end;
+  /* margin-left: 30em; */
 }
 
 .chat-user > .bubble{
-  color: black;
-  background: #79C7C5;
+  color: white;
+  background: hsl(217, 84%, 57%);
 }
 .chat-other-user{
   position: relative;
-  margin-left: -5em;
+	align-self: flex-start;
+  /* margin-left: -5em; */
 }
 
 .chat-other-user > .bubble{
   margin-left: 15em;
-  background: #777777;
+  background: #c1c1c1;
   float: right;
+	color: black;
 }
 .bubble {
   position: relative;
