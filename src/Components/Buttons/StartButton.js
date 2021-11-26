@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-const Start_button = function (props) {
+const StartButton = function (props) {
   return (
     <Link
       to="/start-confirmation"
@@ -12,4 +12,4 @@ const Start_button = function (props) {
   )
 }
 
-export default Start_button;
+export default StartButton;

@@ -1,8 +1,8 @@
-import { useState, useCallback } from "react"
+import { useState } from "react"
 import axios from 'axios'
-import { useDropzone } from 'react-dropzone';
 import { Navigate } from "react-router-dom";
 import sendMail from "../Emailer/mailgun"
+// import { useDropzone } from 'react-dropzone';
 
 export default function WorkOrderForm(props) {
 
@@ -20,17 +20,17 @@ export default function WorkOrderForm(props) {
 
   const [submit, setSubmit] = useState(false)
 
-  const onDrop = useCallback(acceptedFiles => {
-    changeState("files", acceptedFiles)
-  }, [state])
+  // const onDrop = useCallback(acceptedFiles => {
+  //   changeState("files", acceptedFiles)
+  // }, [state])
 
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({ onDrop });
+  // const { acceptedFiles, getRootProps, getInputProps } = useDropzone({ onDrop });
 
-  const files = acceptedFiles.map(file => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
-  ));
+  // const files = acceptedFiles.map(file => (
+  //   <li key={file.path}>
+  //     {file.path} - {file.size} bytes
+  //   </li>
+  // ));
 
   const handleSubmit = (event) => {
     event.preventDefault()

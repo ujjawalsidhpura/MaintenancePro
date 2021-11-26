@@ -17,11 +17,11 @@ export default function MenuList() {
       <img className="logo" alt="MaintenancePro" src={logo} />
       <ul className="links">
         {isLoading && <li className="menu-label"><a>Loading...</a></li>}
-        {isAuthenticated && 
-					<Profile nickname={user.nickname} email={email} picture={user.picture} />
-				}
-				{(!isAuthenticated && !isLoading) && <li className="nav-list"><AuthenticationButton /></li>}
-        
+        {isAuthenticated &&
+          <Profile nickname={user.nickname} email={email} picture={user.picture} />
+        }
+        {(!isAuthenticated && !isLoading) && <li className="nav-list"><AuthenticationButton /></li>}
+
       </ul>
     </aside>
 
@@ -44,27 +44,27 @@ export default function MenuList() {
         </li>
 
         <li className="nav-list">
-					<div className="link">
-						<Link to="/workorders">
-							<i className="far fa-clipboard"></i>
-							Work Orders
-						</Link>
-						<Link to="/workorders/create">
-							<span>+</span>
-						</Link>
-					</div>
+          <div className="link">
+            <Link to="/workorders">
+              <i className="far fa-clipboard"></i>
+              Work Orders
+            </Link>
+            <Link to="/workorders/create">
+              <span>+</span>
+            </Link>
+          </div>
         </li>
 
         <li className="nav-list">
-					<div className="link">
-						<Link to="/inventory">
-							<i className="fas fa-wrench"></i>
-							Inventories
-						</Link>
-						<Link to="/inventory/create">
-							<span>+</span>
-						</Link>
-					</div>
+          <div className="link">
+            <Link to="/inventory">
+              <i className="fas fa-wrench"></i>
+              Inventories
+            </Link>
+            <Link to="/inventory/create">
+              <span>+</span>
+            </Link>
+          </div>
         </li>
 
         <li className="nav-list">
@@ -76,13 +76,13 @@ export default function MenuList() {
           </Link>
         </li>
         <li className="nav-list">
-					<Link to="/chat" className="link">
-						<div>
-							<i class="fas fa-comment-alt"></i>
-							Chat Platform
-						</div>
-					</Link>
-				</li>
+          <Link to="/chat" className="link">
+            <div>
+              <i className="fas fa-comment-alt"></i>
+              Chat Platform
+            </div>
+          </Link>
+        </li>
         <li className="nav-list logout">
           <AuthenticationButton />
         </li>
@@ -99,13 +99,13 @@ export default function MenuList() {
       <ul className="links">
         <li className="nav-list"><Link to="/workorders" className="link">My Work Orders</Link></li>
         <li className="nav-list">
-					<Link to="/chat">
-						<div>
-							<i class="fas fa-comment-alt"></i>
-							Chat Platform
-						</div>
-					</Link>
-				</li>
+          <Link to="/chat">
+            <div>
+              <i className="fas fa-comment-alt"></i>
+              Chat Platform
+            </div>
+          </Link>
+        </li>
         <li className="nav-list"><AuthenticationButton /></li>
       </ul>
     </aside>;
