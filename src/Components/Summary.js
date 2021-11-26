@@ -1,9 +1,27 @@
 import react from 'react';
 import React, { useState, useEffect } from 'react';
 import { ComposedChart, Area, Pie, Line, BarChart, PieChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import jsPDF from 'jspdf';
+import * as htmlToImage from 'html-to-image';
 
 export default function Summary(props) {
+
   const { workorder } = props;
+
+  const printSummary = () => {
+    htmlToImage.toPng(document.getElementById('summaryPage'), { quality: 0.95 })
+      .then(function (dataUrl) {
+        const link = document.createElement('a');
+        link.download = 'my-image-name.jpeg';
+        const pdf = new jsPDF();
+        const imgProps = pdf.getImageProperties(dataUrl);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        pdf.addImage(dataUrl, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save("MaintenancePro_Summary.pdf");
+      });
+  };
+
 
   /* 
      This function takes two paramerters workorders array and year (string)
@@ -283,8 +301,11 @@ export default function Summary(props) {
   return (
     <>
       <div className="summary-page" >
-        <h1 className="title summary-header">Summary of <Dropdown /> </h1>
-        <div className="summary-content">
+        <h1 className="title summary-header">Summary of <Dropdown />
+          <button className="button is-info is-outlined is-pulled-right" onClick={printSummary}>Download PDF</button>
+        </h1>
+
+        <div className="summary-content" id="summaryPage">
 
           <div className="card summary-field">
             <div className="summary-paragraph">
