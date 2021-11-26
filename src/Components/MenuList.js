@@ -72,8 +72,8 @@ export default function MenuList(props) {
         <li className="nav-list">
 					<Link to="/chat">
 						<div>
-							<i class="far fa-list-alt"></i>
-							Chat
+							<i class="fas fa-comment-alt"></i>
+							Chat Platform
 						</div>
 					</Link>
 				</li>
@@ -93,15 +93,15 @@ export default function MenuList(props) {
 		<hr/>
     <ul className="links">
    	 <li className="nav-list"><Link to="/workorders">My Work Orders</Link></li>
-   	 <li className="nav-list"><AuthenticationButton /></li>
       <li className="nav-list">
 					<Link to="/chat">
 						<div>
-							<i class="far fa-list-alt"></i>
-							Chat
+							<i class="fas fa-comment-alt"></i>
+							Chat Platform
 						</div>
 					</Link>
 				</li>
+   	 <li className="nav-list"><AuthenticationButton /></li>
     </ul>
   </aside>;
 

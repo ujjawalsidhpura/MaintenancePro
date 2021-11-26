@@ -22,15 +22,15 @@ export default function Chat(props) {
 
     const renderHistoryChat = messages.map((message, index) => {
       return  (
-      <div key={index}>
+      <div key={index} className="chat-all-user">
         {user && user.name == message.name ?
-          <h3>
-          I am typing  {message.name}: <span>{message.message}</span>
-          </h3>
+          <div className="chat-user">
+          <div className="bubble"><h3>{message.name}: <span>{message.message}</span></h3></div>
+          </div>
         :
-        <h3>
-          Others are typing  {message.name}: <span>{message.message}</span>
-        </h3>}
+        <div className="chat-other-user">
+          <div className="bubble"><h3>{message.name}: <span>{message.message}</span></h3></div>
+        </div>}
         </div>
       )
       }).reverse()
@@ -64,19 +64,27 @@ export default function Chat(props) {
 
   return(
     <div className='chat-container'>
-    <div className='card'>
-    <form>
-      <div className="name-field">
-      <h1>{user && user.name}</h1>
+    <form className="card chat-form">
+    <div className="form-content">
+
+      <div className="field">
+      <label className="label">{user && user.name}</label>
        <input 
+         className="input"
+         placeholder="Lets chat"
          name="message"
          onChange={e=>handleChange(e)}
          value={message.message}
        />
       </div>
-      <button onClick={e=>handleSubmit(e)}>submit</button>
+      <button className="button is-link submit" type="submit" onClick={e=>handleSubmit(e)}>Send</button>
+    </div>
+    <div className="form-image">
+			<img src="https://image.freepik.com/free-vector/illustration-characters-fixing-cogwheel_53876-40796.jpg" alt="form-image"/>
+		</div>
     </form>
-    {renderHistoryChat}
+    <div className="chat-box">
+      {renderHistoryChat}
     </div>
     </div>
   )
