@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { Fragment, useState } from "react"
 import axios from 'axios'
 import { Navigate } from "react-router-dom";
 import sendMail from "../Emailer/mailgun"
@@ -19,18 +19,6 @@ export default function WorkOrderForm(props) {
   })
 
   const [submit, setSubmit] = useState(false)
-
-  // const onDrop = useCallback(acceptedFiles => {
-  //   changeState("files", acceptedFiles)
-  // }, [state])
-
-  // const { acceptedFiles, getRootProps, getInputProps } = useDropzone({ onDrop });
-
-  // const files = acceptedFiles.map(file => (
-  //   <li key={file.path}>
-  //     {file.path} - {file.size} bytes
-  //   </li>
-  // ));
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -116,10 +104,10 @@ export default function WorkOrderForm(props) {
               <label className="label">Assign to</label>
               <div className="select">
                 <select value={state.technician} onChange={(event) => changeState("technician", event.target.value)}>
-                  <option disabled value="">Select Technician</option>
-                  <option>Ebuka Moneme</option>
-                  <option>Shuhao Zhang</option>
-                  <option>Ujjawal Sidhpura </option>
+                  <option key="select" disabled value="">Select Technician</option>
+                  <option key="Ebuka Moneme">Ebuka Moneme</option>
+                  <option key="Shuhao Zhang">Shuhao Zhang</option>
+                  <option key="Ujjawal Sidhpura">Ujjawal Sidhpura</option>
                 </select>
               </div>
             </div>
@@ -128,10 +116,10 @@ export default function WorkOrderForm(props) {
               <label className="label">Email to</label>
               <div className="select">
                 <select value={state.email} onChange={(event) => changeState("email", event.target.value)}>
-                  <option disabled value="">Select Technician</option>
-                  <option>camoneme@gmail.com</option>
-                  <option>shuhaozhangchris@gmail.com</option>
-                  <option>ujjawalsidhpura@gmail.com</option>
+                  <option key="select" disabled value="">Select Technician</option>
+                  <option key="camoneme@gmail.com">camoneme@gmail.com</option>
+                  <option key="shuhaozhangchris@gmail.com">shuhaozhangchris@gmail.com</option>
+                  <option key="ujjawalsidhpura@gmail.com">ujjawalsidhpura@gmail.com</option>
                 </select>
               </div>
             </div>
@@ -149,20 +137,22 @@ export default function WorkOrderForm(props) {
             <div className="field">
               <label className="label">Importance</label>
               <span className="star-rating">
-                {ratings.map(rating =>
-                (<><input
+                {ratings.map((rating, index) =>
+                (<Fragment key={index}><input
+                  key={index}
                   type="radio"
                   name="rating1"
                   value={rating}
                   onClick={() => changeState("importance", rating)}
-                /><i></i></>)
+                /><i></i></Fragment>)
                 )}
               </span>
             </div>
 
             <div className="field">
-              <label className="label">Deadline</label>
+              <label key="label" className="label">Deadline</label>
               <input
+                key="input"
                 className="input"
                 type="date"
                 value={state.date}
