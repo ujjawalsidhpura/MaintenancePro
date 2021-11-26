@@ -1,13 +1,26 @@
 import react from 'react';
-import React, { PureComponent, useState, useEffect } from 'react';
-import { ComposedChart, Area, Pie, LineChart, Line, BarChart, PieChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React, { useState, useEffect } from 'react';
+import { ComposedChart, Area, Pie, Line, BarChart, PieChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import jsPDF from 'jspdf';
+import * as htmlToImage from 'html-to-image';
 
 export default function Summary(props) {
-  const { workorder } = props;
-  console.log("workorders", workorder);
 
-  // console.log("year of workorder",workorder[0].created_on.split("T")[0].split("-")[0])
-  // console.log("month of workorder",workorder[0].created_on.split("T")[0].split("-")[1])
+  const { workorder } = props;
+
+  const printSummary = () => {
+    htmlToImage.toPng(document.getElementById('summaryPage'), { quality: 0.95 })
+      .then(function (dataUrl) {
+        const link = document.createElement('a');
+        link.download = 'my-image-name.jpeg';
+        const pdf = new jsPDF();
+        const imgProps = pdf.getImageProperties(dataUrl);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        pdf.addImage(dataUrl, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save("MaintenancePro_Summary.pdf");
+      });
+  };
 
 
   /* 
@@ -15,6 +28,7 @@ export default function Summary(props) {
      The output will be an array of objects that contain the information of workorders
      for each month of the specific year
   */
+
   const workorderFilteredByMonth = function (workorders, year) {
     const output = [
       {
@@ -128,7 +142,6 @@ export default function Summary(props) {
 
   let workOrderSummary2021 = workorderFilteredByMonth(workorder, "2021");
   const [workOrderSummary, setWorkOrderSummary] = useState(workOrderSummary2021);
-  console.log("summary workorders", workOrderSummary);
 
   const calculateMostEfficientMonth = function (workorders) {
     let leastAvgDuration = Infinity;
@@ -180,7 +193,7 @@ export default function Summary(props) {
     )
   }
 
-  const workOrderFilterByYear = function(workorder, year) {
+  const workOrderFilterByYear = function (workorder, year) {
     return workorder.filter(workorder =>
       workorder.created_on.split("T")[0].split("-")[0] === year
     )
@@ -208,7 +221,7 @@ export default function Summary(props) {
   }
   );
   const RADIAN = Math.PI / 180;
-  console.log(process.env.REACT_APP_ADMIN_EMAIL);
+
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -248,15 +261,11 @@ export default function Summary(props) {
   const mostEfficientTechnician = getMostEfficientTechnician(dataForEachTech);
   const mostHardWorkingTechnician = getMostHardWorkingTechnician(dataForEachTech);
 
-  console.log(dataForEachTech);
-
   const handleYearChange = (event) => {
-    console.log("event target value", event.target.value);
     setYear(event.target.value);
   }
 
   useEffect(() => {
-    console.log("year,", year);
     const x = workorderFilteredByMonth(workorder, year);
     setWorkOrderSummary(x)
   }, [year])
@@ -277,15 +286,9 @@ export default function Summary(props) {
     return (
       <select
         value={year}
-				className="dropdown input"
-        onChange={e => {
-          handleYearChange(e);
-          // console.log("summary workorders", workOrderSummary)
-          // setWorkOrderSummary(workorderFilteredByMonth(workorder, e.target.value))
-          // setSelectedOption(e.target.value)
-        }
-				
-        }>
+        className="dropdown input"
+        onChange={e => { handleYearChange(e) }}
+      >
 
         {options.map(o => (
           <option key={o.value} value={o.value}>{o.value}</option>
@@ -296,100 +299,103 @@ export default function Summary(props) {
 
 
   return (
-		<>
-			<div className="summary-page" >
-				<h1 className="title summary-header">Summary of <Dropdown /> </h1>
-				<div className="summary-content">
+    <>
+      <div className="summary-page" >
+        <h1 className="title summary-header">Summary of <Dropdown />
+          <button className="button is-info is-outlined is-pulled-right" onClick={printSummary}>Download PDF</button>
+        </h1>
 
-					<div className="card summary-field">
-						<div className="summary-paragraph">
-							<p class="tag is-light">Most Efficient Month</p>
-							<h2><i>{mostEfficientMonth}</i></h2>
-						</div>
-						<div className="summary-paragraph">
-							<p class="tag is-light">Most Efficient Technician</p>
-							<h2><i>{mostEfficientTechnician}</i></h2>
-						</div>
-						<div className="summary-paragraph">
-							<p class="tag is-light">Most Completed Workorders</p>
-							<h2><i>{mostHardWorkingTechnician}</i></h2>
-						</div>
-						<div className="summary-paragraph">
-							<p class="tag is-light">Busiest Month</p>
-							<h2><i>{busiestMonth}</i></h2>
-						</div>
-					</div>
+        <div className="summary-content" id="summaryPage">
 
-					<div className="card summary-field">
-						<h1><b>Work Order Summary for year {year}</b></h1>
-						<ComposedChart
-							width={500}
-							height={400}
-							data={workOrderSummary}
-							margin={{
-								top: 20,
-								right: 20,
-								bottom: 50,
-								left: -10
-							}}
-						>
-							<CartesianGrid stroke="#f5f5f5" />
-							<XAxis dataKey="month" />
-							<YAxis />
-							<Tooltip />
-							<Legend wrapperStyle={{ top: 350, left: 25 }} />
-							<Area type="monotone" dataKey="total_workorder_created" fill="#8884d8" stroke="#8884d8" />
-							<Bar dataKey="completed_workorder" barSize={20} fill="#413ea0" />
-							<Line type="monotone" dataKey="unfinished_workorder" stroke="#ff7300" />
-						</ComposedChart>
-					</div>
+          <div className="card summary-field">
+            <div className="summary-paragraph">
+              <p className="tag is-light">Most Efficient Month</p>
+              <h2><i>{mostEfficientMonth}</i></h2>
+            </div>
+            <div className="summary-paragraph">
+              <p className="tag is-light">Most Efficient Technician</p>
+              <h2><i>{mostEfficientTechnician}</i></h2>
+            </div>
+            <div className="summary-paragraph">
+              <p className="tag is-light">Most Completed Workorders</p>
+              <h2><i>{mostHardWorkingTechnician}</i></h2>
+            </div>
+            <div className="summary-paragraph">
+              <p className="tag is-light">Busiest Month</p>
+              <h2><i>{busiestMonth}</i></h2>
+            </div>
+          </div>
 
-					<div className="card summary-field">
-						<h1><b>Work Orders Completed by Technicians for year {year}</b></h1>
-						<ResponsiveContainer 
-							width="100%" 
-							height={250}
-						>
-							<PieChart width={400} height={400}>
-								<Legend wrapperStyle={{ top: 250, left: 5 }} />
-								<Pie
-									isAnimationActive={false}
-									label={renderCustomizedLabel}
-									labelLine={false}
-									cx={250}
-									cy={120}
-									data={dataForEachTech}
-									dataKey="completed_tasks"
-									outerRadius={100}
-									fill="#fff"
-								>
-								</Pie>
-							</PieChart>
-						</ResponsiveContainer>
-					</div>
+          <div className="card summary-field">
+            <h1><b>Work Order Summary for year {year}</b></h1>
+            <ComposedChart
+              width={500}
+              height={400}
+              data={workOrderSummary}
+              margin={{
+                top: 20,
+                right: 20,
+                bottom: 50,
+                left: -10
+              }}
+            >
+              <CartesianGrid stroke="#f5f5f5" />
+              <XAxis dataKey="month" />
+              <YAxis />
+              <Tooltip />
+              <Legend wrapperStyle={{ top: 350, left: 25 }} />
+              <Area type="monotone" dataKey="total_workorder_created" fill="#8884d8" stroke="#8884d8" />
+              <Bar dataKey="completed_workorder" barSize={20} fill="#413ea0" />
+              <Line type="monotone" dataKey="unfinished_workorder" stroke="#ff7300" />
+            </ComposedChart>
+          </div>
 
-					<div className="card summary-field">
-						<h1><b>Avg Time Spent on Workorder for each Technician</b></h1>
-						<BarChart
-							width={500}
-							height={300}
-							data={dataForEachTech}
-							margin={{
-								top: 5,
-								right: 30,
-								left: 20,
-								bottom: 5
-							}}
-						>
-							<CartesianGrid strokeDasharray="3 3" />
-							<XAxis dataKey="name" />
-							<YAxis />
-							<Tooltip />
-							<Bar dataKey="avg_duration" fill="#8884d8" />
-						</BarChart>
-					</div>
-				</div>
-			</div>
-		</>
+          <div className="card summary-field">
+            <h1><b>Work Orders Completed by Technicians for year {year}</b></h1>
+            <ResponsiveContainer
+              width="100%"
+              height={250}
+            >
+              <PieChart width={400} height={400}>
+                <Legend wrapperStyle={{ top: 250, left: 5 }} />
+                <Pie
+                  isAnimationActive={false}
+                  label={renderCustomizedLabel}
+                  labelLine={false}
+                  cx={250}
+                  cy={120}
+                  data={dataForEachTech}
+                  dataKey="completed_tasks"
+                  outerRadius={100}
+                  fill="#fff"
+                >
+                </Pie>
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+
+          <div className="card summary-field">
+            <h1><b>Avg Time Spent on Workorder for each Technician</b></h1>
+            <BarChart
+              width={500}
+              height={300}
+              data={dataForEachTech}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="avg_duration" fill="#8884d8" />
+            </BarChart>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }

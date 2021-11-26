@@ -1,6 +1,5 @@
-import Profile from "./Profile";
 import { useAuth0 } from '@auth0/auth0-react';
-import {  Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import WorkOrderContainer from "./WorkOrderContainer";
 import WorkOrderForm from "./WorkOrderForm";
 import Start_confirmation from "./Start_confirmation";
@@ -10,6 +9,7 @@ import InventoryContainer from './InventoryContainer';
 import InventoryForm from "./InventoryForm";
 import Summary from "./Summary";
 import Chat from "./Chat";
+import welcomeLogo from '../images/welcomeLogo.jpeg'
 
 export default function Container(props) {
 	const { inventory, today, workorder, setApplicationData, messages, socket } = props
@@ -17,11 +17,11 @@ export default function Container(props) {
 
   return (
     <div>
-      {!isAuthenticated && 
-      	<div className="cover" >
-					<img id="landing-image" src="https://www.barrierbeachmanagement.com/wp-content/uploads/2014/12/buildingmanagement.jpg"></img>
-				</div>
-			}
+      {!isAuthenticated &&
+        <div className="cover" >
+          <img id="landing-image" src={welcomeLogo} alt="Building"></img>
+        </div>
+      }
 				<Routes>
 					<Route path="/workorders" element={<WorkOrderContainer workorder={workorder}/>} />
 					<Route path="/workorders/create" element={<WorkOrderForm setApplicationData={setApplicationData} today={today} inventory={inventory}/>} />

@@ -13,7 +13,8 @@ const socket = io(ENDPOINT, {
   }
 });
 
-function App(props) {
+function App() {
+
   const [applicationData, setApplicationData] = useState({
     workorder: [],
     inventory: [],
