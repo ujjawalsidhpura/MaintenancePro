@@ -83,18 +83,18 @@ export default function MenuList(props) {
     	</ul>
     </aside>;
 
-    const technicianView = 
-    <aside className="menu is-one-quarter">
-    <ul>
+  const technicianView = 
+  <aside className="menu">
+		<img className="logo" alt="MaintenancePro" src={logo}/>
     { isLoading && <li className="menu-label"><a>Loading...</a></li>}
     {(!isAuthenticated && !isLoading) && <li className="menu-label"><a>Please Log IN</a></li>}
     {isAuthenticated && <Profile nickname={user.nickname} email={email} picture={user.picture}/>}
 
-
-    <li className="nav-list"><AuthenticationButton /></li>
-      <ul>
-        <li className="nav-list"><Link to="/workorders">Check my Workorders</Link></li>
-        <li className="nav-list">
+		<hr/>
+    <ul className="links">
+   	 <li className="nav-list"><Link to="/workorders">My Work Orders</Link></li>
+   	 <li className="nav-list"><AuthenticationButton /></li>
+      <li className="nav-list">
 					<Link to="/chat">
 						<div>
 							<i class="far fa-list-alt"></i>
@@ -102,9 +102,8 @@ export default function MenuList(props) {
 						</div>
 					</Link>
 				</li>
-      </ul>
     </ul>
-    </aside>;
+  </aside>;
 
   return (
      (user && user.email === 'admin@gmail.com') ? adminView :

@@ -16,12 +16,12 @@ html, body{
 
 hr {
 	margin: 0;
-	width: 11.5vw;
-	margin-left: 1.5vw;
+	width: 80%;
+	margin-left: 9%;
 }
 .logo {
-	width: 7em;
-	margin-top: 1em;
+	width: 5em;
+	margin: 1em 0;
 }
 
 /* Menu sidebar css */
@@ -45,8 +45,8 @@ hr {
 
   /* margin-top: 5em; */
 }
-
-/* .menu-label > a {
+/* 
+.menu-label > a {
  color: white;
  font-size: 25px;
 } */
@@ -56,15 +56,14 @@ hr {
   display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 13vw;
+	width: 13em;
 	height: 4em;
 	font-size: 1em;
 	margin: 0 0.5em;
 	padding: 1em;
-	margin-left: 1vw;
 	font-weight: bold;
 	border: solid hsl(217, 71%, 53%);
-
+	border-radius: 0px 20px 20px 0px;
 }
 
 .nav-list :hover {
@@ -76,16 +75,17 @@ hr {
 }
 
 .nav-list a >span {
+	display: flex;
 	color: hsl(217, 100%, 61%);
 	background-color: white;
-	padding: 0.3em 0.5em;
+	padding: 0.1em 0.5em;
 	border-radius: 10%;
-	/* box-shadow: inset 5px 5px 15px 5px rgba(0,0,0,0.34); */
+	box-shadow: inset 5px 5px 15px 5px rgba(0,0,0,0.14);
 }
 .links {
-	margin-top: 3em;
+	margin-top: 2em;
 }
-.logout {
+.logout a{
 	margin-top: 2em;
 }
 
@@ -103,7 +103,7 @@ hr {
 
 .profile {
 	border-radius: 70%;
-	height: 3.5em;
+	height: 3em;
 	margin-right: 0.5em;
 	border: solid white;
 }
@@ -115,6 +115,7 @@ hr {
 .menu-header {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 	justify-content: center;
 	padding: 1.2em;
 }
@@ -126,10 +127,17 @@ hr {
 
 /* Workorder form */
 
-.workorder-form {
+.inventory-form {
 	display: flex;
 	justify-content: space-between;
 	height: 100vh;
+ 	padding: 2em 4em;
+ 	margin-left: 15vw;
+}
+.workorder-form {
+	display: flex;
+	justify-content: space-between;
+	height: 100%;
  	padding: 2em 4em;
  	margin-left: 15vw;
 }
@@ -144,7 +152,6 @@ hr {
 }
 
 .form-image > img {
-	/* height: 30em; */
 	width: 100%;
 }
 
@@ -157,7 +164,7 @@ select {
 }
 
 .submit {
-	margin-top: 1em;
+	margin: 1em 0 2em 0;
 	width: 100%;
 }
 
@@ -207,6 +214,7 @@ select {
 	justify-content: space-between;
 	margin-top: -1em;
 	background-color: rgb(235, 233, 233);
+	border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
 	z-index: 5;
 	width: 85%;
 	right: 0;
@@ -217,7 +225,6 @@ select {
 
 .workorder-labels > span > strong {
 	color: rgb(113, 110, 110);
-	
 }
 
 .workorder-item {
@@ -225,7 +232,6 @@ select {
  padding: 1em 1em;
  width: 100%;
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
- /* border-radius: 5px; */
  box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.25);
 }
 
@@ -255,7 +261,6 @@ select {
 	z-index: 5;
 	width: 85%;
 	padding: 2em;
-	/* margin-bottom: 2em; */
 	right: 0;
 	top: 0;
 }
@@ -267,11 +272,9 @@ select {
 
 .inventory-item {
 	display: flex;
-	/* margin-bottom: 0.5em; */
 	padding: 1em 0;
 	justify-content: space-between;
 	width: 100%;
-	/* border-radius: 10px; */
 	border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
 	box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.25);
 }
@@ -282,6 +285,7 @@ select {
 	justify-content: space-between;
 	margin-top: -1em;
 	background-color: rgb(235, 233, 233);
+	border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
 	z-index: 5;
 	width: 85%;
 	margin-bottom: 2em;
@@ -323,6 +327,7 @@ select {
 	justify-content: space-between;
 	margin-top: -1em;
 	background-color: rgb(235, 233, 233);
+	border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
 	z-index: 5;
 	width: 85vw;
 	right: 0;
@@ -346,7 +351,6 @@ select {
 	padding: 2em 2em 1em 2em;
 	right: 0;
 	top: 0;
-	/* height: 50%; */
 }
 
 .card-content {
@@ -358,8 +362,6 @@ select {
 }
 .card-header-title {
 	justify-content: center;
-
-	/* background-color: rgb(227, 227, 227); */
 }
 .today-summary-content {
 	display: flex;
@@ -372,14 +374,12 @@ select {
 	margin-right: 2em;
 }
 
-
 .today-field {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 20vw;
 	text-align: center;
-	/* padding: 0 1em; */
 }
 
 .chat-container {
@@ -387,3 +387,95 @@ select {
 	margin-top: 22.5em;
 	margin-left: 15vw;
 }
+/* Summary css */
+
+.summary-page {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin-left: 15%;
+	padding: 2em;
+}
+
+.summary-content{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.summary-field {
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	margin: 1em 0;
+	width: 49%;
+	align-items: center;
+}
+
+.dropdown {
+	width: 5em;
+	font-size: 0.5em;
+}
+
+.summary-paragraph {
+	/* border: solid black; */
+	margin-bottom: 1em;
+}
+
+/* Technician view */
+
+.start-confirmation {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 8em;
+	margin-left: 32em;
+	width: 40%;
+	padding: 10em 0;
+	height: 50%;
+}
+
+.tech-workorder-filter {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	z-index: 5;
+	width: 85%;
+	padding: 2em;
+	right: 0;
+	top: 0;
+}
+.tech-workorder-labels {
+	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	margin-top: -1em;
+	background-color: rgb(235, 233, 233);
+	border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
+	z-index: 5;
+	width: 85%;
+	right: 0;
+	padding: 0 6em;
+	text-align: center;
+	box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.07);
+}
+
+.tech-workorder-labels > span > strong {
+	color: rgb(113, 110, 110);
+}
+.tech-workorder-container {
+	margin-top: 7em;
+	margin-left: 15vw;
+}
+
+.confirm-cancel {
+	width: 40%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+/* menu media query */
+
+/* @media screen and (min-width: ) {
+
+} */

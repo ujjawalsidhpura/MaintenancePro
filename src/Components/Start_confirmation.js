@@ -21,12 +21,12 @@ export default function Start_confirmation(props){
   }
 
   return (
-    <div className="start-confirmation">
-      <h1>Are you sure to start?</h1>
-      <Confirm_button onClick = {()=>{
-        submit_start_time({workorder_id: id})
-        }}/>
-      <Cancel_button/>
+    <div className="card start-confirmation">
+      <h1 className="title">Are you ready to start?</h1>
+			<div className="confirm-cancel">
+				<Confirm_button onClick = {()=>{submit_start_time({workorder_id: id})}}/>
+				<Cancel_button/>
+			</div>
     </div>
   )
 }

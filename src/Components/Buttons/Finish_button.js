@@ -7,7 +7,7 @@ const Finish_button = function(props){
     to="/finish-confirmation"   
     state={ {id: props.id} }
     >
-    <button>Finish</button>
+    <a class="button is-danger is-outlined">Finish</a>
     </Link>
   )
 }
