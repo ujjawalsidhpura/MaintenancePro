@@ -1,6 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import Start_button from './Buttons/Start-button';
-import Finish_button from './Buttons/Finish_button';
+import StartButton from './Buttons/StartButton';
+import FinishButton from './Buttons/FinishButton';
 
 
 export default function WorkOrderItems(props) {
@@ -29,10 +29,10 @@ export default function WorkOrderItems(props) {
 
       <div className="workorder-field">
         {isAuthenticated && user.email !== 'admin@gmail.com'
-          && !props.time_completed && props.time_started && <Finish_button id={props._id} />
+          && !props.time_completed && props.time_started && <FinishButton id={props._id} />
         }
         {isAuthenticated && user.email !== 'admin@gmail.com'
-          && !props.time_completed && !props.time_started && <Start_button id={props._id} />
+          && !props.time_completed && !props.time_started && <StartButton id={props._id} />
         }
         {props.duration &&
           <p>{(props.duration / 1000 / 60).toFixed(2)} mins</p>

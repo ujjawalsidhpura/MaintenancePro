@@ -6,47 +6,46 @@ import ScrollToBottom from './ScrollToBottom';
 export default function Chat(props) {
   const { messages, setApplicationData, socket } = props;
   const { user } = useAuth0();
-  user && console.log("user",user.name);
-  const [message, setMessage] = useState({name: user && user.name, message: ''});
+  const [message, setMessage] = useState({ name: user && user.name, message: '' });
 
   useEffect(() => {
 
     socket.on('message', ({ message }) => {
       axios.get('/messages')
-      .then((res) => {
-        setApplicationData(prev => ({
-          ...prev, messages:[...res.data]
-        }))
-      });
+        .then((res) => {
+          setApplicationData(prev => ({
+            ...prev, messages: [...res.data]
+          }))
+        });
     })
-  },[]);
+  }, [setApplicationData, socket]);
 
-    const renderHistoryChat = messages.map((message, index) => {
-      return  (
+  const renderHistoryChat = messages.map((message, index) => {
+    return (
       <div key={index} className="chat-all-user">
-        {user && user.name == message.name ?
+        {user && user.name === message.name ?
           <div className="chat-user">
-          <div className="bubble"><h3>{message.name}: <span>{message.message}</span></h3></div>
+            <div className="bubble"><h3>{message.name}: <span>{message.message}</span></h3></div>
           </div>
-        :
-        <div className="chat-other-user">
-          <div className="bubble"><h3>{message.name}: <span>{message.message}</span></h3></div>
-        </div>}
-        </div>
-      )
-      }).reverse()
-    
+          :
+          <div className="chat-other-user">
+            <div className="bubble"><h3>{message.name}: <span>{message.message}</span></h3></div>
+          </div>}
+      </div>
+    )
+  }).reverse()
 
 
 
-  const handleChange = (event) =>{
-    user && setMessage({...message, [event.target.name]: event.target.value, name: user.name})
+
+  const handleChange = (event) => {
+    user && setMessage({ ...message, [event.target.name]: event.target.value, name: user.name })
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post('/messages', message,
-      {headers:{ "Content-Type": "application/json" }}
+      { headers: { "Content-Type": "application/json" } }
     ).then(res => {
       axios.get('/messages')
       .then((res) => {
@@ -60,7 +59,7 @@ export default function Chat(props) {
     }).catch(err => {
       console.log("message err", err);
     })
-    
+
   }
 
   return(

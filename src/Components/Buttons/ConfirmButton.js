@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export default function Confirm_button(props) {
+export default function ConfirmButton(props) {
 
   const { onClick } = props;
 

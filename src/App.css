@@ -6,13 +6,13 @@ body {
 }
 
 /* General css */
- 
+
 .title {
  font-size: 2em;
 }
 
 .confirm-mssg {
-	text-align: center;
+ text-align: center;
 }
 
 hr {
@@ -68,11 +68,11 @@ hr {
 }
 
 a {
-	color: white;
+ color: white;
 }
 
 a:hover {
-	color: white;
+ color: white;
 }
 
 .nav-list > button {
@@ -167,14 +167,13 @@ a:hover {
  margin-left: 15vw;
 }
 
-
 .chat-name-field {
-  width: 200%;
+ width: 200%;
 }
 
-.chat-send-button{
-  margin-top: 1em;
-  margin-right: 10em;
+.chat-send-button {
+ margin-top: 1em;
+ margin-right: 10em;
 }
 
 .form-content {
@@ -413,7 +412,6 @@ select {
  width: 20vw;
  text-align: center;
 }
-
 
 /* Summary css */
 

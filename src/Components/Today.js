@@ -12,7 +12,7 @@ export default function Today(props) {
 
   const workOrderByTechnician = function (workorders, technician) {
     return workorders.filter(workorder =>
-      workorder.technician == technician
+      workorder.technician === technician
     )
   }
 
@@ -28,9 +28,10 @@ export default function Today(props) {
 
   const technicianArray = eachTechnician(props.today);
 
-  const summaryForEachTechnicain = technicianArray.map(technician => {
-    return (<p key={technician} >{technician} has {workOrderByTechnician(props.today, technician).length} unfinished tasks</p>)
-  }
+  const summaryForEachTechnicain = technicianArray.map(technician =>
+
+    (<p key={technician} >{technician} has {workOrderByTechnician(props.today, technician).length} unfinished tasks</p>)
+
   );
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#9b59b6', '#e74c3c'];
 
@@ -41,6 +42,8 @@ export default function Today(props) {
         unfinishedtasks: workOrderByTechnician(props.today, technician).length,
         fill: COLORS[technicianArray.indexOf(technician)]
       }
+    } else {
+      return null;
     }
   });
 

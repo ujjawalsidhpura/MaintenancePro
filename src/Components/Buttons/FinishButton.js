@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Finish_button = function (props) {
+const FinishButton = function (props) {
   return (
     <Link
       to="/finish-confirmation"
@@ -14,4 +14,4 @@ const Finish_button = function (props) {
   )
 }
 
-export default Finish_button;
+export default FinishButton;

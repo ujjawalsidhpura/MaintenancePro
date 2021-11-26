@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import { useState } from 'react';
 import AuthenticationButton from './Buttons/Auth-button';
 import logo from '../images/1.png'
 import Profile from './Profile';
@@ -16,12 +16,12 @@ export default function MenuList() {
     <aside className="menu">
       <img className="logo" alt="MaintenancePro" src={logo} />
       <ul className="links">
-        {isLoading && <li className="menu-label"><a>Loading...</a></li>}
-        {isAuthenticated && 
-					<Profile nickname={user.nickname} email={email} picture={user.picture} />
-				}
-				{(!isAuthenticated && !isLoading) && <li className="nav-list"><AuthenticationButton /></li>}
-        
+        {isLoading && <li className="menu-label">Loading...</li>}
+        {isAuthenticated &&
+          <Profile nickname={user.nickname} email={email} picture={user.picture} />
+        }
+        {(!isAuthenticated && !isLoading) && <li className="nav-list"><AuthenticationButton /></li>}
+
       </ul>
     </aside>
 
@@ -29,8 +29,8 @@ export default function MenuList() {
   const adminView =
     <aside className="menu">
       <img className="logo" alt="MaintenancePro" src={logo} />
-      {isLoading && <li className="menu-label"><a>Loading...</a></li>}
-      {(!isAuthenticated && !isLoading) && <li className="menu-label"><a>Please Log IN</a></li>}
+      {isLoading && <li className="menu-label">Loading...</li>}
+      {(!isAuthenticated && !isLoading) && <li className="menu-label">Please Log IN</li>}
       {isAuthenticated && <Profile nickname={user.nickname} email={email} picture={user.picture} />}
       <hr />
       <ul className="links">
@@ -44,27 +44,27 @@ export default function MenuList() {
         </li>
 
         <li className="nav-list">
-					<div className="link">
-						<Link to="/workorders">
-							<i className="far fa-clipboard"></i>
-							Work Orders
-						</Link>
-						<Link to="/workorders/create">
-							<span>+</span>
-						</Link>
-					</div>
+          <div className="link">
+            <Link to="/workorders">
+              <i className="far fa-clipboard"></i>
+              Work Orders
+            </Link>
+            <Link to="/workorders/create">
+              <span>+</span>
+            </Link>
+          </div>
         </li>
 
         <li className="nav-list">
-					<div className="link">
-						<Link to="/inventory">
-							<i className="fas fa-wrench"></i>
-							Inventories
-						</Link>
-						<Link to="/inventory/create">
-							<span>+</span>
-						</Link>
-					</div>
+          <div className="link">
+            <Link to="/inventory">
+              <i className="fas fa-wrench"></i>
+              Inventories
+            </Link>
+            <Link to="/inventory/create">
+              <span>+</span>
+            </Link>
+          </div>
         </li>
 
         <li className="nav-list">
@@ -92,8 +92,8 @@ export default function MenuList() {
   const technicianView =
     <aside className="menu">
       <img className="logo" alt="MaintenancePro" src={logo} />
-      {isLoading && <li className="menu-label"><a>Loading...</a></li>}
-      {(!isAuthenticated && !isLoading) && <li className="menu-label"><a>Please Log IN</a></li>}
+      {isLoading && <li className="menu-label">Loading...</li>}
+      {(!isAuthenticated && !isLoading) && <li className="menu-label">Please Log IN</li>}
       {isAuthenticated && <Profile nickname={user.nickname} email={email} picture={user.picture} />}
       <hr />
       <ul className="links">
