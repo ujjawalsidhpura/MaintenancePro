@@ -1,6 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ScrollToBottom from './ScrollToBottom';
 
 export default function Chat(props) {
   const { messages, setApplicationData, socket } = props;
@@ -52,6 +53,7 @@ export default function Chat(props) {
         setApplicationData(prev => ({
           ...prev, messages:[...res.data]
         }))
+				window.scrollTo(100, 10000);
         socket.emit('message', {message});
         user && setMessage({message: '', name: user.name});
       })
@@ -61,12 +63,13 @@ export default function Chat(props) {
     
   }
 
-
   return(
     <div className='chat-container'>
-			<div className="chat-box">
-    		{renderHistoryChat}
-    	</div>
+			<ScrollToBottom>
+				<div className="chat-box">
+					{renderHistoryChat}
+				</div>
+			</ScrollToBottom>
     	<form className="card chat-form" onSubmit={e=>handleSubmit(e)}>
     		<input 
     		  className="input"

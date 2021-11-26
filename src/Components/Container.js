@@ -9,7 +9,8 @@ import InventoryContainer from './InventoryContainer';
 import InventoryForm from "./InventoryForm";
 import Summary from "./Summary";
 import Chat from "./Chat";
-import welcomeLogo from '../images/welcomeLogo.jpeg'
+import welcomeLogo from '../images/welcomeLogo.jpeg';
+
 
 export default function Container(props) {
 	const { inventory, today, workorder, setApplicationData, messages, socket } = props
