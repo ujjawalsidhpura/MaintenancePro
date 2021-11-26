@@ -1,56 +1,70 @@
-import io from "socket.io-client";
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState, useEffect } from "react";
-export default function Chat() {
+import axios from "axios";
+
+export default function Chat(props) {
+  const { messages, setApplicationData, socket } = props;
   const { user } = useAuth0();
+  user && console.log("user",user.name);
+  const [message, setMessage] = useState({name: user && user.name, message: ''});
 
-  const [message, setMessage] = useState({message: '', name: user && user.name});
+  useEffect(() => {
 
-  const [log, setLog] = useState([]);
-
-  const ENDPOINT='http://localhost:3001';
-  let socket = io(ENDPOINT, { 
-    withCredentials: true,
-    extraHeaders: {
-      "my-custom-header": "abcd"
-    }
-  });;
-
-  const renderChat = log.map(({ message, name }, index) => {
-    return  <div key={index}>
-        <h3>
-          {name}: <span>{message}</span>
-        </h3>
-      </div>
+    socket.on('message', ({ message }) => {
+      axios.get('/messages')
+      .then((res) => {
+        setApplicationData(prev => ({
+          ...prev, messages:[...res.data]
+        }))
+      });
     })
+  },[]);
+
+    const renderHistoryChat = messages.map((message, index) => {
+      return  (
+      <div key={index}>
+        {user && user.name == message.name ?
+          <h3>
+          I am typing  {message.name}: <span>{message.message}</span>
+          </h3>
+        :
+        <h3>
+          Others are typing  {message.name}: <span>{message.message}</span>
+        </h3>}
+        </div>
+      )
+      }).reverse()
     
 
-  console.log(log);
 
 
   const handleChange = (event) =>{
-    setMessage({...message, [event.target.name]: event.target.value, name: user&&user.name})
+    user && setMessage({...message, [event.target.name]: event.target.value, name: user.name})
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // setLog(prev => [...prev, message]);
+    axios.post('/messages', message,
+      {headers:{ "Content-Type": "application/json" }}
+    ).then(res => {
+      axios.get('/messages')
+      .then((res) => {
+        setApplicationData(prev => ({
+          ...prev, messages:[...res.data]
+        }))
+      })
+    }).catch(err => {
+      console.log("message err", err);
+    })
     socket.emit('message', {message});
-    setMessage({message: '', name: ''});
+    user && setMessage({message: '', name: user.name});
   }
 
 
 
-  useEffect(() => {
-    socket.on('message', ({ message }) => {
-      setLog(prev => [...prev, message]);
-    })
-  },[])
-
   return(
     <div className='chat-container'>
     <div className='card'>
-    {renderChat}
     <form>
       <div className="name-field">
       <h1>{user && user.name}</h1>
@@ -62,6 +76,7 @@ export default function Chat() {
       </div>
       <button onClick={e=>handleSubmit(e)}>submit</button>
     </form>
+    {renderHistoryChat}
     </div>
     </div>
   )

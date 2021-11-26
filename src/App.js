@@ -4,12 +4,21 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import MenuList from './Components/MenuList';
 import Container from './Components/Container';
+import io from "socket.io-client";
+const ENDPOINT='http://localhost:3001';
+const socket = io(ENDPOINT, { 
+  withCredentials: true,
+  extraHeaders: {
+    "my-custom-header": "abcd"
+  }
+});
 
 function App(props) {
   const [applicationData, setApplicationData] = useState({
     workorder: [],
     inventory: [],
-    today: []
+    today: [],
+    messages: []
   })
 
   useEffect(() => {
@@ -17,18 +26,21 @@ function App(props) {
       [
         axios.get('/workorder'),
         axios.get('/inventory'),
-        axios.get('/today')
+        axios.get('/today'),
+        axios.get('/messages')
       ]
     )
       .then((all) => {
         const workorder = all[0].data
         const inventory = all[1].data
         const today = all[2].data
+        const messages = all[3].data
         setApplicationData(prev => ({
-          ...prev, workorder: [...workorder], inventory: [...inventory], today: [...today]
+          ...prev, workorder: [...workorder], inventory: [...inventory], today: [...today], messages: [...messages]
         }))
       })
   }, [])
+
 
 
   return (
@@ -39,6 +51,8 @@ function App(props) {
 				inventory={applicationData.inventory} 
 				today={applicationData.today}
 				setApplicationData={setApplicationData}
+        messages={applicationData.messages}
+        socket={socket}
 			/>
     </div>
   )

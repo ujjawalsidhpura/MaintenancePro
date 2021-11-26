@@ -12,7 +12,7 @@ import Summary from "./Summary";
 import Chat from "./Chat";
 
 export default function Container(props) {
-	const { inventory, today, workorder, setApplicationData } = props
+	const { inventory, today, workorder, setApplicationData, messages, socket } = props
   const { isAuthenticated } = useAuth0();
 
   return (
@@ -31,7 +31,7 @@ export default function Container(props) {
           <Route path="/inventory" element={<InventoryContainer inventory={inventory} />} />
           <Route path="/inventory/create" element={<InventoryForm inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
           <Route path="/summary" element={<Summary inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
-          <Route path="/chat" element={<Chat />} />
+          <Route path="/chat" element={<Chat setApplicationData={setApplicationData} messages={messages} socket={socket}/>} />
 				</Routes>
     </div>
   )
