@@ -52,12 +52,13 @@ export default function Chat(props) {
         setApplicationData(prev => ({
           ...prev, messages:[...res.data]
         }))
+        socket.emit('message', {message});
+        user && setMessage({message: '', name: user.name});
       })
     }).catch(err => {
       console.log("message err", err);
     })
-    socket.emit('message', {message});
-    user && setMessage({message: '', name: user.name});
+    
   }
 
 
