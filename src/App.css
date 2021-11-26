@@ -11,6 +11,10 @@ body {
  font-size: 2em;
 }
 
+.confirm-mssg {
+	text-align: center;
+}
+
 hr {
  margin: 0;
  width: 80%;
@@ -38,7 +42,7 @@ hr {
 .nav-list {
  display: flex;
  align-items: center;
- text-decoration: none;
+ /* text-decoration: none; */
 
  /* margin-top: 5em; */
 }
@@ -48,7 +52,7 @@ hr {
  font-size: 25px;
 } */
 
-.nav-list > a {
+.link {
  color: white;
  display: flex;
  align-items: center;
@@ -61,6 +65,14 @@ hr {
  font-weight: bold;
  border: solid hsl(217, 71%, 53%);
  border-radius: 0px 20px 20px 0px;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
+	color: white;
 }
 
 .nav-list > button {
@@ -98,7 +110,7 @@ hr {
 .links {
  margin-top: 2em;
 }
-.logout a {
+.logout button {
  margin-top: 2em;
 }
 

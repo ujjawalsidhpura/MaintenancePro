@@ -15,10 +15,13 @@ export default function MenuList() {
 
     <aside className="menu">
       <img className="logo" alt="MaintenancePro" src={logo} />
-      <ul>
+      <ul className="links">
         {isLoading && <li className="menu-label"><a>Loading...</a></li>}
-        {isAuthenticated && <Profile nickname={user.nickname} email={email} picture={user.picture} />}
-        <li className="nav-list"><AuthenticationButton /></li>
+        {isAuthenticated && 
+					<Profile nickname={user.nickname} email={email} picture={user.picture} />
+				}
+				{(!isAuthenticated && !isLoading) && <li className="nav-list"><AuthenticationButton /></li>}
+        
       </ul>
     </aside>
 
@@ -32,7 +35,7 @@ export default function MenuList() {
       <hr />
       <ul className="links">
         <li className="nav-list">
-          <Link to="/today">
+          <Link to="/today" className="link">
             <div>
               <i className="far fa-eye"></i>
               Today at Glance
@@ -41,27 +44,31 @@ export default function MenuList() {
         </li>
 
         <li className="nav-list">
-          <Link to="/workorders">
-            <i className="far fa-clipboard"></i>
-            Work Orders
-          </Link>
-          <Link to="/workorders/create">
-            <span>+</span>
-          </Link>
+					<div className="link">
+						<Link to="/workorders">
+							<i className="far fa-clipboard"></i>
+							Work Orders
+						</Link>
+						<Link to="/workorders/create">
+							<span>+</span>
+						</Link>
+					</div>
         </li>
 
         <li className="nav-list">
-          <Link to="/inventory">
-            <i className="fas fa-wrench"></i>
-            Inventories
-          </Link>
-          <Link to="/inventory/create">
-            <span>+</span>
-          </Link>
+					<div className="link">
+						<Link to="/inventory">
+							<i className="fas fa-wrench"></i>
+							Inventories
+						</Link>
+						<Link to="/inventory/create">
+							<span>+</span>
+						</Link>
+					</div>
         </li>
 
         <li className="nav-list">
-          <Link to="/summary">
+          <Link to="/summary" className="link">
             <div>
               <i className="far fa-list-alt"></i>
               Summary
@@ -82,7 +89,7 @@ export default function MenuList() {
       {isAuthenticated && <Profile nickname={user.nickname} email={email} picture={user.picture} />}
       <hr />
       <ul className="links">
-        <li className="nav-list"><Link to="/workorders">My Work Orders</Link></li>
+        <li className="nav-list"><Link to="/workorders" className="link">My Work Orders</Link></li>
         <li className="nav-list"><AuthenticationButton /></li>
       </ul>
     </aside>;
