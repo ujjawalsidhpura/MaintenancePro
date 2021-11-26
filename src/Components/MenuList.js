@@ -98,6 +98,14 @@ export default function MenuList() {
       <hr />
       <ul className="links">
         <li className="nav-list"><Link to="/workorders" className="link">My Work Orders</Link></li>
+        <li className="nav-list">
+					<Link to="/chat">
+						<div>
+							<i class="fas fa-comment-alt"></i>
+							Chat Platform
+						</div>
+					</Link>
+				</li>
         <li className="nav-list"><AuthenticationButton /></li>
       </ul>
     </aside>;
