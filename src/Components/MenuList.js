@@ -76,7 +76,7 @@ export default function MenuList() {
           </Link>
         </li>
         <li className="nav-list">
-					<Link to="/chat">
+					<Link to="/chat" className="link">
 						<div>
 							<i class="fas fa-comment-alt"></i>
 							Chat Platform
