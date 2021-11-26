@@ -6,13 +6,13 @@ body {
 }
 
 /* General css */
- 
+
 .title {
  font-size: 2em;
 }
 
 .confirm-mssg {
-	text-align: center;
+ text-align: center;
 }
 
 hr {
@@ -68,11 +68,11 @@ hr {
 }
 
 a {
-	color: white;
+ color: white;
 }
 
 a:hover {
-	color: white;
+ color: white;
 }
 
 .nav-list > button {
@@ -167,14 +167,13 @@ a:hover {
  margin-left: 15vw;
 }
 
-
 .chat-name-field {
-  width: 200%;
+ width: 200%;
 }
 
-.chat-send-button{
-  margin-top: 1em;
-  margin-right: 10em;
+.chat-send-button {
+ margin-top: 1em;
+ margin-right: 10em;
 }
 
 .form-content {
@@ -414,7 +413,6 @@ select {
  text-align: center;
 }
 
-
 /* Summary css */
 
 .summary-page {
@@ -503,66 +501,66 @@ select {
 }
 
 .chat-container {
-	/* margin-top: 12.5em; */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-	margin-left: 0vw;
+ /* margin-top: 12.5em; */
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ margin-left: 0vw;
 }
 
 .chat-form {
-	display: flex;
-  flex-grow: 1;
-  height: 100vh;
-  flex-direction: column;
-	justify-content: center;
- 	padding: 2em 4em;
- 	margin-left: 15vw;
-  flex-basis: 25em;
+ display: flex;
+ flex-grow: 1;
+ height: 100vh;
+ flex-direction: column;
+ justify-content: center;
+ padding: 2em 4em;
+ margin-left: 15vw;
+ flex-basis: 25em;
 }
 
-.chat-box{
-  display: flex;
-  flex-direction: column-reverse;
-  position: relative;
-  flex-grow: 5;
-  overflow: auto;
-  max-height: 100vh;
-  background-color: #c7ecee;
-  border-radius:5px;  
-  box-shadow: 0px 5px 35px 9px #ccc;
+.chat-box {
+ display: flex;
+ flex-direction: column-reverse;
+ position: relative;
+ flex-grow: 5;
+ overflow: auto;
+ max-height: 100vh;
+ background-color: #c7ecee;
+ border-radius: 5px;
+ box-shadow: 0px 5px 35px 9px #ccc;
 }
 
-.chat-all-user{
-  display: flex;
-  justify-content: space-between;
+.chat-all-user {
+ display: flex;
+ justify-content: space-between;
 }
 
-.chat-user{
-  position: relative;
-  margin-left: 30em;
+.chat-user {
+ position: relative;
+ margin-left: 30em;
 }
 
-.chat-user > .bubble{
-  color: black;
-  background: #79C7C5;
+.chat-user > .bubble {
+ color: black;
+ background: #79c7c5;
 }
-.chat-other-user{
-  position: relative;
-  margin-left: -5em;
+.chat-other-user {
+ position: relative;
+ margin-left: -5em;
 }
 
-.chat-other-user > .bubble{
-  margin-left: 15em;
-  background: #777777;
-  float: right;
+.chat-other-user > .bubble {
+ margin-left: 15em;
+ background: #777777;
+ float: right;
 }
 .bubble {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 5px;
-  color: white;
-  font-size: 0.7em;
-  padding: 10px 10px 10px 12px;
-  border-radius: 20px;
+ position: relative;
+ display: inline-block;
+ margin-bottom: 5px;
+ color: white;
+ font-size: 0.7em;
+ padding: 10px 10px 10px 12px;
+ border-radius: 20px;
 }

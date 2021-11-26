@@ -1,4 +1,3 @@
-import react from 'react';
 import React, { useState, useEffect } from 'react';
 import { ComposedChart, Area, Pie, Line, BarChart, PieChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import jsPDF from 'jspdf';
@@ -21,7 +20,6 @@ export default function Summary(props) {
         pdf.save("MaintenancePro_Summary.pdf");
       });
   };
-
 
   /* 
      This function takes two paramerters workorders array and year (string)
@@ -189,7 +187,7 @@ export default function Summary(props) {
 
   const completedWorkOrderByTechnician = function (workorders, technician) {
     return workorders.filter(workorder =>
-      workorder.technician == technician && workorder.time_completed
+      workorder.technician === technician && workorder.time_completed
     )
   }
 
@@ -217,6 +215,8 @@ export default function Summary(props) {
         avg_duration: calculateAvgDuration(workOrderSummary) / 1000 / 3600,
         fill: COLORS[technicianArray.indexOf(technician)]
       }
+    } else {
+      return null;
     }
   }
   );
@@ -268,7 +268,7 @@ export default function Summary(props) {
   useEffect(() => {
     const x = workorderFilteredByMonth(workorder, year);
     setWorkOrderSummary(x)
-  }, [year])
+  }, [year, workorder])
 
   useEffect(() => {
 
