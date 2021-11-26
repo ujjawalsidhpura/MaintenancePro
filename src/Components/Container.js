@@ -1,4 +1,4 @@
-import { useAuth0 } from '@auth0/auth0-react';
+// import { useAuth0 } from '@auth0/auth0-react';
 import { Routes, Route } from 'react-router-dom'
 import WorkOrderContainer from "./WorkOrderContainer";
 import WorkOrderForm from "./WorkOrderForm";
@@ -10,19 +10,20 @@ import InventoryForm from "./InventoryForm";
 import Summary from "./Summary";
 import Chat from "./Chat";
 import Home from './Home';
-import welcomeLogo from '../images/welcomeLogo.jpeg'
+// import welcomeLogo from '../images/welcomeLogo.jpeg'
 
 export default function Container(props) {
   const { inventory, today, workorder, setApplicationData, messages, socket } = props
-  const { isAuthenticated } = useAuth0();
+  // const { isAuthenticated } = useAuth0();
+
 
   return (
     <div>
-      {!isAuthenticated &&
-        <div className="cover" >
-          <img id="landing-image" src={welcomeLogo} alt="Building"></img>
+      {/* {!isAuthenticated &&
+        <div id='homePage'>
+          <img src={welcomeLogo} alt='welcomelog' />
         </div>
-      }
+      } */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/workorders" element={<WorkOrderContainer workorder={workorder} />} />

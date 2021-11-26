@@ -103,6 +103,7 @@ export default function WorkOrderForm(props) {
             <div className="field">
               <label className="label">Title</label>
               <input
+
                 className="input"
                 type="text"
                 placeholder="Text input"
@@ -150,7 +151,6 @@ export default function WorkOrderForm(props) {
               <span className="star-rating">
                 {ratings.map(rating =>
                 (<><input
-                  key={rating}
                   type="radio"
                   name="rating1"
                   value={rating}

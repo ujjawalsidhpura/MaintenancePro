@@ -564,3 +564,9 @@ select {
  padding: 10px 10px 10px 12px;
  border-radius: 20px;
 }
+
+#homePage {
+ margin-left: 40em;
+ margin-top: 10em;
+ max-width: 40%;
+}

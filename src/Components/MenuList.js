@@ -16,7 +16,7 @@ export default function MenuList() {
     <aside className="menu">
       <img className="logo" alt="MaintenancePro" src={logo} />
       <ul className="links">
-        {isLoading && <li className="menu-label"><a>Loading...</a></li>}
+        {isLoading && <li className="menu-label">Loading...</li>}
         {isAuthenticated &&
           <Profile nickname={user.nickname} email={email} picture={user.picture} />
         }
@@ -29,8 +29,8 @@ export default function MenuList() {
   const adminView =
     <aside className="menu">
       <img className="logo" alt="MaintenancePro" src={logo} />
-      {isLoading && <li className="menu-label"><a>Loading...</a></li>}
-      {(!isAuthenticated && !isLoading) && <li className="menu-label"><a>Please Log IN</a></li>}
+      {isLoading && <li className="menu-label">Loading...</li>}
+      {(!isAuthenticated && !isLoading) && <li className="menu-label">Please Log IN</li>}
       {isAuthenticated && <Profile nickname={user.nickname} email={email} picture={user.picture} />}
       <hr />
       <ul className="links">
@@ -92,8 +92,8 @@ export default function MenuList() {
   const technicianView =
     <aside className="menu">
       <img className="logo" alt="MaintenancePro" src={logo} />
-      {isLoading && <li className="menu-label"><a>Loading...</a></li>}
-      {(!isAuthenticated && !isLoading) && <li className="menu-label"><a>Please Log IN</a></li>}
+      {isLoading && <li className="menu-label">Loading...</li>}
+      {(!isAuthenticated && !isLoading) && <li className="menu-label">Please Log IN</li>}
       {isAuthenticated && <Profile nickname={user.nickname} email={email} picture={user.picture} />}
       <hr />
       <ul className="links">
