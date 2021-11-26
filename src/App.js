@@ -40,7 +40,6 @@ function App() {
         inventory={applicationData.inventory}
         today={applicationData.today}
         setApplicationData={setApplicationData}
-        ref={(response) => (this.componentRef = response)}
       />
     </div>
   )
