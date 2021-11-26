@@ -65,28 +65,22 @@ export default function Chat(props) {
 
   return(
     <div className='chat-container'>
-    <form className="card chat-form">
-    <div className="form-content">
-
-      <div className="field">
-      <label className="label">{user && user.name}</label>
-       <input 
-         className="input"
-         placeholder="Lets chat"
-         name="message"
-         onChange={e=>handleChange(e)}
-         value={message.message}
-       />
-      </div>
-      <button className="button is-link submit" type="submit" onClick={e=>handleSubmit(e)}>Send</button>
-    </div>
-    <div className="form-image">
-			<img src="https://image.freepik.com/free-vector/illustration-characters-fixing-cogwheel_53876-40796.jpg" alt="form-image"/>
-		</div>
-    </form>
-    <div className="chat-box">
-      {renderHistoryChat}
-    </div>
+			<div className="chat-box">
+    		{renderHistoryChat}
+    	</div>
+    	<form className="card chat-form">
+    		<input 
+    		  className="input"
+    		  placeholder="Lets chat"
+    		  name="message"
+    		  onChange={e=>handleChange(e)}
+    		  value={message.message}
+    		/>
+					<a className="send" type="submit" onClick={e=>handleSubmit(e)}>
+						{/* Send */}
+						<img src="https://img.icons8.com/external-kmg-design-flat-kmg-design/32/000000/external-send-user-interface-kmg-design-flat-kmg-design.png"/>
+					</a>
+    	</form>
     </div>
   )
 }

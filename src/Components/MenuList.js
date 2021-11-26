@@ -97,11 +97,18 @@ export default function MenuList() {
       {isAuthenticated && <Profile nickname={user.nickname} email={email} picture={user.picture} />}
       <hr />
       <ul className="links">
-        <li className="nav-list"><Link to="/workorders" className="link">My Work Orders</Link></li>
         <li className="nav-list">
-					<Link to="/chat">
+						<Link to="/workorders" className="link">
+							<div>
+								<i className="far fa-clipboard"></i>
+								Work Orders
+							</div>
+						</Link>
+				</li>
+        <li className="nav-list">
+					<Link to="/chat" className="link">
 						<div>
-							<i class="fas fa-comment-alt"></i>
+							<i className="fas fa-comment-alt"></i>
 							Chat Platform
 						</div>
 					</Link>
