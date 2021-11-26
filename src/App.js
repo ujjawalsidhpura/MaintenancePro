@@ -5,7 +5,7 @@ import axios from 'axios'
 import MenuList from './Components/MenuList';
 import Container from './Components/Container';
 import io from "socket.io-client";
-const ENDPOINT='http://localhost:3001';
+const ENDPOINT='https://maintenancepro-api.herokuapp.com';
 const socket = io(ENDPOINT, { 
   withCredentials: true,
   extraHeaders: {
