@@ -10,7 +10,7 @@ const LoginButton = () => {
       onClick={() => loginWithRedirect()}
     >
 			<div>
-				<i class="fas fa-sign-in-alt"></i>
+				<i className="fas fa-sign-in-alt"></i>
 				Log In
 			</div>
     </button>
