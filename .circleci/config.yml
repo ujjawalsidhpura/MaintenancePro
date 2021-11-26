@@ -25,6 +25,10 @@ jobs:
   working_directory: ~/client
 
   steps:
+   - add_ssh_keys:
+      fingerprints:
+       - "32:fa:a6:f2:d8:27:83:fb:38:13:24:ed:4f:d0:6d:ff"
+   - checkout
    - run:
       name: Push Main to Production
       command: |
