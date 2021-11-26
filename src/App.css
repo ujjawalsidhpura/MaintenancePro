@@ -6,10 +6,7 @@ body {
 }
 
 /* General css */
-
-.App {
-}
-
+ 
 .title {
  font-size: 2em;
 }
@@ -482,7 +479,3 @@ select {
  justify-content: space-evenly;
 }
 
-/* menu media query */
-
-@media screen and (min-width: ) {
-}
