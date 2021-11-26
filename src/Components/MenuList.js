@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import { useState } from 'react';
 import AuthenticationButton from './Buttons/Auth-button';
 import logo from '../images/1.png'
 import Profile from './Profile';
