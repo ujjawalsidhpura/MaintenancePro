@@ -5,8 +5,8 @@ import axios from 'axios'
 import MenuList from './Components/MenuList';
 import Container from './Components/Container';
 
+function App() {
 
-function App(props) {
   const [applicationData, setApplicationData] = useState({
     workorder: [],
     inventory: [],
@@ -35,12 +35,12 @@ function App(props) {
   return (
     <div className="App">
       <MenuList />
-      <Container 
-				workorder={applicationData.workorder} 
-				inventory={applicationData.inventory} 
-				today={applicationData.today}
-				setApplicationData={setApplicationData}
-			/>
+      <Container
+        workorder={applicationData.workorder}
+        inventory={applicationData.inventory}
+        today={applicationData.today}
+        setApplicationData={setApplicationData}
+      />
     </div>
   )
 }
