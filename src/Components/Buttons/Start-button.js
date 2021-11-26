@@ -7,7 +7,7 @@ const Start_button = function(props){
     to="/start-confirmation"   
     state={ {id: props.id} }
     >
-    <button>Start</button>
+    <a class="button is-success is-outlined">Start</a>
     </Link>
   )
 }

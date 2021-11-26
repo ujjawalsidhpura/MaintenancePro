@@ -298,7 +298,7 @@ export default function Summary(props) {
   return (
 		<>
 			<div className="summary-page" >
-				<h1 className="title summary-header">Summary of <Dropdown />: </h1>
+				<h1 className="title summary-header">Summary of <Dropdown /> </h1>
 				<div className="summary-content">
 
 					<div className="card summary-field">

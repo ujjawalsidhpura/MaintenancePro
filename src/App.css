@@ -16,8 +16,8 @@ html, body{
 
 hr {
 	margin: 0;
-	width: 11.5vw;
-	margin-left: 1.5vw;
+	width: 80%;
+	margin-left: 9%;
 }
 .logo {
 	width: 5em;
@@ -45,8 +45,8 @@ hr {
 
   /* margin-top: 5em; */
 }
-
-/* .menu-label > a {
+/* 
+.menu-label > a {
  color: white;
  font-size: 25px;
 } */
@@ -103,7 +103,7 @@ hr {
 
 .profile {
 	border-radius: 70%;
-	height: 3.5em;
+	height: 3em;
 	margin-right: 0.5em;
 	border: solid white;
 }
@@ -115,6 +115,7 @@ hr {
 .menu-header {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 	justify-content: center;
 	padding: 1.2em;
 }
@@ -414,4 +415,62 @@ select {
 .summary-paragraph {
 	/* border: solid black; */
 	margin-bottom: 1em;
+}
+
+/* Technician view */
+
+.start-confirmation {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 8em;
+	margin-left: 32em;
+	width: 40%;
+	padding: 10em 0;
+	height: 50%;
+}
+
+.tech-workorder-filter {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	z-index: 5;
+	width: 85%;
+	padding: 2em;
+	right: 0;
+	top: 0;
+}
+.tech-workorder-labels {
+	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	margin-top: -1em;
+	background-color: rgb(235, 233, 233);
+	border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
+	z-index: 5;
+	width: 85%;
+	right: 0;
+	padding: 0 6em;
+	text-align: center;
+	box-shadow: 5px 9px 15px 4px rgba(0,0,0,0.07);
+}
+
+.tech-workorder-labels > span > strong {
+	color: rgb(113, 110, 110);
+}
+.tech-workorder-container {
+	margin-top: 7em;
+	margin-left: 15vw;
+}
+
+.confirm-cancel {
+	width: 40%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+/* menu media query */
+
+@media screen and (min-width: ) {
+
 }

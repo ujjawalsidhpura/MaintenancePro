@@ -130,10 +130,22 @@ export default function WorkOrderContainer(props) {
 	</>
 
   const technicianView =
-  <div className="workorder-container">
-  <h1>{user && user.name}'s Work Orders</h1>
-  {parsedWorkOrdersByName}
-  </div>;
+	<>
+		<div className="card tech-workorder-filter">
+  		<h1 className="title">{user && user.name}'s Work Orders</h1>
+		</div>
+		<div className="card tech-workorder-labels">
+			<span><strong>Title</strong></span>
+			<span><strong>Technician</strong></span>
+			<span><strong>Description</strong></span>
+			<span><strong>Created</strong></span>
+			<span><strong>Duration</strong></span>
+			<span><strong>Status</strong></span>
+		</div>
+  	<div className="tech-workorder-container">
+  	{parsedWorkOrdersByName}
+  	</div>
+	</>;
 
   return (
     (user && user.email === "admin@gmail.com") ? adminView : technicianView
