@@ -1,10 +1,6 @@
-// src/Components/Buttons/Auth-button.js
-
 import React from 'react';
-
 import LoginButton from './Login-button';
 import LogoutButton from './Logout-button';
-
 import { useAuth0 } from '@auth0/auth0-react';
 
 const AuthenticationButton = () => {

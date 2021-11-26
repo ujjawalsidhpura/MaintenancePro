@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Finish_button = function(props){
-  return(
-    <Link 
-    to="/finish-confirmation"   
-    state={ {id: props.id} }
+const Finish_button = function (props) {
+  return (
+    <Link
+      to="/finish-confirmation"
+      state={{ id: props.id }}
     >
-    <a class="button is-danger is-outlined">Finish</a>
+      <button className="button is-danger is-outlined">
+        Finish
+      </button>
     </Link>
   )
 }
