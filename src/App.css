@@ -553,6 +553,7 @@ select {
 .chat-all-user{
   display: flex;
 	flex-direction: column;
+	padding: 0 5em;
   /* justify-content: space-between; */
 }
 
@@ -573,7 +574,7 @@ select {
 }
 
 .chat-other-user > .bubble{
-  margin-left: 15em;
+  /* margin-left: 15em; */
   background: #c1c1c1;
   float: right;
 	color: black;
@@ -583,7 +584,7 @@ select {
   display: inline-block;
   margin-bottom: 5px;
   color: white;
-  font-size: 0.7em;
+  font-size: 1em;
   padding: 10px 10px 10px 12px;
   border-radius: 20px;
 }

@@ -67,14 +67,13 @@ export default function Chat(props) {
 			<div className="chat-box">
     		{renderHistoryChat}
     	</div>
-    	<form className="card chat-form" >
+    	<form className="card chat-form" onSubmit={e=>handleSubmit(e)}>
     		<input 
     		  className="input"
     		  placeholder="Lets chat"
     		  name="message"
     		  onChange={e=>handleChange(e)}
     		  value={message.message}
-					
     		/>
 					<a className="send" type="submit" onClick={e=>handleSubmit(e)}>
 						{/* Send */}
