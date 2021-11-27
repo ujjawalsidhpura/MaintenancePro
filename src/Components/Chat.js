@@ -17,6 +17,7 @@ export default function Chat(props) {
           setApplicationData(prev => ({
             ...prev, messages: [...res.data]
           }))
+					window.scrollTo(100, 10000);
         });
     })
   }, [setApplicationData, socket]);
