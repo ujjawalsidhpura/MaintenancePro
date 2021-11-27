@@ -29,7 +29,7 @@ This is a full-stack application completely built from scratch by 3 of us, as a 
 
 This repo is the Front-end app repo.
 
-Back-end is supplied by `https://github.com/ujjawalsidhpura/MaintenancePro-API` that is deployed on `Heroku`. API repo supply with endpoints that maintenancePro will use to communicate/update database.Test Production version of this app is deployed on Netlify via CircleCI continuous integration method.
+Back-end is supplied by https://github.com/ujjawalsidhpura/MaintenancePro-API that is deployed on Heroku. API repo supply with endpoints that maintenancePro will use to communicate/update database.Test Production version of this app is deployed on Netlify via CircleCI continuous integration method.
 
 ### Testing
 
