@@ -31,6 +31,20 @@ This repo is the Front-end app repo.
 
 Back-end is supplied by https://github.com/ujjawalsidhpura/MaintenancePro-API that is deployed on Heroku. API repo supply with endpoints that maintenancePro will use to communicate/update database.Test Production version of this app is deployed on Netlify via CircleCI continuous integration method.
 
+### Highlights
+
+| !["Admin Dashboard"](https://github.com/ujjawalsidhpura/MaintenancePro/blob/main/docs/admin.gif?raw=true) |
+| :-------------------------------------------------------------------------------------------------------: |
+|                                             _Admin Dashboard_                                             |
+
+| !["Technician Dashboard"](https://github.com/ujjawalsidhpura/MaintenancePro/blob/main/docs/technician.gif?raw=true) |
+| :-----------------------------------------------------------------------------------------------------------------: |
+|                                                  _Admin Dashboard_                                                  |
+
+| !["Email sent to Technician on workorder submission"](https://github.com/ujjawalsidhpura/MaintenancePro/blob/main/docs/tech_email.png?raw=true) |
+| :---------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                               _Email sent to Technician on workorder submission_                                                |
+
 ### Testing
 
 - ESlint (Static)
