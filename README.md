@@ -6,8 +6,6 @@
 
 A real production app for a real client to test upon. More features will be added as production continues and feedbacks are received from clients.
 
-<br>
-
 This is an app for property managers, maintenance managers, facility managers/coordinators, small-medium size property owners and so on. This app lets you manage your on-going maintenance/operations going on in your facility and keep track of all work-orders. It let's you assign work to a specific technician, see their progress, communicate with them with our in-app chat feature, send email to technican with details of workorder,see annual reports filtered by year, filter workorders by date,title or name, create and filter inventory, view graphs showing all aspects of your maintenance operations, print pdf and so on.
 
 ### Features
@@ -27,9 +25,11 @@ This is an app for property managers, maintenance managers, facility managers/co
 
 ### Quick Overview of Tech/Stack
 
-This is a full-stack application completely built from scratch by 3 of us, as a final project for our graduation from Full-stack WebDev Bootcamp, Lighthouse Labs Toronto.
+This is a full-stack application completely built from scratch by 3 of us, as a final project for our graduation from Full-stack WebDev Bootcamp, Lighthouse Labs Toronto..
 
-This repo is the front-end app repo. Back-end is supplied by https://github.com/ujjawalsidhpura/MaintenancePro-API that is deployed on Heroku. API repo supply with endpoints that maintenancePro will use to communicate/update database.Test Production version of this app is deployed on Netlify via CircleCI continuous integration method.
+This repo is the Front-end app repo.
+
+Back-end is supplied by `https://github.com/ujjawalsidhpura/MaintenancePro-API` that is deployed on `Heroku`. API repo supply with endpoints that maintenancePro will use to communicate/update database.Test Production version of this app is deployed on Netlify via CircleCI continuous integration method.
 
 ### Testing
 
@@ -37,6 +37,8 @@ This repo is the front-end app repo. Back-end is supplied by https://github.com/
 - Manual Testing
 
 ### Dependencies / Platforms used
+
+FrontEnd
 
 - Auth0
 - mailgun
@@ -48,7 +50,7 @@ This repo is the front-end app repo. Back-end is supplied by https://github.com/
 - Netlify
 - CircleCI
 
-Backend
+BackEnd
 
 - MongoDb
 - Heroku
