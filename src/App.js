@@ -6,7 +6,8 @@ import MenuList from './Components/MenuList';
 import Container from './Components/Container';
 import io from "socket.io-client";
 const ENDPOINT='https://maintenancepro-api.herokuapp.com/';
-const socket = io(ENDPOINT, { 
+const socket = io(ENDPOINT, {
+  "rejectUnauthorized" : false, 
   withCredentials: true,
   extraHeaders: {
     "my-custom-header": "abcd"
