@@ -45,6 +45,10 @@ Back-end is supplied by https://github.com/ujjawalsidhpura/MaintenancePro-API th
 | :---------------------------------------------------------------------------------------------------------------------------------------------: |
 |                                               _Email sent to Technician on workorder submission_                                                |
 
+| !["Database"](https://github.com/ujjawalsidhpura/MaintenancePro/blob/main/docs/db_Structure.png?raw=true) |
+| :-------------------------------------------------------------------------------------------------------: |
+|                                     _Non-Relational MongoDB Database_                                     |
+
 ### Testing
 
 - ESlint (Static)
