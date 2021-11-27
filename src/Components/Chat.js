@@ -2,6 +2,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ScrollToBottom from './ScrollToBottom';
+import send_message_icon from "../images/send_message_icon.png"
 
 export default function Chat(props) {
   const { messages, setApplicationData, socket } = props;
@@ -48,40 +49,40 @@ export default function Chat(props) {
       { headers: { "Content-Type": "application/json" } }
     ).then(res => {
       axios.get('/messages')
-      .then((res) => {
-        setApplicationData(prev => ({
-          ...prev, messages:[...res.data]
-        }))
-				window.scrollTo(100, 10000);
-        socket.emit('message', {message});
-        user && setMessage({message: '', name: user.name});
-      })
+        .then((res) => {
+          setApplicationData(prev => ({
+            ...prev, messages: [...res.data]
+          }))
+          window.scrollTo(100, 10000);
+          socket.emit('message', { message });
+          user && setMessage({ message: '', name: user.name });
+        })
     }).catch(err => {
       console.log("message err", err);
     })
 
   }
 
-  return(
+  return (
     <div className='chat-container'>
-			<ScrollToBottom>
-				<div className="chat-box">
-					{renderHistoryChat}
-				</div>
-			</ScrollToBottom>
-    	<form className="card chat-form" onSubmit={e=>handleSubmit(e)}>
-    		<input 
-    		  className="input"
-    		  placeholder="Lets chat"
-    		  name="message"
-    		  onChange={e=>handleChange(e)}
-    		  value={message.message}
-    		/>
-					<a className="send" type="submit" onClick={e=>handleSubmit(e)}>
-						{/* Send */}
-						<img src="https://img.icons8.com/external-kmg-design-flat-kmg-design/32/000000/external-send-user-interface-kmg-design-flat-kmg-design.png"/>
-					</a>
-    	</form>
+      <ScrollToBottom>
+        <div className="chat-box">
+          {renderHistoryChat}
+        </div>
+      </ScrollToBottom>
+      <form className="card chat-form" onSubmit={e => handleSubmit(e)}>
+        <input
+          className="input"
+          placeholder="Lets chat"
+          name="message"
+          onChange={e => handleChange(e)}
+          value={message.message}
+        />
+        <button className="send" type="submit" onClick={e => handleSubmit(e)}>
+          {/* Send */}
+          <img src={send_message_icon} alt="landing" />
+        </button>
+      </form>
     </div>
   )
 }

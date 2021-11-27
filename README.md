@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# MaintenancePro
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### A Computerized Maintenance Management System CMMS
 
-## Available Scripts
+### https://maintenancepro.netlify.app/
 
-In the project directory, you can run:
+A real production app for a real client to test upon. More features will be added as production continues and feedbacks are received from clients.
 
-### `npm start`
+This is an app for property managers, maintenance managers, facility managers/coordinators, small-medium size property owners and so on. This app lets you manage your on-going maintenance/operations going on in your facility and keep track of all work-orders. It let's you assign work to a specific technician, see their progress, communicate with them with our in-app chat feature, send email to technican with details of workorder,see annual reports filtered by year, filter workorders by date,title or name, create and filter inventory, view graphs showing all aspects of your maintenance operations, print pdf and so on.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Admin view (Full control and access )
+- Technician view (Only workorders assigned and chat feature)
+- Login via 3rd party authentication (Auth0).
+- Create workorder and once submitted, technican gets an email with description and title of the workorder.
+- Filter workorder with ease.
+- Create inventory based on category.
+- Filter inventory with ease.
+- View Today as glance that shows all pending/ongoing workorders , and graphical representation of progress made by all technicians
+- Chat with technician anytime you want in real time!
+- Summary feature give more detailed over view of your entire year. Different tabs give you a graph of monthly workorders and time taken to complete. Summary also gives your details about technicians and their stats.
+- Summary for any given year can be choses from a drop down list.
+- Print the PDF of summary page with our print summary feature.
 
-### `npm test`
+### Quick Overview of Tech/Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is a full-stack application completely built from scratch by 3 of us, as a final project for our graduation from Full-stack WebDev Bootcamp, Lighthouse Labs Toronto..
 
-### `npm run build`
+This repo is the Front-end app repo.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Back-end is supplied by https://github.com/ujjawalsidhpura/MaintenancePro-API that is deployed on Heroku. API repo supply with endpoints that maintenancePro will use to communicate/update database.Test Production version of this app is deployed on Netlify via CircleCI continuous integration method.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Highlights
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| !["Admin Dashboard"](https://github.com/ujjawalsidhpura/MaintenancePro/blob/main/docs/admin.gif?raw=true) |
+| :-------------------------------------------------------------------------------------------------------: |
+|                                             _Admin Dashboard_                                             |
 
-### `npm run eject`
+| !["Technician Dashboard"](https://github.com/ujjawalsidhpura/MaintenancePro/blob/main/docs/technician.gif?raw=true) |
+| :-----------------------------------------------------------------------------------------------------------------: |
+|                                                  _Admin Dashboard_                                                  |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+| !["Email sent to Technician on workorder submission"](https://github.com/ujjawalsidhpura/MaintenancePro/blob/main/docs/tech_email.png?raw=true) |
+| :---------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                               _Email sent to Technician on workorder submission_                                                |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| !["Database"](https://github.com/ujjawalsidhpura/MaintenancePro/blob/main/docs/db_Structure.png?raw=true) |
+| :-------------------------------------------------------------------------------------------------------: |
+|                                     _Non-Relational MongoDB Database_                                     |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Testing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- ESlint (Static)
+- Manual Testing
 
-## Learn More
+### Dependencies / Platforms used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+FrontEnd
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Auth0
+- mailgun
+- Bulma
+- jspdf
+- html-to-image
+- recharts
+- sockets.io
+- Netlify
+- CircleCI
 
-### Code Splitting
+BackEnd
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- MongoDb
+- Heroku
+- Express
+- Morgan
+- Nodemon
+- passport-jwt
+- dotenv
