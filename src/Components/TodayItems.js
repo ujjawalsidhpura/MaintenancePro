@@ -12,7 +12,7 @@ export default function TodayItems(props) {
       </div>
 
       <div className="today-field">
-        <h2>{props.created_on.slice(0, 10)}</h2>
+        {props.created_on && <h2>{props.created_on.slice(0, 10)}</h2>}
       </div>
 
       <div className="today-field">
