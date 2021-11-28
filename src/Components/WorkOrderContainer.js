@@ -48,6 +48,38 @@ export default function WorkOrderContainer(props) {
       query = workOrder.props.created_on <= (state.to_date) && workOrder.props.created_on >= (state.from_date) &&
         workOrder.props.technician.toLowerCase().includes(state.tech_name.toLowerCase()) && workOrder.props.title.toLowerCase().includes(state.title.toLowerCase())
     }
+    if (state.title && !state.tech_name && state.from_date && state.to_date) {
+      query = workOrder.props.created_on <= (state.to_date) && workOrder.props.created_on >= (state.from_date) &&
+      workOrder.props.title.toLowerCase().includes(state.title.toLowerCase())
+    }
+    if (state.title && !state.tech_name && state.from_date && !state.to_date) {
+      query = workOrder.props.created_on >= (state.from_date) &&
+      workOrder.props.title.toLowerCase().includes(state.title.toLowerCase())
+    }
+    if (state.title && !state.tech_name && !state.from_date && state.to_date) {
+      query = workOrder.props.created_on <= (state.to_date) &&
+      workOrder.props.title.toLowerCase().includes(state.title.toLowerCase())
+    }
+    if (!state.title && state.tech_name && state.from_date && state.to_date) {
+      query = workOrder.props.created_on <= (state.to_date) && workOrder.props.created_on >= (state.from_date) &&
+        workOrder.props.technician.toLowerCase().includes(state.tech_name.toLowerCase())
+    }
+    if (!state.title && state.tech_name && state.from_date && !state.to_date) {
+      query = workOrder.props.created_on >= (state.from_date) &&
+        workOrder.props.technician.toLowerCase().includes(state.tech_name.toLowerCase())
+    }
+    if (!state.title && state.tech_name && !state.from_date && state.to_date) {
+      query = workOrder.props.created_on <= (state.to_date) &&
+        workOrder.props.technician.toLowerCase().includes(state.tech_name.toLowerCase())
+    }
+    if (state.title && state.tech_name && !state.from_date && state.to_date) {
+      query = workOrder.props.created_on <= (state.to_date) && 
+        workOrder.props.technician.toLowerCase().includes(state.tech_name.toLowerCase()) && workOrder.props.title.toLowerCase().includes(state.title.toLowerCase())
+    }
+    if (state.title && state.tech_name && state.from_date && !state.to_date) {
+      query =  workOrder.props.created_on >= (state.from_date) &&
+        workOrder.props.technician.toLowerCase().includes(state.tech_name.toLowerCase()) && workOrder.props.title.toLowerCase().includes(state.title.toLowerCase())
+    }
     // multiple possibilities can tackle later
     return query;
   }
