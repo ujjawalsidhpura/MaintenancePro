@@ -378,7 +378,7 @@ select {
  display: flex;
  flex-direction: column;
  z-index: 5;
- width: 85vw;
+ width: 85%;
  padding: 2em 2em 1em 2em;
  right: 0;
  top: 0;
