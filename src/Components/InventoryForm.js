@@ -1,8 +1,10 @@
 import { useState } from "react"
 import axios from 'axios'
 import { Navigate } from "react-router-dom";
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function InventoryForm(props) {
+	const { user } = useAuth0();
   const { setApplicationData, workorder, today } = props
   const [state, setState] = useState({
     category: "",
@@ -39,6 +41,7 @@ export default function InventoryForm(props) {
   }
 
   return (
+		(user && user.email === "admin@gmail.com") ?
     <>
       {submit && <Navigate to="/inventory" />}
 
@@ -111,6 +114,6 @@ export default function InventoryForm(props) {
           </div>
         </form>
       }
-    </>
+    </> : <></>
   )
 }

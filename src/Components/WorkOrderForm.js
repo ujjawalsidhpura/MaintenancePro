@@ -1,10 +1,12 @@
 import { Fragment, useState } from "react"
 import axios from 'axios'
 import { Navigate } from "react-router-dom";
-import sendMail from "../Emailer/mailgun"
+import sendMail from "../Emailer/mailgun";
+import { useAuth0 } from '@auth0/auth0-react';
 // import { useDropzone } from 'react-dropzone';
 
 export default function WorkOrderForm(props) {
+	const { user } = useAuth0();
 
   const { setApplicationData, inventory, today } = props
 
@@ -73,6 +75,7 @@ export default function WorkOrderForm(props) {
   }
 
   return (
+		(user && user.email === "admin@gmail.com") ?
     <>
 
       {submit && <Navigate to="/workorders" />}
@@ -183,6 +186,6 @@ export default function WorkOrderForm(props) {
         </form>
       }
 
-    </>
+    </> : <></>
   )
 }
