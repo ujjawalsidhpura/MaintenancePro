@@ -19,7 +19,7 @@ export default function Container(props) {
 
 
   return (
-    <div>
+    <div className="view-container">
       {/* {!isAuthenticated &&
         <div id='homePage'>
           <img src={welcomeLogo} alt='welcomelog' />

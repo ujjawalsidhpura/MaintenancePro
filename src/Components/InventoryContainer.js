@@ -3,6 +3,7 @@ import InventoryItems from "./InventoryItems"
 import { useAuth0 } from '@auth0/auth0-react';
 
 export default function WorkOrderContainer(props) {
+	window.scrollTo(0, 0);
   const { user } = useAuth0();
 
   const [state, setState] = useState({
@@ -48,7 +49,7 @@ export default function WorkOrderContainer(props) {
   return (
     (user && user.email === "admin@gmail.com") ?
     <>
-      <form className="card inventory-filter" onSubmit={handleSubmit}>
+      <form className="card workorder-filter" onSubmit={handleSubmit}>
         <h2 className="title">Inventory</h2>
         <div>
           <h2><strong>Filters</strong></h2>
@@ -74,13 +75,13 @@ export default function WorkOrderContainer(props) {
           </div>
         </div>
       </form>
-      <div className="card inventory-labels">
+      <div className="card workorder-labels">
         <span><strong>Category</strong></span>
         <span><strong>Item</strong></span>
         <span><strong>Price</strong></span>
         <span><strong>Quantity</strong></span>
       </div>
-      <div className="inventory-container">
+      <div className="workorder-container">
         {validState() ? parsedInventoryByQuery : parsedInventory}
       </div>
     </> : <></>

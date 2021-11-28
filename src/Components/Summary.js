@@ -5,6 +5,7 @@ import * as htmlToImage from 'html-to-image';
 import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Summary(props) {
+	window.scrollTo(0, 0);
   const { user } = useAuth0();
   console.log("auth", user);
   const { workorder } = props;

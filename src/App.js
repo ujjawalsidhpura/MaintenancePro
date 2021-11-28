@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import MenuList from './Components/MenuList';
 import Container from './Components/Container';
+import Footer from './Components/Footer';
 import io from "socket.io-client";
 const ENDPOINT='https://maintenancepro-api.herokuapp.com/';
 const socket = io(ENDPOINT, {
@@ -47,15 +48,18 @@ function App() {
 
   return (
     <div className="App">
-      <MenuList />
-      <Container 
-				workorder={applicationData.workorder} 
-				inventory={applicationData.inventory} 
-				today={applicationData.today}
-				setApplicationData={setApplicationData}
-        messages={applicationData.messages}
-        socket={socket}
-			/>
+			<div className="hero">
+				<MenuList />
+				<Container 
+					workorder={applicationData.workorder} 
+					inventory={applicationData.inventory} 
+					today={applicationData.today}
+					setApplicationData={setApplicationData}
+					messages={applicationData.messages}
+					socket={socket}
+				/>
+			</div>
+			<Footer />
     </div>
   )
 }

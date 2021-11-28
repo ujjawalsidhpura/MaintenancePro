@@ -6,6 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 // import { useDropzone } from 'react-dropzone';
 
 export default function WorkOrderForm(props) {
+	window.scrollTo(0, 0);
 	const { user } = useAuth0();
 
   const { setApplicationData, inventory, today } = props

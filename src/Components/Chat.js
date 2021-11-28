@@ -16,7 +16,7 @@ export default function Chat(props) {
           setApplicationData(prev => ({
             ...prev, messages: [...res.data]
           }))
-					window.scrollTo(100, 10000);
+					document.getElementById('chat-box').scrollIntoView({block: "end", inline: "nearest"})
         });
     })
   }, [setApplicationData, socket]);
@@ -53,7 +53,7 @@ export default function Chat(props) {
           setApplicationData(prev => ({
             ...prev, messages: [...res.data]
           }))
-          window.scrollTo(100, 10000);
+          document.getElementById('chat-box').scrollIntoView({block: "end", inline: "nearest"})
           socket.emit('message', { message });
           user && setMessage({ message: '', name: user.name });
         })
@@ -67,11 +67,11 @@ export default function Chat(props) {
     user ?
     <div className='chat-container'>
       <ScrollToBottom>
-        <div className="chat-box">
+        <div className="chat-box" id="chat-box">
           {renderHistoryChat}
         </div>
       </ScrollToBottom>
-      <form className="card chat-form" onSubmit={e => handleSubmit(e)}>
+      <form id="chat-form" className="card chat-form" onSubmit={e => handleSubmit(e)}>
         <input
           className="input"
           placeholder="Lets chat"

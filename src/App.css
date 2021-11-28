@@ -1,11 +1,28 @@
 /* Our CSS */
 html,
-body {
+body, * {
  box-sizing: border-box;
+}
+
+body {
  background-color: white;
 }
 
 /* General css */
+.App {
+	/* display: flex; */
+	/* flex-direction: row; */
+}
+
+.hero {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+.view-container {
+	width: 85%;
+}
 
 .title {
  font-size: 2em;
@@ -31,15 +48,18 @@ hr {
 /* Menu sidebar css */
 
 .menu {
- position: fixed;
+ position: -webkit-sticky;
+ position: sticky;
+ top: 0;
  background-color: hsl(217, 71%, 53%);
  color: white;
- min-height: 75vh;
+ /* min-height: 75vh; */
  height: 100vh;
- width: 15vw;
+ /* width: 15vw; */
+ width: 15%;
  text-align: center;
  z-index: 6;
- top: 0;
+
 }
 
 .nav-list {
@@ -160,14 +180,14 @@ a:hover {
  justify-content: space-between;
  height: 100vh;
  padding: 2em 4em;
- margin-left: 15vw;
+ /* margin-left: 15vw; */
 }
 .workorder-form {
  display: flex;
  justify-content: space-between;
  height: 100%;
  padding: 2em 4em;
- margin-left: 15vw;
+ /* margin-left: 15vw; */
 }
 
 .chat-name-field {
@@ -208,22 +228,26 @@ select {
 /* workorder items */
 
 .workorder-filter {
- position: fixed;
+ /* position: fixed; */
+ position: -webkit-sticky;
+ position: sticky;
+ top: 0;
  display: flex;
  flex-direction: column;
  z-index: 5;
- width: 85%;
+ /* width: 85%; */
  padding: 2em;
- right: 0;
- top: 0;
+ /* right: 0; */
+ /* top: 0; */
 }
 
 .filters {
  display: flex;
+ justify-content: space-between;
 }
 
 .filter-input {
- width: 30%;
+ width: 25%;
  padding: 0 1em 0 0;
 }
 
@@ -240,20 +264,24 @@ select {
 }
 
 .date-label {
- font-size: 0.4em;
+	/* font-size: 3em; */
+ /* font-size: 1em; */
  padding-right: 0.2em;
 }
 
 .workorder-labels {
- position: fixed;
+ /* position: fixed; */
+ position: -webkit-sticky;
+ position: sticky;
+ top: 27%;
  display: flex;
  justify-content: space-between;
  margin-top: -1em;
  background-color: rgb(235, 233, 233);
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
  z-index: 5;
- width: 85%;
- right: 0;
+ /* width: 80%; */
+ /* right: 0; */
  padding: 0 6em;
  text-align: center;
  box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.07);
@@ -266,7 +294,7 @@ select {
 .workorder-item {
  display: flex;
  padding: 1em 1em;
- width: 100%;
+ /* width: 80%; */
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
  box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.25);
 }
@@ -280,8 +308,8 @@ select {
 }
 
 .workorder-container {
- margin-top: 12.5em;
- margin-left: 15vw;
+ /* margin-top: 12.5em; */
+ /* margin-left: 15vw; */
 }
 
 .file-container {
@@ -290,7 +318,7 @@ select {
 }
 
 /* Inventory css */
-.inventory-filter {
+/* .inventory-filter {
  position: fixed;
  display: flex;
  flex-direction: column;
@@ -299,12 +327,12 @@ select {
  padding: 2em;
  right: 0;
  top: 0;
-}
+} */
 
-.inventory-container {
+/* .inventory-container {
  margin-top: 12.5em;
  margin-left: 15vw;
-}
+} */
 
 .inventory-item {
  display: flex;
@@ -315,7 +343,7 @@ select {
  box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.25);
 }
 
-.inventory-labels {
+/* .inventory-labels {
  position: fixed;
  display: flex;
  justify-content: space-between;
@@ -330,7 +358,7 @@ select {
  text-align: center;
  color: black;
  box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.07);
-}
+} */
 
 .inventory-labels > span > strong {
  color: rgb(113, 110, 110);
@@ -350,21 +378,24 @@ select {
 
 /* todays css */
 
-.today-container {
- /* margin-top: 12.5em; */
+/* .today-container {
+
  margin-top: 22.5em;
  margin-left: 15vw;
-}
+} */
 
 .today-labels {
- position: fixed;
+ /* position: fixed; */
+ position: -webkit-sticky;
+ position: sticky;
+ top: 50%;
  display: flex;
  justify-content: space-between;
  margin-top: -1em;
  background-color: rgb(235, 233, 233);
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
  z-index: 5;
- width: 85vw;
+ /* width: 85vw; */
  right: 0;
  padding: 0 7em;
  text-align: center;
@@ -376,15 +407,18 @@ select {
 }
 
 .today-panel {
+	position: -webkit-sticky;
+ position: sticky;
+ top: 0;
  background-color: white;
- position: fixed;
+ /* position: fixed; */
  display: flex;
  flex-direction: column;
  z-index: 5;
- width: 85%;
+ /* width: 85%; */
  padding: 2em 2em 1em 2em;
- right: 0;
- top: 0;
+ /* right: 0;
+ top: 0; */
 }
 
 .card-content {
@@ -422,7 +456,7 @@ select {
  display: flex;
  flex-direction: column;
  flex-wrap: wrap;
- margin-left: 15%;
+ /* margin-left: 15%; */
  padding: 2em;
 }
 
@@ -454,17 +488,20 @@ select {
 /* Technician view */
 
 .start-confirmation {
+	align-self: center;
  display: flex;
  flex-direction: column;
  align-items: center;
+ justify-content: center;
+ margin: auto;
  margin-top: 8em;
- margin-left: 32em;
+ /* margin-left: 32em; */
  width: 40%;
  padding: 10em 0;
  height: 50%;
 }
 
-.tech-workorder-filter {
+/* .tech-workorder-filter {
  position: fixed;
  display: flex;
  flex-direction: column;
@@ -473,17 +510,21 @@ select {
  padding: 2em;
  right: 0;
  top: 0;
-}
+} */
+
 .tech-workorder-labels {
- position: fixed;
+ /* position: fixed; */
+ position: -webkit-sticky;
+ position: sticky;
+ top: 13%;
  display: flex;
  justify-content: space-between;
  margin-top: -1em;
  background-color: rgb(235, 233, 233);
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
  z-index: 5;
- width: 85%;
- right: 0;
+ /* width: 85%; */
+ /* right: 0; */
  padding: 0 6em;
  text-align: center;
  box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.07);
@@ -492,10 +533,10 @@ select {
 .tech-workorder-labels > span > strong {
  color: rgb(113, 110, 110);
 }
-.tech-workorder-container {
+/* .tech-workorder-container {
  margin-top: 7em;
  margin-left: 15vw;
-}
+} */
 
 .confirm-cancel {
  width: 40%;
@@ -510,12 +551,14 @@ select {
  display: flex;
  flex-direction: column;
  justify-content: space-between;
- margin-left: 0vw;
- margin-left: 15vw;
+ /* margin-left: 0vw; */
+ /* margin-left: 15vw; */
 }
 
 .chat-form {
- position: fixed;
+ /* position: fixed; */
+ position: -webkit-sticky;
+  position: sticky;
  bottom: 0;
  display: flex;
  /* flex-grow: 1; */
@@ -523,7 +566,7 @@ select {
  flex-direction: row;
  justify-content: space-evenly;
  align-items: center;
- width: 85%;
+ /* width: 85%; */
  padding: 1em 1em;
  /* margin-left: 15vw; */
  /* flex-basis: 25em; */
@@ -543,11 +586,11 @@ select {
  flex-grow: 5;
  overflow: auto;
  /* max-height: 100vh; */
- padding-bottom: 1em;
+ padding-bottom: 5em;
  background-color: #fff;
  border-radius: 5px;
  box-shadow: 0px 5px 35px 9px #ccc;
- margin-bottom: 4em;
+ /* margin-bottom: 4em; */
 }
 
 .chat-all-user {
@@ -596,7 +639,7 @@ select {
  background-color: white;
 }
 
-@media screen and (max-width: 1296px) {
+/* @media screen and (max-width: 1296px) {
 	.menu{ 
 		position: static;
 	}
@@ -604,4 +647,4 @@ select {
 		display: flex;
 		flex-direction: column;
 	}
-}
+} */

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useLocation } from 'react-router-dom'
 
 export default function FinishConfirmation(props) {
+	window.scrollTo(0, 0);
   const location = useLocation()
   const id = location.state?.id
 

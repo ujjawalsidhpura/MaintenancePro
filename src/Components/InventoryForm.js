@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 import { useAuth0 } from '@auth0/auth0-react';
 
 export default function InventoryForm(props) {
+	window.scrollTo(0, 0);
 	const { user } = useAuth0();
   const { setApplicationData, workorder, today } = props
   const [state, setState] = useState({

@@ -4,6 +4,7 @@ import { PieChart, Pie, Legend } from 'recharts';
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Today(props) {
+	window.scrollTo(0, 0);
   const { user } = useAuth0();
   const parsedWorkOrders = props.today.map(workOrder => {
     return (
@@ -106,7 +107,7 @@ export default function Today(props) {
         <span><strong>Created</strong></span>
         <span><strong>Status</strong></span>
       </div>
-      <div className="today-container">
+      <div className="workorder-container">
         {parsedWorkOrders}
       </div>
     </> : <></>
