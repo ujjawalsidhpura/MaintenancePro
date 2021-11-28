@@ -67,7 +67,7 @@ export default function Today(props) {
         <h1 className="title">Today's Work Orders</h1>
         <div className="card today-summary">
           <h2 className="card-header card-header-title">There are {props.today.length} unfinished tasks</h2>
-          <div className="card-content">
+          <div>
             <div className="content today-summary-content">
               <div className="tech-summary">
                 {summaryForEachTechnicain}

@@ -357,7 +357,7 @@ select {
  position: fixed;
  display: flex;
  justify-content: space-between;
- /* margin-top: -1em; */
+ margin-top: -1em;
  background-color: rgb(235, 233, 233);
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
  z-index: 5;
