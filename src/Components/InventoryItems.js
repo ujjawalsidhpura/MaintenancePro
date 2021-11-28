@@ -1,5 +1,5 @@
 export default function InventoryItems(props) {
-  return (
+   return (
     <div className="card inventory-item">
 			<div className="inventory-field">
 				<h2>{props.category}</h2>

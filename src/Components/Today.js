@@ -1,9 +1,10 @@
 import TodayItems from "./TodayItems";
 import React from 'react';
 import { PieChart, Pie, Legend } from 'recharts';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Today(props) {
-
+  const { user } = useAuth0();
   const parsedWorkOrders = props.today.map(workOrder => {
     return (
       <TodayItems {...workOrder} key={workOrder._id} />
@@ -62,6 +63,7 @@ export default function Today(props) {
     );
   };
   return (
+    user && user.email === "admin@gmail.com" ?
     <>
       <div className="today-panel">
         <h1 className="title">Today's Work Orders</h1>
@@ -107,6 +109,6 @@ export default function Today(props) {
       <div className="today-container">
         {parsedWorkOrders}
       </div>
-    </>
+    </> : <></>
   )
 }

@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { ComposedChart, Area, Pie, Line, BarChart, PieChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import jsPDF from 'jspdf';
 import * as htmlToImage from 'html-to-image';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Summary(props) {
-
+  const { user } = useAuth0();
+  console.log("auth", user);
   const { workorder } = props;
 
   const printSummary = () => {
@@ -299,6 +301,7 @@ export default function Summary(props) {
 
 
   return (
+    user && user.email === "admin@gmail.com" ?
     <>
       <div className="summary-page" >
         <h1 className="title summary-header">Summary of <Dropdown />
@@ -396,6 +399,6 @@ export default function Summary(props) {
           </div>
         </div>
       </div>
-    </>
+    </> : <></>
   )
 }

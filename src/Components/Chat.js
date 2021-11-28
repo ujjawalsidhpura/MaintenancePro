@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ScrollToBottom from './ScrollToBottom';
 import send_message_icon from "../images/send_message_icon.png"
-
 export default function Chat(props) {
   const { messages, setApplicationData, socket } = props;
   const { user } = useAuth0();
@@ -65,6 +64,7 @@ export default function Chat(props) {
   }
 
   return (
+    user ?
     <div className='chat-container'>
       <ScrollToBottom>
         <div className="chat-box">
@@ -84,6 +84,6 @@ export default function Chat(props) {
           <img src={send_message_icon} alt="landing" />
         </button>
       </form>
-    </div>
+    </div> : <></>
   )
 }
