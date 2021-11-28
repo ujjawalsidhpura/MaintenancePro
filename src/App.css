@@ -25,6 +25,9 @@ hr {
  margin: 1em 0;
 }
 
+.footer {
+	background-color: black;
+}
 /* Menu sidebar css */
 
 .menu {
@@ -591,4 +594,14 @@ select {
  align-items: center;
  border: none;
  background-color: white;
+}
+
+@media screen and (max-width: 1296px) {
+	.menu{ 
+		position: static;
+	}
+	.App {
+		display: flex;
+		flex-direction: column;
+	}
 }

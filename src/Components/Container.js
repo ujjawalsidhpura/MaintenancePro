@@ -10,6 +10,7 @@ import InventoryForm from "./InventoryForm";
 import Summary from "./Summary";
 import Chat from "./Chat";
 import Home from './Home';
+
 // import welcomeLogo from '../images/welcomeLogo.jpeg'
 
 export default function Container(props) {
