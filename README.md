@@ -39,7 +39,7 @@ Back-end is supplied by https://github.com/ujjawalsidhpura/MaintenancePro-API th
 
 | !["Technician Dashboard"](https://github.com/ujjawalsidhpura/MaintenancePro/blob/main/docs/technician.gif?raw=true) |
 | :-----------------------------------------------------------------------------------------------------------------: |
-|                                                  _Admin Dashboard_                                                  |
+|                                               _Technician Dashboard_                                                |
 
 | !["Email sent to Technician on workorder submission"](https://github.com/ujjawalsidhpura/MaintenancePro/blob/main/docs/tech_email.png?raw=true) |
 | :---------------------------------------------------------------------------------------------------------------------------------------------: |
