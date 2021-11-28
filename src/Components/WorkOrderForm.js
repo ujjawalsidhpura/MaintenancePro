@@ -1,8 +1,8 @@
-import { Fragment, useState } from "react"
+import { Fragment, useState, useCallback } from "react"
 import axios from 'axios'
 import { Navigate } from "react-router-dom";
 import sendMail from "../Emailer/mailgun"
-// import { useDropzone } from 'react-dropzone';
+import { useDropzone } from 'react-dropzone';
 
 export default function WorkOrderForm(props) {
 
@@ -18,20 +18,62 @@ export default function WorkOrderForm(props) {
     files: []
   })
 
+	const addFile = (value) => {
+		const newFiles = [...state.files]
+		if (Array.isArray(value)) {
+			for (let info of value) {
+				newFiles.push(info)
+			}
+		} else {
+			newFiles.push(value)
+		}
+    setState({ ...state, "files": newFiles })
+  }
+
+	const files = state.files && state.files.map(file => (
+		<li key={file.path}>
+			{file.path} - {file.size} bytes
+		</li>
+	));
+
   const [submit, setSubmit] = useState(false)
+	const onDrop = useCallback(acceptedFiles => {
+		addFile(acceptedFiles)
+  }, [state.files])
+  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
 
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    const workorder = {
-      ...state,
-      created_on: new Date().toISOString(),
-      time_started: null,
-      time_completed: null,
+		const formData = new FormData();
+		formData.append('title', state.title)
+		formData.append('technician', state.technician)
+		formData.append('email', state.email)
+		formData.append('description', state.description)
+		formData.append('importance', state.importance)
+		formData.append('date', state.date)
+		formData.append('files', state.files)
+		formData.append('created_on', new Date().toISOString())
+		formData.append('time_started', null)
+		formData.append('time_completed', null)
+
+    // const workorder = {
+    //   ...state,
+    //   created_on: new Date().toISOString(),
+    //   time_started: null,
+    //   time_completed: null,
+    // }
+
+    for(var pair of formData.entries()) {
+      console.log("formData fields:", pair[0]+', '+pair[1]);
     }
 
-    axios.post('/workorder', workorder,
-      { headers: { "Content-Type": "application/json" } })
+    axios.post('/workorder', formData,
+      { headers: { 
+				Accept: "application/json",
+				"Content-Type": "multipart/form-data" 
+			} })
       .then((res) => {
         axios.get('/workorder')
           .then((res) => {
@@ -71,6 +113,8 @@ export default function WorkOrderForm(props) {
   const changeState = (key, value) => {
     setState({ ...state, [key]: value })
   }
+
+  
 
   return (
     <>
@@ -160,7 +204,7 @@ export default function WorkOrderForm(props) {
               ></input>
             </div>
 
-            {/* <div className="field">
+            <div className="field">
 							<label className="label">Files</label>
 
 							<section className="file-container">
@@ -173,7 +217,7 @@ export default function WorkOrderForm(props) {
 									<ul>{files}</ul>
 								</aside>
 							</section>
-						</div> */}
+						</div>
 
             <button className="button is-link submit" type="submit">Submit</button>
           </div>

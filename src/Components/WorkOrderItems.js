@@ -24,7 +24,7 @@ export default function WorkOrderItems(props) {
 
 
       <div className="workorder-field">
-        <h2>{props.created_on.slice(0, 10)}</h2>
+        <h2>{props.created_on && props.created_on.slice(0, 10)}</h2>
       </div>
 
       <div className="workorder-field">
