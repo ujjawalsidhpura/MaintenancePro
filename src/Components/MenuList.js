@@ -70,7 +70,7 @@ export default function MenuList() {
         <li className="nav-list">
           <div className="link">
             <Link to="/assets">
-              <i className="fas fa-wrench"></i>
+              <i class="far fa-building"></i>
               Assets
             </Link>
             <Link to="/assets/create">
