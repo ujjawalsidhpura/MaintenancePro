@@ -5,9 +5,10 @@ import axios from 'axios'
 import MenuList from './Components/MenuList';
 import Container from './Components/Container';
 import io from "socket.io-client";
-const ENDPOINT='https://maintenancepro-api.herokuapp.com/';
+
+const ENDPOINT = process.env.REACT_APP_ENDPOINT
 const socket = io(ENDPOINT, {
-  "rejectUnauthorized" : false, 
+  "rejectUnauthorized": false,
   withCredentials: true,
   extraHeaders: {
     "my-custom-header": "abcd"
@@ -48,14 +49,14 @@ function App() {
   return (
     <div className="App">
       <MenuList />
-      <Container 
-				workorder={applicationData.workorder} 
-				inventory={applicationData.inventory} 
-				today={applicationData.today}
-				setApplicationData={setApplicationData}
+      <Container
+        workorder={applicationData.workorder}
+        inventory={applicationData.inventory}
+        today={applicationData.today}
+        setApplicationData={setApplicationData}
         messages={applicationData.messages}
         socket={socket}
-			/>
+      />
     </div>
   )
 }
