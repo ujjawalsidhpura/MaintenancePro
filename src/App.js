@@ -21,7 +21,8 @@ function App() {
     workorder: [],
     inventory: [],
     today: [],
-    messages: []
+    messages: [],
+    assets: []
   })
 
   useEffect(() => {
@@ -30,7 +31,8 @@ function App() {
         axios.get('/workorder'),
         axios.get('/inventory'),
         axios.get('/today'),
-        axios.get('/messages')
+        axios.get('/messages'),
+        axios.get('/assets')
       ]
     )
       .then((all) => {
@@ -38,13 +40,12 @@ function App() {
         const inventory = all[1].data
         const today = all[2].data
         const messages = all[3].data
+        const assets = all[4].data
         setApplicationData(prev => ({
-          ...prev, workorder: [...workorder], inventory: [...inventory], today: [...today], messages: [...messages]
+          ...prev, workorder: [...workorder], inventory: [...inventory], today: [...today], messages: [...messages], assets: [...assets]
         }))
       })
   }, [])
-
-
 
   return (
     <div className="App">
@@ -55,6 +56,7 @@ function App() {
         today={applicationData.today}
         setApplicationData={setApplicationData}
         messages={applicationData.messages}
+        assets={applicationData.assets}
         socket={socket}
       />
     </div>

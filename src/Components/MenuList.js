@@ -68,6 +68,18 @@ export default function MenuList() {
         </li>
 
         <li className="nav-list">
+          <div className="link">
+            <Link to="/assets">
+              <i className="fas fa-wrench"></i>
+              Assets
+            </Link>
+            <Link to="/assets/create">
+              <span>+</span>
+            </Link>
+          </div>
+        </li>
+
+        <li className="nav-list">
           <Link to="/summary" className="link">
             <div>
               <i className="far fa-list-alt"></i>
@@ -76,13 +88,13 @@ export default function MenuList() {
           </Link>
         </li>
         <li className="nav-list">
-					<Link to="/chat" className="link">
-						<div>
-							<i className="fas fa-comment-alt"></i>
-							Chat Platform
-						</div>
-					</Link>
-				</li>
+          <Link to="/chat" className="link">
+            <div>
+              <i className="fas fa-comment-alt"></i>
+              Chat Platform
+            </div>
+          </Link>
+        </li>
         <li className="nav-list logout">
           <AuthenticationButton />
         </li>
@@ -98,21 +110,21 @@ export default function MenuList() {
       <hr />
       <ul className="links">
         <li className="nav-list">
-						<Link to="/workorders" className="link">
-							<div>
-								<i className="far fa-clipboard"></i>
-								Work Orders
-							</div>
-						</Link>
-				</li>
+          <Link to="/workorders" className="link">
+            <div>
+              <i className="far fa-clipboard"></i>
+              Work Orders
+            </div>
+          </Link>
+        </li>
         <li className="nav-list">
-					<Link to="/chat" className="link">
-						<div>
-							<i className="fas fa-comment-alt"></i>
-							Chat Platform
-						</div>
-					</Link>
-				</li>
+          <Link to="/chat" className="link">
+            <div>
+              <i className="fas fa-comment-alt"></i>
+              Chat Platform
+            </div>
+          </Link>
+        </li>
         <li className="nav-list"><AuthenticationButton /></li>
       </ul>
     </aside>;

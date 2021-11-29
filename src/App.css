@@ -592,3 +592,11 @@ select {
  border: none;
  background-color: white;
 }
+
+.assets > div {
+ margin-top: 5px;
+}
+
+.assets > div > span {
+ padding: 10px;
+}
