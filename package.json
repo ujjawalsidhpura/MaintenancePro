@@ -20,6 +20,7 @@
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "react-to-print": "^2.14.1",
+    "react-viewport-provider": "^1.0.6",
     "recharts": "^2.1.6",
     "socket.io": "^4.4.0",
     "socket.io-client": "^4.4.0",

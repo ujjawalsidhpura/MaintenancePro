@@ -6,6 +6,7 @@ import MenuList from './Components/MenuList';
 import Container from './Components/Container';
 import Footer from './Components/Footer';
 import io from "socket.io-client";
+import {ViewportProvider} from './Components/useViewport';
 const ENDPOINT='https://maintenancepro-api.herokuapp.com/';
 const socket = io(ENDPOINT, {
   "rejectUnauthorized" : false, 
@@ -47,20 +48,22 @@ function App() {
 
 
   return (
-    <div className="App">
-			<div className="hero">
-				<MenuList />
-				<Container 
-					workorder={applicationData.workorder} 
-					inventory={applicationData.inventory} 
-					today={applicationData.today}
-					setApplicationData={setApplicationData}
-					messages={applicationData.messages}
-					socket={socket}
-				/>
+		<ViewportProvider>
+			<div className="App">
+				<div className="main-view">
+					<MenuList />
+					<Container 
+						workorder={applicationData.workorder} 
+						inventory={applicationData.inventory} 
+						today={applicationData.today}
+						setApplicationData={setApplicationData}
+						messages={applicationData.messages}
+						socket={socket}
+					/>
+				</div>
+				<Footer />
 			</div>
-			<Footer />
-    </div>
+		</ViewportProvider>
   )
 }
 
