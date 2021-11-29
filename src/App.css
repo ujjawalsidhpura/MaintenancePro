@@ -9,10 +9,6 @@ body {
 }
 
 /* General css */
-.App {
-	/* display: flex; */
-	/* flex-direction: row; */
-}
 
 .hero {
 	display: flex;
@@ -53,27 +49,17 @@ hr {
  top: 0;
  background-color: hsl(217, 71%, 53%);
  color: white;
- /* min-height: 75vh; */
  height: 100vh;
- /* width: 15vw; */
  width: 15%;
  text-align: center;
  z-index: 6;
-
 }
 
 .nav-list {
  display: flex;
  align-items: center;
- /* text-decoration: none; */
-
- /* margin-top: 5em; */
 }
-/* 
-.menu-label > a {
- color: white;
- font-size: 25px;
-} */
+
 
 .link {
  color: white;
@@ -180,14 +166,12 @@ a:hover {
  justify-content: space-between;
  height: 100vh;
  padding: 2em 4em;
- /* margin-left: 15vw; */
 }
 .workorder-form {
  display: flex;
  justify-content: space-between;
  height: 100%;
  padding: 2em 4em;
- /* margin-left: 15vw; */
 }
 
 .chat-name-field {
@@ -227,18 +211,17 @@ select {
 
 /* workorder items */
 
+.banner {
+	position: -webkit-sticky;
+ 	position: sticky;
+ 	top: 0;
+ 	z-index: 5;
+}
+
 .workorder-filter {
- /* position: fixed; */
- position: -webkit-sticky;
- position: sticky;
- top: 0;
  display: flex;
  flex-direction: column;
- z-index: 5;
- /* width: 85%; */
  padding: 2em;
- /* right: 0; */
- /* top: 0; */
 }
 
 .filters {
@@ -264,24 +247,15 @@ select {
 }
 
 .date-label {
-	/* font-size: 3em; */
- /* font-size: 1em; */
  padding-right: 0.2em;
 }
 
 .workorder-labels {
- /* position: fixed; */
- position: -webkit-sticky;
- position: sticky;
- top: 27%;
  display: flex;
  justify-content: space-between;
  margin-top: -1em;
  background-color: rgb(235, 233, 233);
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
- z-index: 5;
- /* width: 80%; */
- /* right: 0; */
  padding: 0 6em;
  text-align: center;
  box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.07);
@@ -294,7 +268,6 @@ select {
 .workorder-item {
  display: flex;
  padding: 1em 1em;
- /* width: 80%; */
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
  box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.25);
 }
@@ -307,32 +280,12 @@ select {
  text-align: center;
 }
 
-.workorder-container {
- /* margin-top: 12.5em; */
- /* margin-left: 15vw; */
-}
-
 .file-container {
  color: black;
  background-color: cornflowerblue;
 }
 
 /* Inventory css */
-/* .inventory-filter {
- position: fixed;
- display: flex;
- flex-direction: column;
- z-index: 5;
- width: 85%;
- padding: 2em;
- right: 0;
- top: 0;
-} */
-
-/* .inventory-container {
- margin-top: 12.5em;
- margin-left: 15vw;
-} */
 
 .inventory-item {
  display: flex;
@@ -341,27 +294,6 @@ select {
  width: 100%;
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
  box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.25);
-}
-
-/* .inventory-labels {
- position: fixed;
- display: flex;
- justify-content: space-between;
- margin-top: -1em;
- background-color: rgb(235, 233, 233);
- border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
- z-index: 5;
- width: 85%;
- margin-bottom: 2em;
- right: 0;
- padding: 0 7em;
- text-align: center;
- color: black;
- box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.07);
-} */
-
-.inventory-labels > span > strong {
- color: rgb(113, 110, 110);
 }
 
 .inventory-field {
@@ -378,25 +310,12 @@ select {
 
 /* todays css */
 
-/* .today-container {
-
- margin-top: 22.5em;
- margin-left: 15vw;
-} */
 
 .today-labels {
- /* position: fixed; */
- position: -webkit-sticky;
- position: sticky;
- top: 50%;
  display: flex;
  justify-content: space-between;
- margin-top: -1em;
  background-color: rgb(235, 233, 233);
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
- z-index: 5;
- /* width: 85vw; */
- right: 0;
  padding: 0 7em;
  text-align: center;
  box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.07);
@@ -407,18 +326,10 @@ select {
 }
 
 .today-panel {
-	position: -webkit-sticky;
- position: sticky;
- top: 0;
  background-color: white;
- /* position: fixed; */
  display: flex;
  flex-direction: column;
- z-index: 5;
- /* width: 85%; */
  padding: 2em 2em 1em 2em;
- /* right: 0;
- top: 0; */
 }
 
 .card-content {
@@ -456,7 +367,6 @@ select {
  display: flex;
  flex-direction: column;
  flex-wrap: wrap;
- /* margin-left: 15%; */
  padding: 2em;
 }
 
@@ -481,7 +391,6 @@ select {
 }
 
 .summary-paragraph {
- /* border: solid black; */
  margin-bottom: 1em;
 }
 
@@ -495,48 +404,10 @@ select {
  justify-content: center;
  margin: auto;
  margin-top: 8em;
- /* margin-left: 32em; */
  width: 40%;
  padding: 10em 0;
  height: 50%;
 }
-
-/* .tech-workorder-filter {
- position: fixed;
- display: flex;
- flex-direction: column;
- z-index: 5;
- width: 85%;
- padding: 2em;
- right: 0;
- top: 0;
-} */
-
-.tech-workorder-labels {
- /* position: fixed; */
- position: -webkit-sticky;
- position: sticky;
- top: 13%;
- display: flex;
- justify-content: space-between;
- margin-top: -1em;
- background-color: rgb(235, 233, 233);
- border-bottom: solid 0.1em rgba(199, 198, 198, 0.597);
- z-index: 5;
- /* width: 85%; */
- /* right: 0; */
- padding: 0 6em;
- text-align: center;
- box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.07);
-}
-
-.tech-workorder-labels > span > strong {
- color: rgb(113, 110, 110);
-}
-/* .tech-workorder-container {
- margin-top: 7em;
- margin-left: 15vw;
-} */
 
 .confirm-cancel {
  width: 40%;
@@ -547,35 +418,25 @@ select {
 /* Chat css */
 
 .chat-container {
- /* margin-top: 12.5em; */
  display: flex;
  flex-direction: column;
  justify-content: space-between;
- /* margin-left: 0vw; */
- /* margin-left: 15vw; */
 }
 
 .chat-form {
- /* position: fixed; */
  position: -webkit-sticky;
-  position: sticky;
+ position: sticky;
  bottom: 0;
  display: flex;
- /* flex-grow: 1; */
- /* height: 100vh; */
  flex-direction: row;
  justify-content: space-evenly;
  align-items: center;
- /* width: 85%; */
  padding: 1em 1em;
- /* margin-left: 15vw; */
- /* flex-basis: 25em; */
 }
 
 .chat-form > .input {
  width: 95%;
  border: none;
- /* border-bottom: rgb(113, 110, 110); */
 }
 
 .chat-box {
@@ -585,25 +446,21 @@ select {
  bottom: 0;
  flex-grow: 5;
  overflow: auto;
- /* max-height: 100vh; */
  padding-bottom: 5em;
  background-color: #fff;
  border-radius: 5px;
  box-shadow: 0px 5px 35px 9px #ccc;
- /* margin-bottom: 4em; */
 }
 
 .chat-all-user {
  display: flex;
  flex-direction: column;
  padding: 0 5em;
- /* justify-content: space-between; */
 }
 
 .chat-user {
  position: relative;
  align-self: flex-end;
- /* margin-left: 30em; */
 }
 
 .chat-user > .bubble {
@@ -613,11 +470,9 @@ select {
 .chat-other-user {
  position: relative;
  align-self: flex-start;
- /* margin-left: -5em; */
 }
 
 .chat-other-user > .bubble {
- /* margin-left: 15em; */
  background: #c1c1c1;
  float: right;
  color: black;
@@ -640,9 +495,6 @@ select {
 }
 
 /* @media screen and (max-width: 1296px) {
-	.menu{ 
-		position: static;
-	}
 	.App {
 		display: flex;
 		flex-direction: column;
