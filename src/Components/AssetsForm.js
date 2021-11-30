@@ -54,7 +54,7 @@ export default function AssetsForm(props) {
 
         {!submit &&
           <form
-            className="card inventory-form"
+            className="card workorder-form"
             autoComplete="off"
             onSubmit={handleSubmit}
           >

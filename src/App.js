@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import MenuList from './Components/MenuList';
 import Container from './Components/Container';
+import Footer from './Components/Footer';
 import io from "socket.io-client";
-
+import {ViewportProvider} from './Components/useViewport';
 const ENDPOINT = process.env.REACT_APP_ENDPOINT
 const socket = io(ENDPOINT, {
   "rejectUnauthorized": false,
@@ -48,18 +49,23 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <MenuList />
-      <Container
-        workorder={applicationData.workorder}
-        inventory={applicationData.inventory}
-        today={applicationData.today}
-        setApplicationData={setApplicationData}
-        messages={applicationData.messages}
-        assets={applicationData.assets}
-        socket={socket}
-      />
-    </div>
+		<ViewportProvider>
+			<div className="App">
+				<div className="main-view">
+					<MenuList />
+					<Container 
+						workorder={applicationData.workorder} 
+						inventory={applicationData.inventory} 
+						today={applicationData.today}
+						setApplicationData={setApplicationData}
+						messages={applicationData.messages}
+						assets={applicationData.assets}
+						socket={socket}
+					/>
+				</div>
+				<Footer />
+			</div>
+		</ViewportProvider>
   )
 }
 

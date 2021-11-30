@@ -17,7 +17,7 @@ export default function Container(props) {
   const { inventory, today, workorder, setApplicationData, assets, messages, socket } = props
 
   return (
-    <div>
+    <div className="view-container">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/workorders" element={<WorkOrderContainer workorder={workorder} />} />

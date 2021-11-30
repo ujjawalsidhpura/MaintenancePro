@@ -1,6 +1,6 @@
 export default function AssetsItems(props) {
   return (
-    <div className="card assets">
+    <div className="card assets asset-item">
       <div >
         <span><strong>Name:   </strong></span>
         <span>{props.name}</span>

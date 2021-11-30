@@ -48,27 +48,29 @@ export default function AssetsContainer(props) {
   return (
     (user && user.email === "admin@gmail.com") ?
       <>
-        <form className="card inventory-filter" onSubmit={handleSubmit}>
-          <h2 className="title">Assets</h2>
-          <div>
-            <h2><strong>Filters</strong></h2>
-          </div>
+				<div className="banner">
+					<form className="card workorder-filter" onSubmit={handleSubmit}>
+						<h2 className="title">Assets</h2>
+						<div>
+							<h2><strong>Filters</strong></h2>
+						</div>
 
-          <div className="filters">
-            <div className="inventory-filter-input">
-              <input
-                className="input"
-                type="text"
-                placeholder="Category"
-                value={state.name}
-                onChange={(event) => changeState("name", event.target.value)}
-              />
-            </div>
-          </div>
+						<div className="filters">
+							<div className="inventory-filter-input">
+								<input
+									className="input"
+									type="text"
+									placeholder="Asset Name"
+									value={state.name}
+									onChange={(event) => changeState("name", event.target.value)}
+								/>
+							</div>
+						</div>
 
-        </form>
+					</form>
+				</div>
 
-        <div className="inventory-container">
+        <div className="asset-container">
           {validState() ? parsedAssetByQuery : parsedAssets}
         </div>
       </> : <></>
