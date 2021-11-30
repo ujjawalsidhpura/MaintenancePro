@@ -86,13 +86,21 @@ export default function WorkOrderContainer(props) {
 
   const parsedWorkOrders = props.workorder.map(workOrder => {
     return (<WorkOrderItems {...workOrder} key={workOrder._id} />)
-  }).reverse()
+  })
 
   const parsedWorkOrdersByQuery = validState() && parsedWorkOrders.filter(workOrder =>
     handleQuery(workOrder));
 
   const parsedWorkOrdersByName = user && parsedWorkOrders.filter(workOrder =>
     workOrder.props.technician === user.name
+  )
+  
+  const sortedWorkOrderByStatus = parsedWorkOrdersByName.sort((a, b) => 
+  // (((a.props.time_completed > b.props.time_completed) ? 2 : (b.props.time_completed > a.props.time_completed) ? -2 
+  // : (a.props.time_started > b.props.time_started) ? 1 : (b.props.time_started > a.time_started) ? -1 : 0))
+
+  (a.props.time_completed ? 1 : b.props.time_completed ? -1 : 0)
+
   )
 
   const adminView =
@@ -172,7 +180,7 @@ export default function WorkOrderContainer(props) {
         <span><strong>Status</strong></span>
       </div>
       <div className="tech-workorder-container">
-        {parsedWorkOrdersByName}
+        {sortedWorkOrderByStatus}
       </div>
     </>;
 
