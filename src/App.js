@@ -1,5 +1,5 @@
-import './App.css';
-import './star-rating.css'
+import './styles/App.css';
+import './styles/star-rating.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import MenuList from './Components/MenuList';

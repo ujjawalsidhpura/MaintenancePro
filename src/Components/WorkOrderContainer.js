@@ -96,7 +96,7 @@ export default function WorkOrderContainer(props) {
     workOrder.props.technician === user.name
   )
   
-  const sortedWorkOrderByStatus = parsedWorkOrdersByName.sort((a, b) => 
+  const sortedWorkOrderByStatus = parsedWorkOrdersByName && parsedWorkOrdersByName.sort((a, b) => 
   // (((a.props.time_completed > b.props.time_completed) ? 2 : (b.props.time_completed > a.props.time_completed) ? -2 
   // : (a.props.time_started > b.props.time_started) ? 1 : (b.props.time_started > a.time_started) ? -1 : 0))
 
