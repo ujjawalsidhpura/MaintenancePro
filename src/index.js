@@ -6,7 +6,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from "@auth0/auth0-react";
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter as Router} from 'react-router-dom'
 import axios from "axios";
 
 if (process.env.REACT_APP_API_BASE_URL) {
@@ -20,9 +20,9 @@ ReactDOM.render(
       clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
       redirectUri={window.location.origin}
     >
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <Router>
+        <App/>
+      </Router>
     </Auth0Provider>
   </React.StrictMode>,
   document.getElementById("root")
