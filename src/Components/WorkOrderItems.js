@@ -44,20 +44,24 @@ export default function WorkOrderItems(props) {
 					</p>
 			</div>
 			<hr className="divider"/>
-			<div className="workorder-content-mobile">
-				<p className="tag is-info is-light workorder-tag">Created:</p>			
-				{props.created_on && <p>
-					{props.created_on.slice(0, 10)}
-				</p>}
+			<div className="workorder-content-mobile status-and-title">
+				<div className="workorder-content-mobile">
+					<p className="tag is-info is-light workorder-tag">Created:</p>			
+					{props.created_on && <p>
+						{props.created_on.slice(0, 10)}
+					</p>}
+				</div>
+				<div>
+					{isAuthenticated && user.email !== 'admin@gmail.com'
+						&& !props.time_completed && props.time_started && <FinishButton id={props._id} />
+					}
+					{isAuthenticated && user.email !== 'admin@gmail.com'
+						&& !props.time_completed && !props.time_started && <StartButton id={props._id} />
+					}
+				</div>
 			</div>
 			{props.duration && <hr className="divider"/> }
 			<div className="workorder-content-mobile">
-				{isAuthenticated && user.email !== 'admin@gmail.com'
-					&& !props.time_completed && props.time_started && <FinishButton id={props._id} />
-				}
-				{isAuthenticated && user.email !== 'admin@gmail.com'
-					&& !props.time_completed && !props.time_started && <StartButton id={props._id} />
-				}
 				{props.duration &&
 					<>
 						<p className="tag is-info is-light workorder-tag">Duration:</p>

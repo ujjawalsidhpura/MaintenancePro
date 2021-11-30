@@ -7,7 +7,7 @@ export default function ConfirmButton(props) {
   return (
     <Link to="/workorders">
       <button
-        className="button is-info is-outlined"
+        className="button is-info is-outlined confirm"
         onClick={onClick}>Confirm
       </button>
     </Link>
