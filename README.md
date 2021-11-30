@@ -20,8 +20,10 @@ This is an app for property managers, maintenance managers, facility managers/co
 - View Today as glance that shows all pending/ongoing workorders , and graphical representation of progress made by all technicians
 - Chat with technician anytime you want in real time!
 - Summary feature give more detailed over view of your entire year. Different tabs give you a graph of monthly workorders and time taken to complete. Summary also gives your details about technicians and their stats.
-- Summary for any given year can be choses from a drop down list.
+- Summary for any given year can be chosen from a drop down list.
 - Print the PDF of summary page with our print summary feature.
+- Add and review assets of the building
+- Asset review helps to forecast future upcoming expenses and make budgetary plans accordingly.
 
 ### Quick Overview of Tech/Stack
 
@@ -53,6 +55,8 @@ Back-end is supplied by https://github.com/ujjawalsidhpura/MaintenancePro-API th
 
 - ESlint (Static)
 - Manual Testing
+- Jest
+- StoryBook
 
 ### Dependencies / Platforms used
 
