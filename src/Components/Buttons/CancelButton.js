@@ -5,7 +5,7 @@ export default function CancelButton(props) {
   return (
     <Link to="/workorders">
       <button
-        className="button is-danger is-outlined"
+        className="button is-danger is-outlined cancel"
         onClick={onClick}>
         Cancel
       </button>

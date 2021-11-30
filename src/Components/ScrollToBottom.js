@@ -5,7 +5,7 @@ const ScrollToBottom = ({ children }, props) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(100, 10000);
+		document.getElementById('chat-box').scrollIntoView({block: "end", inline: "nearest"})
   }, [pathname]);
 
   return children || null;
