@@ -18,7 +18,6 @@ export default function Container(props) {
 
   return (
     <div>
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/workorders" element={<WorkOrderContainer workorder={workorder} />} />
@@ -34,6 +33,6 @@ export default function Container(props) {
         <Route path="/summary" element={<Summary inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
         <Route path="/chat" element={<Chat setApplicationData={setApplicationData} messages={messages} socket={socket} />} />
       </Routes>
-    </div >
+    </div>
   )
 }

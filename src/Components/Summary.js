@@ -6,7 +6,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Summary(props) {
   const { user } = useAuth0();
-  console.log("auth", user);
   const { workorder } = props;
 
   const printSummary = () => {
@@ -198,10 +197,10 @@ export default function Summary(props) {
       workorder.created_on.split("T")[0].split("-")[0] === year
     )
   }
-  const calculateAvgDuration = function (workorders) {
+  const calculateEachAvgDuration = function (workorders, technician) {
     let total_duration = 0;
     for (const workorder of workorders) {
-      if (workorder.duration) total_duration += workorder.duration;
+      if (workorder.duration && workorder.technician === technician) total_duration += workorder.duration;
     }
     const avg_duration = total_duration / workorders.length;
     return avg_duration
@@ -214,7 +213,7 @@ export default function Summary(props) {
       return {
         name: technician,
         completed_tasks: completedWorkOrderByTechnician(workOrderFilterByYear(workorder, year), technician).length,
-        avg_duration: calculateAvgDuration(workOrderSummary) / 1000 / 3600,
+        avg_duration: calculateEachAvgDuration(workOrderFilterByYear(workorder, year), technician) / 1000 / 3600,
         fill: COLORS[technicianArray.indexOf(technician)]
       }
     } else {
