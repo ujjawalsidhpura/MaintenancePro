@@ -85,7 +85,7 @@ export default function WorkOrderContainer(props) {
     return query;
   }
 
-  const parsedWorkOrders = props.workorder.map(workOrder => {
+  const parsedWorkOrders = props.workorder && props.workorder.map(workOrder => {
     return (<WorkOrderItems {...workOrder} key={workOrder._id} />)
   })
 
