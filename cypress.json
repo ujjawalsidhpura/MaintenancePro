@@ -5,6 +5,8 @@
   "chromeWebSecurity": false,
   "env": {
     "Email": "admin@gmail.com",
-    "Password": "@Admin1234"
+    "Password": "@Admin1234",
+    "TechEmail": "ebuka@gmail.com",
+    "TechPassword": "@Ebuka1234"
   }
 }
