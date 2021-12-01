@@ -24,7 +24,7 @@ export default function AssetsContainer(props) {
     event.preventDefault();
   }
 
-  const parsedAssets = props.assets.map(asset => {
+  const parsedAssets = props.assets && props.assets.map(asset => {
     return (<AssetsItems {...asset} key={asset._id} />)
   }).reverse()
 

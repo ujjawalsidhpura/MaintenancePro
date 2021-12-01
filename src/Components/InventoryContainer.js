@@ -19,7 +19,7 @@ export default function WorkOrderContainer(props) {
     event.preventDefault();
   }
 
-  const parsedInventory = props.inventory.map(inventory => {
+  const parsedInventory = props.inventory && props.inventory.map(inventory => {
     return (<InventoryItems {...inventory} key={inventory._id} />)
   }).reverse()
 
