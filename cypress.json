@@ -1,0 +1,10 @@
+{
+  "baseUrl": "https://maintenancepro.netlify.app/",
+  "viewportWidth": 1280,
+  "viewportHeight": 720,
+  "chromeWebSecurity": false,
+  "env": {
+    "Email": "admin@gmail.com",
+    "Password": "@Admin1234"
+  }
+}
