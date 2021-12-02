@@ -143,6 +143,7 @@ export default function Summary(props) {
   let workOrderSummary2021 = workorderFilteredByMonth(workorder, "2021");
   const [workOrderSummary, setWorkOrderSummary] = useState(workOrderSummary2021);
 
+  
   const calculateMostEfficientMonth = function (workorders) {
     let leastAvgDuration = Infinity;
     let mostEfficientMonth = "";
@@ -154,7 +155,7 @@ export default function Summary(props) {
       }
     }
     return `The most efficient month throughout the year is ${mostEfficientMonth},
-              The average time to complete the workorders in this month is ${(leastAvgDuration / 1000 / 3600).toFixed(2)} hours`;
+              The average time to complete the workorders in this month is ${(leastAvgDuration / 1000 / 60).toFixed(2)} mins`;
   }
 
 
