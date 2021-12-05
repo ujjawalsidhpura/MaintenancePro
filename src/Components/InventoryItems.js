@@ -53,8 +53,9 @@ export default function InventoryItems(props) {
         <p>
           {props.quantity}
         </p>
+        <EditInventoryButton data={props} />
       </div>
-      <EditInventoryButton data={props} />
+
 
     </div>
   )

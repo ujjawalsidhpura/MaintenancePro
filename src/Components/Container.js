@@ -14,6 +14,7 @@ import AssetsContainer from './AssetsContainer'
 import AssetsForm from './AssetsForm'
 import AssetsEdit from './AssetsEdit'
 import InventoryEdit from './InventoryEdit'
+import InventoryDelete from './InventoryDelete'
 
 export default function Container(props) {
   const { inventory, today, workorder, setApplicationData, assets, messages, socket } = props
@@ -27,15 +28,20 @@ export default function Container(props) {
         <Route path="/start-confirmation" element={<StartConfirmation setApplicationData={setApplicationData} today={today} inventory={inventory} />} />
         <Route path="/finish-confirmation" element={<FinishConfirmation setApplicationData={setApplicationData} today={today} inventory={inventory} />} />
         <Route path="/today" element={<Today today={today} />} />
+
         <Route path="/inventory" element={<InventoryContainer inventory={inventory} />} />
         <Route path="/inventory/create" element={<InventoryForm inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} assets={assets} />} />
+        <Route path="/inventory/edit"
+          element={<InventoryEdit setApplicationData={setApplicationData} />} />
+        <Route path="/inventory/delete"
+          element={<InventoryDelete setApplicationData={setApplicationData} />} />
+
         <Route path="/assets" element={<AssetsContainer assets={assets} />} />
         <Route path="/assets/create" element={<AssetsForm assets={assets}
           inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
         <Route path="/assets/edit"
           element={<AssetsEdit setApplicationData={setApplicationData} />} />
-        <Route path="/inventory/edit"
-          element={<InventoryEdit setApplicationData={setApplicationData} />} />
+
         <Route path="/summary" element={<Summary inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
         <Route path="/chat" element={<Chat setApplicationData={setApplicationData} messages={messages} socket={socket} />} />
       </Routes>

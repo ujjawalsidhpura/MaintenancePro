@@ -3,8 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 
-export default function AssetsEdit(props) {
-
+export default function InventoryEdit(props) {
   window.scrollTo(0, 0);
   const location = useLocation()
   const inventoryData = location.state?.props
