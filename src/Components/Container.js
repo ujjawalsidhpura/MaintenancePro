@@ -12,6 +12,7 @@ import Chat from "./Chat";
 import Home from './Home';
 import AssetsContainer from './AssetsContainer'
 import AssetsForm from './AssetsForm'
+import AssetsEdit from './AssetsEdit'
 
 export default function Container(props) {
   const { inventory, today, workorder, setApplicationData, assets, messages, socket } = props
@@ -30,6 +31,8 @@ export default function Container(props) {
         <Route path="/assets" element={<AssetsContainer assets={assets} />} />
         <Route path="/assets/create" element={<AssetsForm assets={assets}
           inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
+        <Route path="/assets/edit"
+          element={<AssetsEdit setApplicationData={setApplicationData} />} />
         <Route path="/summary" element={<Summary inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
         <Route path="/chat" element={<Chat setApplicationData={setApplicationData} messages={messages} socket={socket} />} />
       </Routes>
