@@ -4,27 +4,27 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom"
 
-export default function InventoryDelete(props) {
+export default function AssetDelete(props) {
 
   window.scrollTo(0, 0);
   const location = useLocation()
-  const inventoryData = location.state?.props
+  const assetData = location.state?.props
 
   const { setApplicationData } = props;
-  const inventory_id = inventoryData.data._id
+  const asset_id = assetData.data._id
 
   const [submit, setSubmit] = useState(false)
 
   const handleDelete = (event) => {
     event.preventDefault()
 
-    axios.post('/inventory/delete',
-      { inventory_id: inventory_id },
+    axios.post('/assets/delete',
+      { asset_id: asset_id },
       { headers: { "Content-Type": "application/json" } })
       .then((res) => {
-        axios.get('/inventory')
+        axios.get('/assets')
           .then((res) => setApplicationData(prev => ({
-            ...prev, inventory: [...res.data]
+            ...prev, assets: [...res.data]
           })))
         setSubmit(true)
       })
@@ -33,7 +33,7 @@ export default function InventoryDelete(props) {
 
   return (
     <>
-      {submit && <Navigate to="/inventory" />}
+      {submit && <Navigate to="/assets" />}
 
       {!submit &&
         <form
@@ -41,7 +41,7 @@ export default function InventoryDelete(props) {
           autoComplete="off"
         >
           <p> Are you sure you want to delete? </p>
-          <Link to="/inventory">
+          <Link to="/assets">
             <button className="button is-info is-outlined danger">
               Cancel
             </button>

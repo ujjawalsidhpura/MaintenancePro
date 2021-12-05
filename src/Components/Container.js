@@ -15,6 +15,7 @@ import AssetsForm from './AssetsForm'
 import AssetsEdit from './AssetsEdit'
 import InventoryEdit from './InventoryEdit'
 import InventoryDelete from './InventoryDelete'
+import AssetDelete from './AssetDelete'
 
 export default function Container(props) {
   const { inventory, today, workorder, setApplicationData, assets, messages, socket } = props
@@ -41,6 +42,8 @@ export default function Container(props) {
           inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
         <Route path="/assets/edit"
           element={<AssetsEdit setApplicationData={setApplicationData} />} />
+        <Route path="/assets/delete"
+          element={<AssetDelete setApplicationData={setApplicationData} />} />
 
         <Route path="/summary" element={<Summary inventory={inventory} workorder={workorder} today={today} setApplicationData={setApplicationData} />} />
         <Route path="/chat" element={<Chat setApplicationData={setApplicationData} messages={messages} socket={socket} />} />
