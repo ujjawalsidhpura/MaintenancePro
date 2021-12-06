@@ -438,13 +438,6 @@ select {
  background-color: white;
 }
 
-.assets > div {
- /* margin-top: 5px; */
-}
-
-.assets > div > span {
- /* padding: 10px; */
-}
 /* mobile workorder */
 
 .workorder-content-mobile {
@@ -473,12 +466,6 @@ select {
 	color: white;
 }
 
-.asset-container {
-	/* display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly; */
-	/* padding: 1em; */
-}
 
 @media screen and (min-width: 1296px) {
 	.navbar {
@@ -661,21 +648,6 @@ select {
 		padding: 0.1em 0.5em;
 		border-radius: 10%;
 		box-shadow: inset 5px 5px 15px 5px rgba(0, 0, 0, 0.14);
-	}
-	
-	.navbar-start {
-		/* width: 80%; */
-		/* display: flex; */
-		/* flex-direction: row; */
-		/* justify-content: space-between; */
-		/* margin-right: 0; */
-	}
-	.navbar-end {
-		/* width: 80%; */
-		/* display: flex; */
-		/* flex-direction: row; */
-		/* justify-content: space-between; */
-		/* margin-left: 0; */
 	}
 
 	.workorder-labels, .workorder-item {
