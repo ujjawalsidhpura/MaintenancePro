@@ -56,7 +56,8 @@ Back-end is supplied by https://github.com/ujjawalsidhpura/MaintenancePro-API th
 - ESlint (Static)
 - Manual Testing
 - Jest
-- StoryBook
+- StoryBook (Components)
+- Cypress (End-to-End)
 
 ### Dependencies / Platforms used
 

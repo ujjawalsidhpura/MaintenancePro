@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 export default function Today(props) {
 	window.scrollTo(0, 0);
   const { user } = useAuth0();
-  const parsedWorkOrders = props.today.map(workOrder => {
+  const parsedWorkOrders = props.today && props.today.map(workOrder => {
     return (
       <TodayItems {...workOrder} key={workOrder._id} />
     )

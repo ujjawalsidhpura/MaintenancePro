@@ -21,7 +21,7 @@ export default function Chat(props) {
     })
   }, [setApplicationData, socket]);
 
-  const renderHistoryChat = messages.map((message, index) => {
+  const renderHistoryChat = messages && messages.map((message, index) => {
     return (
       <div key={index} className="chat-all-user">
         {user && user.name === message.name ?

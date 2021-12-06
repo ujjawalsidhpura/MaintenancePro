@@ -1,3 +1,5 @@
+import EditAssetButton from "./Buttons/EditAssetButton";
+
 export default function AssetsItems(props) {
   return (
     <div className="card assets asset-item">
@@ -33,6 +35,7 @@ export default function AssetsItems(props) {
         <span><strong>Anticipated_life:  </strong></span>
         <span>{props.anticipated_life}</span>
       </div>
+      <EditAssetButton data={props} />
     </div>
   )
 }
