@@ -148,7 +148,7 @@ select {
  position: -webkit-sticky;
  position: sticky;
  top: 0;
- z-index: 5;
+ z-index: 6;
 }
 
 .workorder-filter {
@@ -529,6 +529,9 @@ select {
   text-align: center;
   z-index: 6;
  }
+ .dropdown-menu {
+	z-index: 5;
+}
 
  .navbar-menu,
  .navbar-start,
@@ -707,11 +710,6 @@ select {
     /* padding: 0 1em; */
   }
 
-  .banner {
-    /* position: relative; */
-    z-index: 6;
-    top: 64px;
-  }
 
   .view-container {
     width: auto;
