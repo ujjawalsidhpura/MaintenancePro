@@ -32,8 +32,8 @@ export default function Options(props) {
 					alt="options"
 				/>
 
-				<div class={`dropdown-menu ${isActive ? "is-active" : ""}`} id="dropdown-menu" role="menu">
-  			  <div class="dropdown-content">
+				<div className={`dropdown-menu ${isActive ? "is-active" : ""}`} id="dropdown-menu" role="menu">
+  			  <div className="dropdown-content">
 						<div className="option-wrapper">
     				  <Link
     				    to="/assets/edit"
