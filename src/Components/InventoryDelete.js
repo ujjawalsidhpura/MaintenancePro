@@ -11,7 +11,7 @@ export default function InventoryDelete(props) {
   const inventoryData = location.state?.props
 
   const { setApplicationData } = props;
-  const inventory_id = inventoryData.data._id
+  const inventory_id = inventoryData.props._id
 
   const [submit, setSubmit] = useState(false)
 
@@ -37,25 +37,29 @@ export default function InventoryDelete(props) {
 
       {!submit &&
         <form
-          className="card inventory-form"
+          className="card inventory-form start-confirmation"
           autoComplete="off"
         >
-          <p> Are you sure you want to delete? </p>
-          <Link to="/inventory">
-            <button className="button is-info is-outlined danger">
-              Cancel
-            </button>
-          </Link>
+          <p className="title"> Are you sure you want to delete? </p>
+					<div className="confirm-cancel">
+          	<Link to="/inventory">
+          	  <button className="button is-info is-outlined danger">
+          	    Cancel
+          	  </button>
+          	</Link>
 
-          <button
-            className="button is-info is-outlined confirm"
-            onClick={handleDelete}
-          >
-            Delete
-          </button>
+          	<button
+          	  className="button is-danger is-outlined confirm"
+          	  onClick={handleDelete}
+          	>
+          	  Delete
+          	</button>
+					</div>
 
 
         </form>
+
+				
       }
     </>
   )

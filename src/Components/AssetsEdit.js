@@ -10,7 +10,7 @@ export default function AssetsEdit(props) {
   const assetData = location.state?.props
 
   const { setApplicationData } = props;
-  const [state, setState] = useState(assetData.data)
+  const [state, setState] = useState(assetData.props)
 
   const changeState = (key, value) => {
     setState({ ...state, [key]: value })

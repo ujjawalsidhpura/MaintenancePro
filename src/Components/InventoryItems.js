@@ -1,26 +1,29 @@
 import { useViewport } from './useViewport';
-import EditInventoryButton from './Buttons/EditInventoryButton'
+import Options from './Buttons/InventoryOptions';
 
 export default function InventoryItems(props) {
   const { width } = useViewport();
   const breakpoint = 1024;
 
+
   const DesktopInventory = () => (
-    <div className="card inventory-item">
-      <div className="inventory-field">
-        <h2>{props.category}</h2>
-      </div>
-      <div className="inventory-field">
-        <p>{props.item}</p>
-      </div>
-      <div className="inventory-field">
-        <p>{props.price_item}</p>
-      </div>
-      <div className="inventory-field">
-        <p>{props.quantity}</p>
-      </div>
-      <EditInventoryButton data={props} />
-    </div>
+		<div className="wrapper inventory-item">
+    	<div className="inventory-item-content ">
+    	  <div className="inventory-field">
+    	    <h2>{props.category}</h2>
+    	  </div>
+    	  <div className="inventory-field">
+    	    <p>{props.item}</p>
+    	  </div>
+    	  <div className="inventory-field">
+    	    <p>{props.price_item}</p>
+    	  </div>
+    	  <div className="inventory-field">
+    	    <p>{props.quantity}</p>
+    	  </div>
+    	</div>
+			<Options props={props}/>
+		</div>
   )
 
   const MobileInventory = () => (
@@ -32,6 +35,7 @@ export default function InventoryItems(props) {
             {props.category}
           </p>
         </div>
+				<Options props={props}/>
       </div>
       <hr className="divider" />
       <div className="workorder-content-mobile">
@@ -53,7 +57,6 @@ export default function InventoryItems(props) {
         <p>
           {props.quantity}
         </p>
-        <EditInventoryButton data={props} />
       </div>
 
 

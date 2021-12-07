@@ -183,6 +183,7 @@ export default function WorkOrderContainer(props) {
           <span><strong>Description</strong></span>
           <span><strong>Created</strong></span>
           <span><strong>Duration</strong></span>
+          <span><strong>Remark</strong></span>
           <span><strong>Status</strong></span>
         </div>
       </div>

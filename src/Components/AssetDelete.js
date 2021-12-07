@@ -11,7 +11,7 @@ export default function AssetDelete(props) {
   const assetData = location.state?.props
 
   const { setApplicationData } = props;
-  const asset_id = assetData.data._id
+  const asset_id = assetData.props._id
 
   const [submit, setSubmit] = useState(false)
 
@@ -37,24 +37,24 @@ export default function AssetDelete(props) {
 
       {!submit &&
         <form
-          className="card inventory-form"
+          className="card inventory-form start-confirmation"
           autoComplete="off"
         >
-          <p> Are you sure you want to delete? </p>
-          <Link to="/assets">
-            <button className="button is-info is-outlined danger">
-              Cancel
-            </button>
-          </Link>
+          <p className="title"> Are you sure you want to delete? </p>
+					<div className="confirm-cancel">
+						<Link to="/assets">
+							<button className="button is-info is-outlined danger">
+								Cancel
+							</button>
+						</Link>
 
-          <button
-            className="button is-info is-outlined confirm"
-            onClick={handleDelete}
-          >
-            Delete
-          </button>
-
-
+						<button
+							className="button is-danger is-outlined confirm"
+							onClick={handleDelete}
+						>
+							Delete
+						</button>
+					</div>
         </form>
       }
     </>

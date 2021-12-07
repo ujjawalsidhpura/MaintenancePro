@@ -193,8 +193,12 @@ select {
  text-align: center;
  box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.07);
 }
-
-.workorder-labels > span > strong {
+.words {
+	width: 97%;
+	display: flex;
+	justify-content: space-between
+}
+.workorder-labels > span > strong, .words > span > strong {
  color: #716e6e;
 }
 
@@ -205,12 +209,19 @@ select {
  box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.25);
 }
 
-.asset-item {
- display: flex;
- flex-direction: column;
+.assets{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
  padding: 1em 1em;
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
  box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.25);
+}
+
+.asset-item {
+	display: flex;
+	flex-direction: column;
+
 }
 
 .workorder-field {
@@ -226,14 +237,27 @@ select {
  background-color: cornflowerblue;
 }
 
+.remark {
+	width: 40%;
+	margin: 1em 0;
+}
+
 /* Inventory css */
 .inventory-item {
  display: flex;
  padding: 1em 0;
- justify-content: space-between;
+ justify-content: space-evenly;
  width: 100%;
  border-bottom: solid 0.1em rgba(199, 198, 198, 0.797);
  box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.25);
+}
+.inventory-item-content {
+ display: flex;
+ /* padding: 1em 0; */
+ justify-content: space-between;
+ width: 100%;
+ /* border-bottom: solid 0.1em rgba(199, 198, 198, 0.797); */
+ /* box-shadow: 5px 9px 15px 4px rgba(0, 0, 0, 0.25); */
 }
 
 .inventory-field {
@@ -337,6 +361,7 @@ select {
 /* Technician view */
 .start-confirmation {
  align-self: center;
+ text-align: center;
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -459,6 +484,36 @@ select {
 .navbar {
  background-color: #3273dc;
  color: white;
+}
+
+.edit-delete {
+	height: 3em;
+	width: auto;	
+}
+
+.dropdown-content {
+	padding: 0;
+	width: 10em;
+	/* margin-left: -100%; */
+	margin-left: -7em;
+}
+
+.wrapper {
+	display: flex;
+	background-color: white;
+}
+
+.option-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.options {
+	width: 100%;
+}
+
+.dropdown-menu {
+	z-index: 5;
 }
 
 

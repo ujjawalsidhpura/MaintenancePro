@@ -71,6 +71,17 @@ export default function WorkOrderItems(props) {
           </>
         }
       </div>
+      {props.remark && 
+			<>
+				<hr className="divider" />
+				<div className="workorder-content-mobile">
+					<p className="tag is-info is-light workorder-tag">Remark:</p>
+					<p>
+						{props.remark}
+					</p>
+				</div>
+			</>
+			}
 
     </div>
   )

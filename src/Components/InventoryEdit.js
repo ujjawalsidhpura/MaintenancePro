@@ -9,7 +9,7 @@ export default function InventoryEdit(props) {
   const inventoryData = location.state?.props
 
   const { setApplicationData } = props;
-  const [state, setState] = useState(inventoryData.data)
+  const [state, setState] = useState(inventoryData.props)
 
   const changeState = (key, value) => {
     setState({ ...state, [key]: value })

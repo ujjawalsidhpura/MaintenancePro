@@ -36,7 +36,7 @@ export default function FinishConfirmation(props) {
       <h2 className="title confirm-mssg">Are you done with this work order?</h2>
       <h3>If yes, then please put your remark before finishing the job.</h3>
       <input
-        className="input"
+        className="input remark"
         type="text"
         placeholder="Remark"
         value={state}
