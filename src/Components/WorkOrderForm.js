@@ -26,6 +26,12 @@ export default function WorkOrderForm(props) {
   const handleSubmit = (event) => {
     event.preventDefault()
 
+    // As more technicians are added, more emails will be added.
+    // eslint-disable-next-line no-unused-expressions
+    state.technician === 'Technician One' ? state.email = 'maintenanceprotechnicianone@gmail.com' : null
+    // eslint-disable-next-line no-unused-expressions
+    state.technician === 'Technician Two' ? state.email = 'maintenanceprotechniciantwo@gmail.com' : null
+
     const workorder = {
       ...state,
       created_on: new Date().toISOString(),
@@ -116,17 +122,6 @@ export default function WorkOrderForm(props) {
               </div>
 
               <div className="field">
-                <label className="label">Email to</label>
-                <div className="select">
-                  <select value={state.email} onChange={(event) => changeState("email", event.target.value)}>
-                    <option key="select" disabled value="">Select Technician</option>
-                    <option key="maintenanceprotechnicianone@gmail.com">maintenanceprotechnicianone@gmail.com</option>
-                    <option key="maintenanceprotechniciantwo@gmail.com">maintenanceprotechniciantwo@gmail.com</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="field">
                 <label className="label">Description</label>
                 <textarea
                   className="textarea"
@@ -161,21 +156,6 @@ export default function WorkOrderForm(props) {
                   onChange={(event) => changeState("date", event.target.value)}
                 ></input>
               </div>
-
-              {/* <div className="field">
-							<label className="label">Files</label>
-
-							<section className="file-container">
-								<div {...getRootProps({ className: 'dropzone' })}>
-									<input {...getInputProps()} />
-									<p>Drag 'n' drop some files here, or click to select files</p>
-								</div>
-								<aside>
-									<h4>Files</h4>
-									<ul>{files}</ul>
-								</aside>
-							</section>
-						</div> */}
 
               <button className="button is-link submit" type="submit">Submit</button>
             </div>
