@@ -6,8 +6,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 // import { useDropzone } from 'react-dropzone';
 
 export default function WorkOrderForm(props) {
-	window.scrollTo(0, 0);
-	const { user } = useAuth0();
+  window.scrollTo(0, 0);
+  const { user } = useAuth0();
 
   const { setApplicationData, inventory, today, assets } = props
 
@@ -25,6 +25,12 @@ export default function WorkOrderForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+
+    // As more technicians are added, more emails will be added.
+    // eslint-disable-next-line no-unused-expressions
+    state.technician === 'Technician One' ? state.email = 'maintenanceprotechnicianone@gmail.com' : null
+    // eslint-disable-next-line no-unused-expressions
+    state.technician === 'Technician Two' ? state.email = 'maintenanceprotechniciantwo@gmail.com' : null
 
     const workorder = {
       ...state,
@@ -109,21 +115,8 @@ export default function WorkOrderForm(props) {
                 <div className="select">
                   <select value={state.technician} onChange={(event) => changeState("technician", event.target.value)}>
                     <option key="select" disabled value="">Select Technician</option>
-                    <option key="Ebuka Moneme">Ebuka Moneme</option>
-                    <option key="Shuhao Zhang">Shuhao Zhang</option>
-                    <option key="Ujjawal Sidhpura">Ujjawal Sidhpura</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="field">
-                <label className="label">Email to</label>
-                <div className="select">
-                  <select value={state.email} onChange={(event) => changeState("email", event.target.value)}>
-                    <option key="select" disabled value="">Select Technician</option>
-                    <option key="camoneme@gmail.com">camoneme@gmail.com</option>
-                    <option key="shuhaozhangchris@gmail.com">shuhaozhangchris@gmail.com</option>
-                    <option key="ujjawalsidhpura@gmail.com">ujjawalsidhpura@gmail.com</option>
+                    <option key="Technician One">Technician One</option>
+                    <option key="Technician Two">Technician Two</option>
                   </select>
                 </div>
               </div>
@@ -163,21 +156,6 @@ export default function WorkOrderForm(props) {
                   onChange={(event) => changeState("date", event.target.value)}
                 ></input>
               </div>
-
-              {/* <div className="field">
-							<label className="label">Files</label>
-
-							<section className="file-container">
-								<div {...getRootProps({ className: 'dropzone' })}>
-									<input {...getInputProps()} />
-									<p>Drag 'n' drop some files here, or click to select files</p>
-								</div>
-								<aside>
-									<h4>Files</h4>
-									<ul>{files}</ul>
-								</aside>
-							</section>
-						</div> */}
 
               <button className="button is-link submit" type="submit">Submit</button>
             </div>

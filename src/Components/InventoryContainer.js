@@ -3,7 +3,7 @@ import InventoryItems from "./InventoryItems"
 import { useAuth0 } from '@auth0/auth0-react';
 
 export default function WorkOrderContainer(props) {
-	window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
   const { user } = useAuth0();
 
   const [state, setState] = useState({
@@ -48,44 +48,46 @@ export default function WorkOrderContainer(props) {
 
   return (
     (user && user.email === "maintanenceproadm@gmail.com") ?
-    <>
-			<div className="banner">
-				<form className="card workorder-filter" onSubmit={handleSubmit}>
-					<h2 className="title">Inventory</h2>
-					<div>
-						<h2><strong>Filters</strong></h2>
-					</div>
-					<div className="filters">
-						<div className="inventory-filter-input">
-							<input
-								className="input"
-								type="text"
-								placeholder="Category"
-								value={state.category}
-								onChange={(event) => changeState("category", event.target.value)}
-							/>
+      <>
+        <div className="banner">
+          <form className="card workorder-filter" onSubmit={handleSubmit}>
+            <h2 className="title">Inventory</h2>
+            <div>
+              <h2><strong>Filters</strong></h2>
+            </div>
+            <div className="filters">
+              <div className="inventory-filter-input">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Category"
+                  value={state.category}
+                  onChange={(event) => changeState("category", event.target.value)}
+                />
+              </div>
+              <div className="inventory-filter-input">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Item"
+                  value={state.item}
+                  onChange={(event) => changeState("item", event.target.value)}
+                />
+              </div>
+            </div>
+          </form>
+          <div className="card workorder-labels">
+						<div className="words">
+							<span><strong>Category</strong></span>
+							<span><strong>Item</strong></span>
+							<span><strong>Price</strong></span>
+							<span><strong>Quantity</strong></span>
 						</div>
-						<div className="inventory-filter-input">
-							<input
-								className="input"
-								type="text"
-								placeholder="Item"
-								value={state.item}
-								onChange={(event) => changeState("item", event.target.value)}
-							/>
-						</div>
-					</div>
-				</form>
-				<div className="card workorder-labels">
-					<span><strong>Category</strong></span>
-					<span><strong>Item</strong></span>
-					<span><strong>Price</strong></span>
-					<span><strong>Quantity</strong></span>
-				</div>
-			</div>
-      <div className="workorder-container">
-        {validState() ? parsedInventoryByQuery : parsedInventory}
-      </div>
-    </> : <></>
+          </div>
+        </div>
+        <div className="workorder-container">
+          {validState() ? parsedInventoryByQuery : parsedInventory}
+        </div>
+      </> : <></>
   )
 }
