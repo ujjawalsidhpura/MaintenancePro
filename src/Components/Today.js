@@ -64,7 +64,7 @@ export default function Today(props) {
     );
   };
   return (
-    user && user.email === "admin@gmail.com" ?
+    user && user.email === "maintanenceproadm@gmail.com" ?
     <>
 			<div className="banner">
 				<div className="today-panel">

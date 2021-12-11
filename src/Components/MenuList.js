@@ -216,8 +216,8 @@ export default function MenuList() {
 	)
 
   return (
-    (user && user.email === 'admin@gmail.com') ? adminView :
-      (user && user.email !== 'admin@gmail.com') ? technicianView :
+    (user && user.email === 'maintanenceproadm@gmail.com') ? adminView :
+      (user && user.email !== 'maintanenceproadm@gmail.com') ? technicianView :
         LogInView
   )
 }

@@ -48,7 +48,7 @@ export default function AssetsForm(props) {
   }
 
   return (
-    (user && user.email === "admin@gmail.com") ?
+    (user && user.email === "maintanenceproadm@gmail.com") ?
       <>
         {submit && <Navigate to="/assets" />}
 

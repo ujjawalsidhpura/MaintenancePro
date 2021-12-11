@@ -76,7 +76,7 @@ export default function WorkOrderForm(props) {
   }
 
   return (
-    (user && user.email === "admin@gmail.com") ?
+    (user && user.email === "maintanenceproadm@gmail.com") ?
       <>
 
         {submit && <Navigate to="/workorders" />}
